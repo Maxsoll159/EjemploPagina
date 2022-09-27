@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css2? family= Raleway:wght@300 & display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Raleway', sans-serif;
+}
+
+.color {
+  background-color: #020A37;
+}
+
+.color-form {
+  background-color: #e5f1ff;
+}
+
+.color-Boton {
+  background-color: #3F8DFD;
+}
+
+.color-live {
+  background-color: #000A48;
+}
+
+.color-black {
+  background-color: black;
+}
+
+.cajas-live {
+  border: none;
+  background-color: #14206B;
+  height: 80px;
+  border-radius: 8px 8px 0px 0px;
+  border-bottom: 7px solid #4B58A5;
+}
+
+.caja-live-ligth {
+  border: 1px solid #A5C0CF;
+  background-color: white;
+  height: 80px;
+  border-radius: 8px 8px 0px 0px;
+  border-bottom: 7px solid #A5C0CF;
+  color: #A5C0CF !important;
+}
+
+.caja-live-ligth:hover {
+  background-color: #EBF4FF;
+  border: 1px solid #3F8DFD;
+  border-bottom: 7px solid #3F8DFD;
+}
+
+.activate-caja-ligth {
+  background-color: #EBF4FF;
+  border: 1px solid #3F8DFD;
+  border-bottom: 7px solid #3F8DFD;
+  color: #3F8DFD !important;
+}
+
+.cajas-live:hover {
+  background-color: #3F8DFD;
+  border-bottom: 7px solid white;
+}
+
+.caja-camara {
+  width: 51px;
+  height: 51px;
+  background-color: #3F8DFD;
+  padding: 11px;
+}
+
+.activate {
+  background-color: #3F8DFD;
+  border-bottom: 7px solid white;
+}
+
+/*Navbar*/
+.navbar-toggler {
+  background-color: white;
+}
+
+/*DARK MODE*/
+.color-live-litgth {
+  background-color: #F7F8F8;
+}
+
+.color-fecha {
+  background-color: #192677;
+}
+
+.color-fecha-ligth {
+  background-color: white;
+}
+
+.color-unete-ligth {
+  color: #94A7B2;
+}
+
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked+.slider {
+  background-color: #19a2c1;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch-checkbox {
+  padding: 10px;
+}
+
+/*MODAL*/
+.modal-semi {
+  --bs-modal-width: 930px;
+}
+
+.marginNegativo {
+  margin-top: -10px !important;
+}
+
+.altoTituloSeminario {
+  height: 100px !important;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.z-index100 {
+  z-index: 100;
+}
+.font-size-11{
+  font-size: 10px;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+/*Estilos personalizados para el nav*/
+.dropdown-menu{
+  padding: 0 !important;
+}
+.navbar-dark{
+  --bs-navbar-color: white;
+}
+.navbar-white{
+  --bs-navbar-color: black;
+}
+.color-inhouse{
+  background: #51fe7f;
+}
+.navbar-img{
+    background-image: url("https://www.desarrolloglobal.pe/aula/assets/media/misc/head_bg_sm.jpg");
+}
+.dropdown-menu{
+  margin-left: -80px;
+}
+.prueba .dropdown-menu{
+  display: none !important;
+}
+.prueba:hover .dropdown-menu{
+  display: block !important;
+}
+
+.carrito .mostrar{display:none !important;} /* hide the sub-list */
+
+.carrito:hover .mostrar{display:block !important } /* on hover of li show ul if "li" has */
+
+.mostrar{
+  position: absolute;
+  width: 430px;
+  top: 120%;
+  z-index: 1000;
+  transform: translate3d(5px, 522px, 0px);
+}
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+  color: white !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .prueba{
+    display: block;
+  }
+  .w-100res {
+    width: 100% !important;
+  }
+
+  .ocultar {
+    display: none !important;
+  }
+
+  .video {
+    height: 100%;
+  }
+
+  .res {
+    height: calc(100vh - 410.26px);
+    overflow: scroll;
+  }
+
+  /*Pagina Seminario*/
+  .flex-column-desa {
+    flex-direction: column;
+  }
+
+  .padding-0 {
+    padding: 0 !important;
+  }
+
+  .gap-response-0 {
+    gap: 0 !important;
+  }
+
+  .page-seminario-botones {
+    font-size: 20px;
+  }
+
+  .d-flex-res {
+    display: flex;
+  }
+
+  .justify-content-center-res {
+    justify-content: center !important;
+  }
+
+  .padding-detalle-4 {
+    padding: 1.5rem !important
+  }
+
+  .text-center-res {
+    text-align: center !important;
+  }
+
+  .margin-auto-resp {
+    margin: auto;
+  }
+
+  .flex-wrap-resp {
+    flex-wrap: wrap;
+  }
+
+  .border-radius-res {
+    border-radius: 5px !important;
+  }
+
+  .padding-button-principal {
+    padding: 5px !important;
+    width: 48%;
+  }
+
+  .width-45-res {
+    width: 44% !important;
+  }
+
+  .width-50-res {
+    width: 55% !important;
+  }
+
+  .padding-5res {
+    padding: 5% !important;
+  }
+
+  .slick-next {
+    display: none !important;
+  }
+
+  .font-size14-res {
+    font-size: 14px !important;
+  }
+
+  .top-card {
+    margin-top: 0 !important;
+  }
+
+  .position-static-res {
+    position: static !important;
+  }
+
+  .marging-top-res {
+    margin-top: 0 !important
+  }
+  .h-100Tablet {
+    height: 100% !important;
+  }
+  .font-size-14res{
+    font-size: 14px;
+  }
+  .dropdown-toggle{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+  .dropdown-menu{
+    margin-left: 0px;
+  }
+  .prueba .dropdown-menu{
+    display: "";
+  }
+  .responseCarrito{
+    width: 390px !important
+  }
+  .navPru > .dropdown-menu {
+    margin-left: -35px;
+  }
+  .mostrarNav{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .resTablet {
+    height: calc(100vh - 600px);
+    overflow: scroll;
+  }
+
+  .h-100Tablet {
+    height: 100%;
+  }
+
+  .ocultar {
+    display: none;
+  }
+
+  .w-100res {
+    width: 100% !important;
+
+  }
+
+  .justify-content-center-res {
+    justify-content: center !important;
+  }
+
+  .scroll {
+    overflow: auto;
+  }
+
+  .gap-0-res-tab {
+    gap: 0 !important;
+  }
+
+  .h-100res {
+    height: 100%;
+  }
+
+  .form-width {
+    width: 400px !important
+  }
+
+  .w-50res-tab {
+    width: 50% !important;
+  }
+
+  .flex-wrap-resp {
+    flex-wrap: wrap;
+  }
+
+  .border-radius-res {
+    border-radius: 5px !important;
+  }
+
+  .padding-5res {
+    padding: 5% !important;
+  }
+
+  .position-static-res {
+    position: static !important;
+  }
+
+  .top-card {
+    margin-top: 0 !important;
+  }
+
+  .marging-top-res {
+    margin-top: 0 !important
+  }
+
+  .position-md-relative {
+    position: relative !important;
+  }
+  .dropdown-toggle{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+  .shadow-res{
+    box-shadow: 0px 0px 0px 0px !important;
+    border: none
+  }
+  .respon{
+    top: 50% !important;
+  }
+  .dropdown-menu{
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .resTablet {
+    height: calc(100vh - 360px);
+    overflow: scroll;
+  }
+
+  .h-100Tablet {
+    height: 100%;
+  }
+
+  .w-100res {
+    width: 100% !important;
+  }
+
+  .flex-wrap-resp {
+    flex-wrap: wrap;
+  }
+
+  .border-radius-res {
+    border-radius: 5px !important;
+  }
+
+  .padding-button-principal {
+    padding: 5px !important;
+    width: 48%;
+  }
+
+  .position-static-res {
+    position: static !important;
+  }
+
+  .top-card {
+    margin-top: 0 !important;
+  }
+
+  .marging-top-res {
+    margin-top: 0 !important
+  }
+
+  .w-lg-75 {
+    width: 75% !important;
+  }
+  .dropdown-toggle{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+  .shadow-res{
+    box-shadow: 0px 0px 0px 0px !important;
+    border: none
+  }
+  .respon{
+    top: 50% !important;
+  }
+  .dropdown-menu{
+    margin-left: 0px;
+  }
+  .responseCarrito{
+    width: 390px !important
+  }
+
+  
+}
+
+@media only screen and (max-width: 1200px) {
+  .w-100res {
+    width: 100% !important;
+  }
+  .w-lg-75 {
+    width: 75% !important;
+  }
+  .h-100Tablet {
+    height: 100% !important;
+  }
+  .shadow-res{
+    box-shadow: 0px 0px 0px 0px !important;
+    border: none
+  }
+  .respon{
+    top: 50% !important;
+  }
+  .dropdown-toggle{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+  }
+
+}

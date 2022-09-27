@@ -1,0 +1,55 @@
+.color-diploma{
+    background: rgb(70,5,250);
+    background: linear-gradient(180deg, rgba(70,5,250,1) 0.025422479957342148%, rgba(134,93,251,1) 50%, rgba(134,93,251,1) 100%)
+}
+.color-l-diplomados{
+    color: #ffb300;
+}
+.tamaño-diplomados{
+    width: 77%;
+}
+.border-acordeon-items{
+    border-bottom: 1px solid #dddddd;
+}
+.color-certiticado-diplomado{
+    background: rgb(184,215,254);
+    background: linear-gradient(83deg, rgba(184,215,254,1) 0.025422479957342148%, rgba(184,215,254,1) 50%, rgba(255,255,255,1) 100%);
+}
+.color-porque-diplomado{
+    background-color: #2000D1;
+}
+.color-certificado-uni{
+    background-color: #282828;
+}
+.Pasos1{
+    color: #000b4e;
+    border: 3px solid #000b4e;
+    border-radius: 50%;
+    width: 50px;
+}
+.color-incripcion-diploma{
+    background-color: #e5f1ff;
+}
+.yape{
+    background-color: #01d0b5;
+    color: #732382;
+}
+.plin{
+    background-color: #05369d;
+}
+.diplocolor{
+    color: #000b4e;
+}
+.secWhat{
+    background-color: #00c9a2;
+}
+.border-interlineado{
+    border-left: 3px solid #e5f1ff;
+    border-left-style: dashed;
+}
+.animacion{
+    transition: all 0.3s linear;
+}
+.top-card{
+    margin-top: -80px !important;
+}

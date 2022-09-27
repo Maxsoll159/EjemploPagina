@@ -1,0 +1,21 @@
+.color-header-curso{
+    background: linear-gradient(180deg, rgba(38, 0, 241, 1) 0.025422479957342148%, rgba(104, 134, 255, 1) 79%, rgba(104, 134, 255, 1) 100%);
+}
+.color-informacion{
+    background-color: #ECF5FF;
+}
+.color-header-diploma{
+    background: linear-gradient(180deg, rgba(0,40,119,1) 0.025422479957342148%, rgba(16,111,255,1) 65%, rgba(16,111,255,1) 100%);
+}
+.color-header-inhouse{
+    background-color: #2000D1;
+}
+.color-info-inhouse{
+    background-color: #1900a2;
+}
+.color-btn-what{
+    background-color: #16C121;
+}
+.margin-top-logo{
+    margin-top: -55px;
+}

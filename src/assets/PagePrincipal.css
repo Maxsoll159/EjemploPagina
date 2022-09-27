@@ -1,0 +1,42 @@
+.colorPrin{
+    background-color: #F4F6FA;
+}
+.contenedorBotonesPrinc{
+    background-color: #2A50E8;
+}
+.colorRed{
+    color: #FF0606;
+}
+.borderRedPrin{
+    border: 1px solid #FF0606;
+}
+.cajaWhap{
+    width: 71px;
+    height: 57px;
+}
+.colorBene{
+    background-color: #3059C9;
+}
+.lineaBen{
+    width: 115px;
+    height: 5px;
+    background-color: #8EA5E5;
+}
+.p-Raleway{
+    font-family: 'Raleway', sans-serif;
+}
+
+.color-dark{
+    background-color: #00062A;
+}
+.bannerStyle{
+    background-repeat: no-repeat;
+    height: 448px;
+    background-position: center;
+}
+.banner1{
+    background-image: url("/public/img/fondo1.webp");
+}
+.banner2{
+    background-image: url("/public/img/fondo2.webp");
+}

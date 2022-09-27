@@ -1,0 +1,45 @@
+.rec{
+    width: 97px;
+    height: 25px;
+    font-size: 12px;
+}
+.live{
+    width: 10px;
+    height: 10px;
+    background-color: #FF1B1B;
+    border-radius: 50%;
+}
+.color-prin-detalle{
+    color:#2186FF
+}
+.color-detalle{
+    border: 1px solid #0C7AFF;
+}
+.color2-detalle{
+    color: #FF1B1B;
+    border: 1px solid #FF1B1B;
+}
+.text-profe{
+    font-size: 14px;
+    text-align: justify;
+}
+.linea-profesor{
+    width: 13%;
+    height: 5px;
+}
+
+.color-DarkMode-DetalleSeminario{
+    background-color: #000B4E !important;
+}
+.color-DarkMode-form{
+    background-color: #1C2E6C;
+}
+.color-DarkMode-final{
+    background-color: #00062A;
+}
+
+.fondo-buscar-cer{
+    background-image: url('/public/img/imaganesPaginas/gitbuscar.gif');
+    background-position: center; 
+    background-size: cover;
+  }
