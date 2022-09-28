@@ -23,7 +23,12 @@ import { VerCertificado } from "../pages/VerCertificado";
 
 export const Router = () => {
     const location = useLocation()
-
+    if(location.pathname === "/blog"){
+        window.location.href = "https://aula.desarrolloglobal.pe/blog"
+    }
+    if(location.pathname === "/aula"){
+        window.location.href = "https://aula.desarrolloglobal.pe/aula"
+    }
     return (
         <>
             <NavBar />

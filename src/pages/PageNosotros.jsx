@@ -23,7 +23,7 @@ export const PageNosotros = () => {
                                 <Col xl={6} className="col-6">
                                     <div className="d-flex align-items-center mt-4 gap-2 flex-column flex-xl-row">
                                         <div className="w-25 w-100res">
-                                            <img src="https://nuevapagina.s3.amazonaws.com/NosotrosDesarrollo.webp" alt="" width={47} className="d-block mx-auto" />
+                                            <img src="/img/imaganesPaginas/NosoIcon1.webp" alt="" width={47} className="d-block mx-auto" />
                                         </div>
                                         <div>
                                             <p className="m-0 font-size-14 letrasNostros text-center">Capacitando</p>
@@ -102,7 +102,7 @@ export const PageNosotros = () => {
                             <p className="fw-bolder text-center m-0">Conoce nuestra misión, visión y valores.</p>
                             <div className="d-flex w-75 mx-auto mt-5 rounded borderNosotros flex-column flex-md-row w-100res">
                                 <div className="rounded p-3 p-xl-5">
-                                    <img src="/img/imaganesPaginas/NosotrosDesarrollo.webp" alt="" width={200} className="d-block m-auto" />
+                                    <img src="https://nuevapagina.s3.amazonaws.com/NosotrosDesarrollo.webp" alt="" width={200} className="d-block m-auto" />
                                 </div>
                                 <div className="color-informacion rounded p-2 p-xl-5">
                                     <p>Centro de Capacitación y Desarrollo Global es una Empresa Educativa privada dedicada a proveer desarrollo gerencial de amplio rango a los servidores civiles, técnicos y profesionales de nuestro país, a través de los servicios educativos en temas de gestión gubernamental. Venimos trabajando esforzadamente desde el año 2011 brindando capacitaciones en línea y de manera presencial como diplomas, cursos, seminarios, conferencias y talleres con el objetivo de aportar a nuestros clientes un servicio de calidad.</p>
