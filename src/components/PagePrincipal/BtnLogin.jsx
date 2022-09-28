@@ -37,7 +37,7 @@ export const BtnLogin = () => {
                         'success'
                     )
                     localStorage.setItem("usuarioDesarrollo", JSON.stringify(res))
-                    document.cookie = `token=${res.token};domain=.desarrolloglobal.pe"`;
+                    document.cookie = `token=${res.token};domain=.desarrolloglobal.pe`;
                     setUsuarioLogin(res)
 
                 } else {
