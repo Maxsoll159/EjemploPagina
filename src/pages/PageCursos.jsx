@@ -13,13 +13,13 @@ export const PageCursos = () => {
     const [tipo, setTipo] = useState("Curso")
     const [isActive, setIsActive] = useState(0)
     const [infoIni, setInfoIni] = useState({
-        tipo: "Cursos"
+        tipo: "cursos"
     })
     useEffect(() => {
         ApiCursosEtiqueta(etiqueta).then((curso) => setInfoIni({
             dataInicial: {
                 id: curso.id,
-                tipo: "Cursos",
+                tipo: "cursos",
                 titulo: curso.titulo,
                 imagen: curso.imagen,
                 precio: curso.precio,

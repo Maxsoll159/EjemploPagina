@@ -6,13 +6,13 @@ import { useState, useEffect} from 'react';
 import { ApiCursos } from '../helpers/CursosDiplomas';
 export const Cursos = () => {
     const [infoCursos, setInfoCursos] = useState({
-        tipo: "Cursos",
+        tipo: "cursos",
         envivo: [],
         grabados: []
     })
     useEffect(()=>{
         ApiCursos().then((cursos)=>setInfoCursos({
-            tipo: "Cursos",
+            tipo: "cursos",
             envivo: cursos.envivo,
             grabados: cursos.grabado
         }))

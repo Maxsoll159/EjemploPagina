@@ -6,13 +6,13 @@ import { Listar } from "../components/CursosDiploma/Listar";
 import { ApiDiplomas } from "../helpers/CursosDiplomas";
 export const Diplomas = () => {
     const [infoDiploma, setInfoDiploma] = useState({
-        tipo: "Diplomas",
+        tipo: "diplomas",
         envivo: [],
         grabados: []
     })
     useEffect(()=>{
         ApiDiplomas().then((diplomas)=>setInfoDiploma({
-            tipo: "Diplomas",
+            tipo: "diplomas",
             envivo: diplomas.envivo,
             grabados: diplomas.grabado
         }))
