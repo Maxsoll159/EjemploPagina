@@ -88,6 +88,8 @@ export const NavBar = () => {
         }
     }, 500)
 
+    console.log(usuarioLogin)
+
     return (
         <Navbar collapseOnSelect bg="light" expand="xl" className="h-100" variant="white" >
             <Container fluid >
@@ -97,9 +99,9 @@ export const NavBar = () => {
                 }</Navbar.Brand>
                 <div className="d-flex align-items-center gap-1">
                     {
-                        usuarioLogin.length !== 0  ? (
+                        usuarioLogin.length !== 0 ? (
                             <div className="d-flex align-items-center me-3 mostrarNav d-block d-xl-none">
-                                <NavDropdown title={usuarioLogin.nombre} id="collasible-nav-dropdown" className="fw-bolder navPru" style={{fontSize: "13px"}}>
+                                <NavDropdown title={usuarioLogin.nombre} id="collasible-nav-dropdown" className="fw-bolder navPru" style={{ fontSize: "13px" }}>
                                     <div className="navbar-img py-3 d-flex align-items-center justify-content-center gap-3">
                                         <img src={usuarioLogin.avatar} alt="" width={45} height={45} className="rounded-circle" />
                                         <div>
@@ -107,10 +109,12 @@ export const NavBar = () => {
                                             <p className="m-0 text-white fw-normal font-size-14 text-light" >{usuarioLogin.tipo}</p>
                                         </div>
                                     </div>
-                                    <NavDropdown.Item href="#action/3.1" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-laptop" aria-hidden="true"></i>Mi Aula</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.2" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-user-circle-o" aria-hidden="true"></i>Mi perfil</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Sesion Hoy y mañana</NavDropdown.Item>
-                                    <NavDropdown.Item href="#action/3.3" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-cog" aria-hidden="true"></i>Administrador</NavDropdown.Item>
+                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-laptop" aria-hidden="true"></i>Mi Aula</NavDropdown.Item>
+                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_perfil" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-user-circle-o" aria-hidden="true"></i>Mi perfil</NavDropdown.Item>
+                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/sesiones_hoy_manana.php" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Sesion Hoy y mañana</NavDropdown.Item>
+                                    {
+                                        usuarioLogin.tipo === "ADMI" ? (<NavDropdown.Item href="https://aula.desarrolloglobal.pe/admin/" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Administrador</NavDropdown.Item>) : (<></>)
+                                    }
                                     <NavDropdown.Item href="#action/3.4" className="d-flex gap-3 align-items-center fw-bold w-100 py-1" onClick={cerrarSesion}>
                                         <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar Sesion
                                     </NavDropdown.Item>
@@ -285,10 +289,12 @@ export const NavBar = () => {
                                                         <p className="m-0 text-white fw-normal font-size-14 text-light" >{usuarioLogin.tipo}</p>
                                                     </div>
                                                 </div>
-                                                <NavDropdown.Item href="#action/3.1" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-laptop" aria-hidden="true"></i>Mi Aula</NavDropdown.Item>
-                                                <NavDropdown.Item href="#action/3.2" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-user-circle-o" aria-hidden="true"></i>Mi perfil</NavDropdown.Item>
-                                                <NavDropdown.Item href="#action/3.3" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Sesion Hoy y mañana</NavDropdown.Item>
-                                                <NavDropdown.Item href="#action/3.3" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-cog" aria-hidden="true"></i>Administrador</NavDropdown.Item>
+                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-laptop" aria-hidden="true"></i>Mi Aula</NavDropdown.Item>
+                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_perfil" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-user-circle-o" aria-hidden="true"></i>Mi perfil</NavDropdown.Item>
+                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/sesiones_hoy_manana.php" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Sesion Hoy y mañana</NavDropdown.Item>
+                                                {
+                                                    usuarioLogin.tipo === "ADMI" ? (<NavDropdown.Item href="https://aula.desarrolloglobal.pe/admin/" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Administrador</NavDropdown.Item>) : (<></>)
+                                                }
                                                 <NavDropdown.Item href="#action/3.4" className="d-flex gap-3 align-items-center fw-bold w-100 py-1" onClick={cerrarSesion}>
                                                     <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar Sesion
                                                 </NavDropdown.Item>
