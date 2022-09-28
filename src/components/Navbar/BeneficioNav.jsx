@@ -5,27 +5,27 @@ export const BeneifioNav = () => {
             <div className="h-100 w-100 px-5 py-4 rounded" style={{ background: "#F4F6FA" }}>
                 <h4 className="fw-bold">Nuestros Beneficios</h4>
                 <div className="bg-white rounded w-100 d-flex p-3 gap-3 align-items-center mt-3">
-                    <img loading="lazy" src="/img/icons/IconLiveDiploma.webp" alt="" className="w-25" />
+                    <img loading="lazy" src="https://nuevapagina.s3.amazonaws.com/IconLiveDiploma.webp" alt="" className="w-25" />
                     <div>
                         <p className="m-0 text-danger">Clases en Vivo</p>
                     </div>
                 </div>
                 <div className="bg-white rounded w-100 d-flex p-3 gap-3 align-items-center mt-3">
-                    <img loading="lazy" src="/img/imaganesPaginas/iconMenu2.webp" alt="" className="w-25" />
+                    <img loading="lazy" src="https://nuevapagina.s3.amazonaws.com/IconMenu2.webp" alt="" className="w-25" />
                     <div>
                         <p className="m-0 text-warning">Certificación
                             Universitaria</p>
                     </div>
                 </div>
                 <div className="bg-white rounded w-100 d-flex p-3 gap-3 align-items-center mt-3">
-                    <img loading="lazy" src="/img/imaganesPaginas/iconMenu3.webp" alt="" className="w-25" />
+                    <img loading="lazy" src="https://nuevapagina.s3.amazonaws.com/IconMenu3.webp" alt="" className="w-25" />
                     <div>
                         <p className="m-0 text-success">Garantía de
                             Calidad</p>
                     </div>
                 </div>
                 <div className="bg-white rounded w-100 d-flex p-3 gap-3 align-items-center mt-3">
-                    <img loading="lazy" src="/img/imaganesPaginas/iconMenu4.webp" alt="" className="w-25" />
+                    <img loading="lazy" src="https://nuevapagina.s3.amazonaws.com/IconMenu4.webp" alt="" className="w-25" />
                     <div>
                         <p className="m-0 text-primary">Plataforma
                             Premium</p>

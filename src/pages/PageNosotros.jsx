@@ -23,7 +23,7 @@ export const PageNosotros = () => {
                                 <Col xl={6} className="col-6">
                                     <div className="d-flex align-items-center mt-4 gap-2 flex-column flex-xl-row">
                                         <div className="w-25 w-100res">
-                                            <img src="/img/imaganesPaginas/NosoIcon1.webp" alt="" width={47} className="d-block mx-auto" />
+                                            <img src="https://nuevapagina.s3.amazonaws.com/NosotrosDesarrollo.webp" alt="" width={47} className="d-block mx-auto" />
                                         </div>
                                         <div>
                                             <p className="m-0 font-size-14 letrasNostros text-center">Capacitando</p>

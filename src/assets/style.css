@@ -358,7 +358,7 @@ input:checked+.slider:before {
     width: 390px !important
   }
   .navPru > .dropdown-menu {
-    margin-left: -100px;
+    margin-left: -100px !important;
   }
   .mostrarNav{
     display: none;
