@@ -7,7 +7,7 @@ export const Informacion = () => {
                 <Row className="py-3 align-items-center justify-content-center gap-3 gap-xl-0 gap-lg-0">
                     <Col xl={3} lg={3} md={5} sm={5} className="col-5 p-0" data-aos="zoom-in">
                         <div className="d-flex gap-xl-3 gap-2 align-items-center w-100">
-                            <img src="/img/icons/inhouseicon1.webp" alt="" width={50} height={50} className="img-fluid" />
+                            <img src="https://nuevapagina.s3.amazonaws.com/inhouseIcon1.webp" alt="" width={50} height={50} className="img-fluid" />
                             <div>
                                 <h6 className="m-0 text-white">Capacitando</h6>
                                 <h3 className="m-0 text-white fw-bolder font-size14-res">+ 11 años</h3>
