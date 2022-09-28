@@ -148,7 +148,7 @@ export const NavBar = () => {
                                             <Col xl={8} className="px-xl-5 py-xl-4 px-5 py-4">
                                                 <h4 className="fw-bold">Cursos</h4>
                                                 <Row>
-                                                    <Col xl={12} className="p-2 d-flex flex-wrap justify-content-start justify-content-xl-around flex-column flex-xl-row">
+                                                    <Col xl={12} className="p-2 d-flex flex-wrap justify-content-start justify-content-xl-around flex-column flex-xl-row d-blok">
                                                         {cursosLimit !== undefined ? (
                                                             cursosLimit.map((cursosLimit) => (
                                                                 <div key={cursosLimit.id} className="d-flex gap-3 mt-3 w-50 w-100res">

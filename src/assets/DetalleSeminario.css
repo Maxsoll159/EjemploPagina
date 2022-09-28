@@ -37,9 +37,3 @@
 .color-DarkMode-final{
     background-color: #00062A;
 }
-
-.fondo-buscar-cer{
-    background-image: url('/public/img/imaganesPaginas/gitbuscar.gif');
-    background-position: center; 
-    background-size: cover;
-  }

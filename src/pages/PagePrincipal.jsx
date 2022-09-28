@@ -3,13 +3,15 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 import { Beneficios } from "../components/PagePrincipal/Beneficios";
 import { Entidades } from "../components/PagePrincipal/Entidades";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { confeti } from "../helpers/funciones";
 import { Informacion } from "../components/CursosDiploma/Infomacion";
 import { CartsPagePrin } from "../components/PagePrincipal/CartsPagePrin";
 import AOS from 'aos';
 
 export const PagePrincipal = () => {
+    let location = useLocation()
+    console.log(location)
     let navigate = useNavigate()
     const [botones, setBotones] = useState({
         btnProx: true,
@@ -32,7 +34,7 @@ export const PagePrincipal = () => {
         AOS.init({
           duration : 2000
         });
-      }, []);
+      }, [location]);
 
     return (
         <>

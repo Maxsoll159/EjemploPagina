@@ -4,6 +4,7 @@ import { Informacion } from '../components/CursosDiploma/Infomacion';
 import { Listar } from '../components/CursosDiploma/Listar';
 import { useState, useEffect} from 'react';
 import { ApiCursos } from '../helpers/CursosDiplomas';
+import AOS from 'aos';
 export const Cursos = () => {
     const [infoCursos, setInfoCursos] = useState({
         tipo: "cursos",
@@ -17,6 +18,13 @@ export const Cursos = () => {
             grabados: cursos.grabado
         }))
     },[])
+
+    useEffect(() => {
+        AOS.init({
+          duration : 2000
+        });
+      }, []);
+
     return (
         <>
             <div className="color-header-curso">

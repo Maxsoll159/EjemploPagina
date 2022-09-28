@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Informacion } from "../components/CursosDiploma/Infomacion";
 import { Listar } from "../components/CursosDiploma/Listar";
 import { ApiDiplomas } from "../helpers/CursosDiplomas";
+import AOS from 'aos';
 export const Diplomas = () => {
     const [infoDiploma, setInfoDiploma] = useState({
         tipo: "diplomas",
@@ -17,6 +18,13 @@ export const Diplomas = () => {
             grabados: diplomas.grabado
         }))
     },[])
+
+    useEffect(() => {
+        AOS.init({
+          duration : 2000
+        });
+      }, []);
+
     return (
         <>
             <div className="color-header-diploma">

@@ -9,6 +9,7 @@ import { TerminosCondiciones } from "../components/Politicas/TerminosCondiciones
 import { Cursos } from "../pages/Cursos";
 import { DetalleSeminario } from "../pages/DetalleSeminario";
 import { Diplomas } from "../pages/Diplomas";
+import { Page404 } from "../pages/Page404";
 import { PageCursos } from "../pages/PageCursos";
 import { PageDiplomas } from "../pages/PageDiplomas";
 import { PageInHouse } from "../pages/PageInHouse";
@@ -46,6 +47,7 @@ export const Router = () => {
                 </Route>
                 <Route path="buscar_certificado" element={<VerCertificado />}></Route>
                 <Route path="registro" element={<PageRegistro />}></Route>
+                <Route path="/*" element={<Page404 />}></Route>
             </Routes>
             {
                 location.pathname.includes("/seminarios/") || location.pathname.includes("/registro") ? (<></>) : (<Footer />)
