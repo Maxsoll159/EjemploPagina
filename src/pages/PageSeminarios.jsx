@@ -28,7 +28,7 @@ export const PageSeminarios = () => {
         }))
     }, [])
     const fetchComments = async () => {
-        const res = await fetch(`https://aula.desarrolloglobal.pe/api/seminarios/?offset=${page}&limit=12`)
+        const res = await fetch(`https://aula.desarrolloglobal.pe/v03/api/seminarios/?offset=${page}&limit=12`)
         const data = await res.json()
         return data.terminados;
     }

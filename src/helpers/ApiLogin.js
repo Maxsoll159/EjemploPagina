@@ -1,7 +1,7 @@
 export const LoginUsuario = async (login) => {
   try {
     const fetchResponse = await fetch(
-      `https://aula.desarrolloglobal.pe/api/sesiones/login`,
+      `https://aula.desarrolloglobal.pe/v03/api/sesiones/login`,
       {
         method: "POST",
         body: login,
@@ -17,7 +17,7 @@ export const LoginUsuario = async (login) => {
 export const valirdarUsuario = async (token) => {
     try {
       const fetchResponse = await fetch(
-        `https://aula.desarrolloglobal.pe/api/sesiones/verificar`,
+        `https://aula.desarrolloglobal.pe/v03/api/sesiones/verificar`,
         {
           method: "POST",
           body: token,
@@ -34,7 +34,7 @@ export const valirdarUsuario = async (token) => {
   export const CerrarSesion = async (tokenLogout) => {
     try {
       const fetchResponse = await fetch(
-        `  https://aula.desarrolloglobal.pe/api/sesiones/logout`,
+        `  https://aula.desarrolloglobal.pe/v03/api/sesiones/logout`,
         {
           method: "POST",
           body: tokenLogout,
@@ -51,7 +51,7 @@ export const valirdarUsuario = async (token) => {
   export const registroAlumno = async (dataUsu) => {
     try {
       const fetchResponse = await fetch(
-        ` https://aula.desarrolloglobal.pe/api/sesiones/registrar`,
+        ` https://aula.desarrolloglobal.pe/v03/api/sesiones/registrar`,
         {
           method: "POST",
           body: dataUsu,
