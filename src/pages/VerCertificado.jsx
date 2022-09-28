@@ -13,12 +13,12 @@ export const VerCertificado = () => {
     const buscarCertificado = (e) => {
         e.preventDefault()
         const buscar = e.target.valor.value
-        console.log(buscar.length)
+
         if (buscar.length > 4) {
             const data = new FormData()
             data.append('text', buscar)
             buscarCerti(data).then((res) => {
-                console.log(res)
+
                 if (res !== false) {
                     setShow(true)
                     setRespCerti(res)

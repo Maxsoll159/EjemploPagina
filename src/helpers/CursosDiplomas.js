@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const ApiDiplomas = () => {
   return axios
-    .get("https://www.desarrolloglobal.pe/v03/api/diplomas")
+    .get("https://aula.desarrolloglobal.pe/api/diplomas")
     .then(function (response) {
       return response.data;
     })
@@ -13,7 +13,7 @@ export const ApiDiplomas = () => {
 
 export const ApiDiplomasEtiqueta = (etiqueta) => {
   return axios
-    .get(`https://www.desarrolloglobal.pe/v03/api/diplomas/${etiqueta}`)
+    .get(`https://aula.desarrolloglobal.pe/api/diplomas/${etiqueta}`)
     .then(function (response) {
       return response.data;
     })
@@ -24,7 +24,7 @@ export const ApiDiplomasEtiqueta = (etiqueta) => {
 
 export const ApiDiplomasLimit = () => {
   return axios
-    .get(`https://www.desarrolloglobal.pe/v03/api/diplomas/?offset=0&limit=8`)
+    .get(`https://aula.desarrolloglobal.pe/api/diplomas/?offset=0&limit=8`)
     .then(function (response) {
       return response.data;
     })
@@ -35,7 +35,7 @@ export const ApiDiplomasLimit = () => {
 
 export const ApiCursos = () => {
   return axios
-    .get(`https://www.desarrolloglobal.pe/v03/api/cursos`)
+    .get(`https://aula.desarrolloglobal.pe/api/cursos`)
     .then(function (response) {
       return response.data;
     })
@@ -46,7 +46,7 @@ export const ApiCursos = () => {
 
 export const ApiCursosEtiqueta = (etiqueta) => {
   return axios
-    .get(`https://www.desarrolloglobal.pe/v03/api/cursos/${etiqueta}`)
+    .get(`https://aula.desarrolloglobal.pe/api/cursos/${etiqueta}`)
     .then(function (response) {
       return response.data;
     })
@@ -57,7 +57,7 @@ export const ApiCursosEtiqueta = (etiqueta) => {
 
 export const ApiCursosLimit = () => {
   return axios
-    .get(`https://www.desarrolloglobal.pe/v03/api/cursos/?offset=0&limit=8`)
+    .get(`https://aula.desarrolloglobal.pe/api/cursos/?offset=0&limit=8`)
     .then(function (response) {
       return response.data;
     })
@@ -69,7 +69,7 @@ export const ApiCursosLimit = () => {
 export const ApiInformacion = async (dataPagina) => {
   if (dataPagina.get("curso") === null) {
     const fetchResponse = await fetch(
-      `https://www.desarrolloglobal.pe/v03/api/diplomas/setProspecto`,
+      `https://aula.desarrolloglobal.pe/api/diplomas/setProspecto`,
       {
         method: "POST",
         body: dataPagina,
@@ -79,7 +79,7 @@ export const ApiInformacion = async (dataPagina) => {
     return data;
   } else {
     const fetchResponse = await fetch(
-      `https://www.desarrolloglobal.pe/v03/api/cursos/setProspecto`,
+      `https://aula.desarrolloglobal.pe/api/cursos/setProspecto`,
       {
         method: "POST",
         body: dataPagina,

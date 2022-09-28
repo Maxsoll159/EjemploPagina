@@ -22,7 +22,7 @@ import { VerCertificado } from "../pages/VerCertificado";
 
 export const Router = () => {
     const location = useLocation()
-    console.log(location)
+
     return (
         <>
             <NavBar />

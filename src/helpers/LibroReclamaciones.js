@@ -1,7 +1,7 @@
 export const buscarReclamo = async (datos) => {
     try {
     const fetchResponse = await fetch(
-      `https://www.desarrolloglobal.pe/v03/api/reclamos`,
+      `https://aula.desarrolloglobal.pe/api/reclamos`,
       {
           method: "POST",
           body: datos,
@@ -18,7 +18,7 @@ export const buscarReclamo = async (datos) => {
   export const mandarReclamo = async (datos) => {
     try {
     const fetchResponse = await fetch(
-      `https://www.desarrolloglobal.pe/v03/api/reclamos/setReclamo`,
+      `https://aula.desarrolloglobal.pe/api/reclamos/setReclamo`,
       {
           method: "POST",
           body: datos,

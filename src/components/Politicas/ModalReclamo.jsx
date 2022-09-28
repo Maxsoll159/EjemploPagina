@@ -62,11 +62,6 @@ export const ModalReclamo = () => {
             mandarReclamo(data).then((resp)=>console.log(resp))
 
         }
-
-
-        console.log(tipoConsumidor, nombre, apellido, numeroDocumento, correo, direccion, telefono1, telefono2, programa, tituloPrograma, monto, descripcionProducto, TipoReclamo, detalleReclamo, pedidoReclamo, tipoReclamo)
-
-
     }
 
 

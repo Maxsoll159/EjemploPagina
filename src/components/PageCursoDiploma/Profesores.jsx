@@ -65,7 +65,7 @@ export const Profesores = ({ profe }) => {
         setInfoProfe(profesor)
         setShow(true);
     }
-    console.log(profe)
+
     return (
         <div className="bg-white mt-5 pb-4" id="profesores">
             <Container>

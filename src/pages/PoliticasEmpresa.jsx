@@ -13,7 +13,6 @@ export const PoliticasEmpresa = () => {
     let navigate = useNavigate()
 
     let location = useLocation()
-    console.log(location)
 
     const navegar = (valor) => {
         navigate(`${valor}`);

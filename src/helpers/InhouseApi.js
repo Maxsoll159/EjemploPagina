@@ -1,7 +1,7 @@
 import axios from "axios";
   
 export const ApiInHouse = () =>{
-    return axios.get(`https://www.desarrolloglobal.pe/v03/api/inhouses`)
+    return axios.get(`https://aula.desarrolloglobal.pe/api/inhouses`)
     .then(function (response) {
       return response.data
     })
@@ -12,7 +12,7 @@ export const ApiInHouse = () =>{
   
 export const postInHouse = async (dataInhouse) => {
   const fetchResponse = await fetch(
-    `https://www.desarrolloglobal.pe/v03/api/inhouse/setProspecto`,
+    `https://aula.desarrolloglobal.pe/api/inhouse/setProspecto`,
     {
         method: "POST",
         body: dataInhouse,
@@ -27,7 +27,7 @@ export const postInHouse = async (dataInhouse) => {
 export const buscarCerti = async (valor) => {
   try {
   const fetchResponse = await fetch(
-    `https://www.desarrolloglobal.pe/v03/api/certificados`,
+    `https://aula.desarrolloglobal.pe/api/certificados`,
     {
         method: "POST",
         body: valor,
