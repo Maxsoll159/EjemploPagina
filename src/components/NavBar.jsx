@@ -59,7 +59,7 @@ export const NavBar = () => {
             if (resul.isConfirmed) {
                 CerrarSesion(data).then((resp) => { console.log() })
                 localStorage.removeItem("usuarioDesarrollo");
-                document.cookie = `token=;domain=.desarrolloglobal.pe`;
+                document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;domain=.desarrolloglobal.pe";
                 window.location.reload()
                 naviagte("/")
             }

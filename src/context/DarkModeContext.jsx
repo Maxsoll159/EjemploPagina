@@ -6,6 +6,20 @@ import { ApiCursosLimit, ApiDiplomasLimit } from "../helpers/CursosDiplomas";
 export const UserContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
+
+    /*Cerrar sesion*/
+    console.log("asdas",document.cookie)
+    const validarCookie = () =>{
+        if(document.cookie === ""){
+            localStorage.removeItem("usuarioDesarrollo");
+        }
+    }
+
+    useEffect(()=>{
+        validarCookie()
+    },[])
+
+
     const [usuarioLogin, setUsuarioLogin] = useState([])
 
     useEffect(() => {
