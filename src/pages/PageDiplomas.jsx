@@ -121,7 +121,7 @@ export const PageDiplomas = () => {
             </div>
             {/*Componentes Estaticos*/}
 
-            <Certificacion />
+            <Certificacion tipo={tipo}/>
 
             <Profesores profe={infoIni.profesores} />
 

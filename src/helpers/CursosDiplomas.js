@@ -23,8 +23,10 @@ export const ApiDiplomasEtiqueta = (etiqueta) => {
 };
 
 export const ApiDiplomasLimit = () => {
+  /*Antes*/
+  /*https://aula.desarrolloglobal.pe/v03/api/diplomas/?offset=0&limit=8*/
   return axios
-    .get(`https://aula.desarrolloglobal.pe/v03/api/diplomas/?offset=0&limit=8`)
+    .get(`https://aula.desarrolloglobal.pe/v03/api/diplomas`)
     .then(function (response) {
       return response.data;
     })
@@ -56,8 +58,10 @@ export const ApiCursosEtiqueta = (etiqueta) => {
 };
 
 export const ApiCursosLimit = () => {
+  /*Antes*/
+  /*https://aula.desarrolloglobal.pe/v03/api/cursos/?offset=0&limit=8*/
   return axios
-    .get(`https://aula.desarrolloglobal.pe/v03/api/cursos/?offset=0&limit=8`)
+    .get(`https://aula.desarrolloglobal.pe/v03/api/cursos`)
     .then(function (response) {
       return response.data;
     })

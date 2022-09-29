@@ -51,7 +51,7 @@ export const NavBar = () => {
             background: '#fff url(/images/trees.png)',
             backdrop: `
               rgba(0,0,123,0.4)
-              url("http://pa1.narvii.com/6570/1593d98fcb635d938ff843bc4ffab8b6cfa79f2b_00.gif")
+              url("")
               left top
               no-repeat
             `
@@ -59,7 +59,9 @@ export const NavBar = () => {
             if (resul.isConfirmed) {
                 CerrarSesion(data).then((resp) => { console.log() })
                 localStorage.removeItem("usuarioDesarrollo");
+                document.cookie = `token=;domain=.desarrolloglobal.pe`;
                 window.location.reload()
+                naviagte("/")
             }
         })
 
@@ -115,7 +117,7 @@ export const NavBar = () => {
                                     {
                                         usuarioLogin.tipo === "ADMI" ? (<NavDropdown.Item href="https://aula.desarrolloglobal.pe/admin/" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Administrador</NavDropdown.Item>) : (<></>)
                                     }
-                                    <NavDropdown.Item href="#action/3.4" className="d-flex gap-3 align-items-center fw-bold w-100 py-1" onClick={cerrarSesion}>
+                                    <NavDropdown.Item className="d-flex gap-3 align-items-center fw-bold w-100 py-1" onClick={cerrarSesion}>
                                         <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar Sesion
                                     </NavDropdown.Item>
 
@@ -295,7 +297,7 @@ export const NavBar = () => {
                                                 {
                                                     usuarioLogin.tipo === "ADMI" ? (<NavDropdown.Item href="https://aula.desarrolloglobal.pe/admin/" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Administrador</NavDropdown.Item>) : (<></>)
                                                 }
-                                                <NavDropdown.Item href="#action/3.4" className="d-flex gap-3 align-items-center fw-bold w-100 py-1" onClick={cerrarSesion}>
+                                                <NavDropdown.Item className="d-flex gap-3 align-items-center fw-bold w-100 py-1" onClick={cerrarSesion}>
                                                     <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar Sesion
                                                 </NavDropdown.Item>
                                             </NavDropdown>

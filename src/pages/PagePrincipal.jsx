@@ -3,15 +3,14 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 import { Beneficios } from "../components/PagePrincipal/Beneficios";
 import { Entidades } from "../components/PagePrincipal/Entidades";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { confeti } from "../helpers/funciones";
 import { Informacion } from "../components/CursosDiploma/Infomacion";
 import { CartsPagePrin } from "../components/PagePrincipal/CartsPagePrin";
 import AOS from 'aos';
 
 export const PagePrincipal = () => {
-    let location = useLocation()
-    console.log(location)
+ 
     let navigate = useNavigate()
     const [botones, setBotones] = useState({
         btnProx: true,
@@ -34,7 +33,7 @@ export const PagePrincipal = () => {
         AOS.init({
           duration : 2000
         });
-      }, [location]);
+      }, []);
 
     return (
         <>
@@ -89,10 +88,10 @@ export const PagePrincipal = () => {
                                             <Col xl={4} className="col-3 mx-auto"><div className="bg-white rounded d-flex align-items-center gap-2 p-2"><img src="/img/IconEstado.webp" alt="" width={45} className="d-block mx-auto" /><p className="m-0 font-size-11 d-none d-lg-none d-xl-block">Gestión de
                                                 Contrataciones
                                                 del Estado</p></div></Col>
-                                            <Col xl className="col-3 mx-auto"><div className="bg-white rounded d-flex align-items-center gap-2 p-2"><img src="/img/IconEstado.webp" alt="" width={45} className="d-block mx-auto" /><p className="m-0 font-size-11 d-none d-lg-none d-xl-block">Gestión de
+                                            <Col xl className="col-3 mx-auto"><div className="bg-white rounded d-flex align-items-center gap-2 p-2"><img src="https://nuevapagina.s3.amazonaws.com/IconInicio7.webp" alt="" width={45} className="d-block mx-auto" /><p className="m-0 font-size-11 d-none d-lg-none d-xl-block">Gestión de
                                                 Contrataciones
                                                 del Estado</p></div></Col>
-                                            <Col xl className="col-3 mx-auto"><div className="bg-white rounded d-flex align-items-center gap-2 p-2"><img src="/img/IconEstado.webp" alt="" width={45} className="d-block mx-auto" /><p className="m-0 font-size-11 d-none d-lg-none d-xl-block">Gestión de
+                                            <Col xl className="col-3 mx-auto"><div className="bg-white rounded d-flex align-items-center gap-2 p-2"><img src="https://nuevapagina.s3.amazonaws.com/IconInicio6.webp" alt="" width={45} className="d-block mx-auto" /><p className="m-0 font-size-11 d-none d-lg-none d-xl-block">Gestión de
                                                 Contrataciones
                                                 del Estado</p></div></Col>
                                         </Row>

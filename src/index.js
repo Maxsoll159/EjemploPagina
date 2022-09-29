@@ -9,6 +9,7 @@ import ScrollToTop from "./helpers/ScrollToTop";
 import '../node_modules/aos/dist/aos.css';
 
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>

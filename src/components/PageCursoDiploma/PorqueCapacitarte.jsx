@@ -39,7 +39,7 @@ export const PorqueCapacitarte = () => {
                             <Row className="mt-3 pt-4 gap-3 flex-wrap padding-5res">
 
                                 <Col xl md sm className="bg-warning rounded py-5 px-4" >
-                                    <img src="/img/icons/Icon11años.webp" alt="" width={210} height={66} />
+                                    <img src="https://nuevapagina.s3.amazonaws.com/Icon11A%C3%B1os.webp" alt="" width={210} height={66} />
                                     <h5 className="fw-bolder mt-5">Experiencia Comprobada</h5>
                                     <p>11 años Capacitando en la Gestión Pública y miles de alumnos satisfechos, tanto en capacitaciones presenciales y virtuales.</p>
                                 </Col>

@@ -131,7 +131,7 @@ export const PageCursos = () => {
                     </Row>
                 </Container>
             </div>
-            <Certificacion />
+            <Certificacion tipo={tipo} />
             <Profesores profe={infoIni.profesores} />
             <PorqueCapacitarte />
             <FinalDiploma asesores={infoIni.asesores} {...infoIni.dataInicial} testimonios={infoIni.testimonios} totalSesionesDiploma={TotalSesionesDiploma} tipo={tipo}/>

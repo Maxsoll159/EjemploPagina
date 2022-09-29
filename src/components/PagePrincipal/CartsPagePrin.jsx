@@ -7,7 +7,11 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
     const { isdark, diplomasLimit, cursosLimit, addToCart } = useContext(UserContext)
     let navigate = useNavigate();
 
-    const proximos = [...cursosLimit, ...diplomasLimit]
+    /*recordatndo array*/
+    let cursoreRecortado = cursosLimit.slice(0, 4)
+    let diplomaRecortado = diplomasLimit.slice(0, 4)
+
+    const proximos = [...cursoreRecortado, ...diplomaRecortado]
 
     let proximosSeminarios = proximos.sort((a, b) => new Date(a.inicio).getTime() - new Date(b.inicio).getTime())
     const verDetalles = (etiqueta, tipo) => {
@@ -23,8 +27,6 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
     }
 
 
-
-
     return (
         <>
             {
@@ -34,7 +36,7 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                             proximosSeminarios !== undefined ? (
                                 proximosSeminarios.map((proximo) => (
                                     <Col key={proximo.id} xxl={3} xl={4} lg={4} md={6} sm={12}>
-                                        <Card style={{ width: '310px' }} className="mt-5 shadow mx-auto" data-aos="zoom-in">
+                                        <Card style={{ width: '310px' }} className="mt-5 shadow mx-auto" data-aos="fade-up">
                                             <Card.Img loading="lazy" variant="top" src={proximo.imagen} className="cursor-pointer" onClick={() => verDetalles(proximo.etiqueta, proximo.tipo)} alt={proximo.titulo} />
                                             <Card.Body>
                                                 <div className="d-flex gap-2 justify-content-center-res">
@@ -82,7 +84,7 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                     diplomasLimit !== undefined ? (
                         <Row className="mt-4">
                             {diplomasLimit.map((diplo) => (
-                                <Col  key={diplo.id} xxl={3} xl={4} lg={4} md={6} sm={12} data-aos="zoom-in">
+                                <Col  key={diplo.id} xxl={3} xl={4} lg={4} md={6} sm={12} data-aos="fade-up">
                                     <Card style={{ width: '310px' }} className="mt-5 shadow mx-auto">
                                         <Card.Img loading="lazy" variant="top" src={diplo.imagen} className="cursor-pointer" onClick={() => verDetalles(diplo.etiqueta, diplo.tipo)} alt={diplo.titulo} />
                                         <Card.Body>
@@ -136,7 +138,7 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                     cursosLimit !== undefined ? (
                         <Row className="mt-4">
                             {cursosLimit.map((curso) => (
-                                <Col key={curso.id} xxl={3} xl={4} lg={4} md={6} sm={12} data-aos="zoom-in">
+                                <Col key={curso.id} xxl={3} xl={4} lg={4} md={6} sm={12} data-aos="fade-up">
                                     <Card style={{ width: '310px' }} className="mt-5 shadow mx-auto">
                                         <Card.Img loading="lazy" variant="top" src={curso.imagen} className="cursor-pointer" onClick={() => verDetalles(curso.etiqueta, curso.tipo)} alt={curso.titulo}/>
                                         <Card.Body>

@@ -61,7 +61,7 @@ export const Entidades = () => {
                     <Row>
                         <Col xl={12} data-aos="zoom-in">
                             <h3 className="text-white fw-bolder text-center mt-5">Centro de Capacitación y Desarrollo Global</h3>
-                            <p className="text-white text-center mt-4">Más de 10 años brindando capacitaciones virtuales.</p>
+                            <p className="text-white text-center mt-4">Más de 11 años brindando capacitaciones virtuales.</p>
                             <div className="w-50 w-100res d-block mx-auto ">
                                 <VideoPresen />
                             </div>

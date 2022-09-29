@@ -46,6 +46,50 @@ export const FinalDiploma = ({ asesores, titulo, precio, testimonios, totalSesio
             }
         ]
     }
+    let settings2 = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        initialSlide: 0,
+        nextArrow: false,
+        prevArrow: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    }
 
     return (
         <>
@@ -118,12 +162,13 @@ export const FinalDiploma = ({ asesores, titulo, precio, testimonios, totalSesio
                     <Row>
                         <Col xl={8} lg={8} md={12} sm={12}>
                             <div className="d-flex align-items-center justify-content-around">
-                            <div className="w-100res padding-5res">
+                                <img src="/img/iconBancos/ChicaAmarillo.webp" alt="" width={375} height={424} style={{ marginTop: "-100px" }} className="ocultar" />
+                                <div className="w-100res padding-5res">
                                     <h3 className="text-white fw-bolder text-end text-center-res">Separa tu <br className="ocultar" />vacante ahora</h3>
                                     <p className="m-0 text-white text-end text-center-res">Aprovecha la oferta <br className="ocultar" />
                                         y regístrate al Diploma</p>
                                 </div>
-                                <img src="/img/iconBancos/ChicaDiploma.webp" alt="" width={375} height={424} style={{ marginTop: "-100px" }} className="ocultar" />
+
                             </div>
                             <div className="bg-white rounded d-flex align-items-center flex-wrap-resp flex-md-nowrap">
                                 <div className="p-5 w-50 w-100res">
@@ -172,7 +217,7 @@ export const FinalDiploma = ({ asesores, titulo, precio, testimonios, totalSesio
                             <h3 className="text-white text-center mt-5 fw-bolder pt-4">Solicita este {tipo} en Modalidad In House</h3>
                             <p className="fw-bolder text-center text-white">Puedes solicitar este programa para llevarlo de manera corporativa</p>
                             <div className="mx-auto w-25 d-block w-50res-tab">
-                                <ModalInHouse titulo={titulo} id={id}/>
+                                <ModalInHouse titulo={titulo} id={id} />
                             </div>
                         </Col>
                     </Row>
