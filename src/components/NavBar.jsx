@@ -152,7 +152,7 @@ export const NavBar = () => {
                                                 <Row>
                                                     <Col xl={12} className="p-2 d-flex flex-wrap justify-content-start justify-content-xl-around flex-column flex-xl-row d-blok">
                                                         {cursosLimit !== undefined ? (
-                                                            cursosLimit.map((cursosLimit) => (
+                                                            (cursosLimit.splice(0,8)).map((cursosLimit) => (
                                                                 <div key={cursosLimit.id} className="d-flex gap-3 mt-3 w-50 w-100res">
                                                                     <img src={cursosLimit.icono} alt="" width={50} height={50} className="rounded-circle" />
                                                                     <div>
@@ -181,7 +181,7 @@ export const NavBar = () => {
                                                 <Row>
                                                     <Col xl={12} className="p-2 d-flex flex-wrap justify-content-start justify-content-xl-around flex-column flex-xl-row">
                                                         {diplomasLimit !== undefined ? (
-                                                            diplomasLimit.map((diploLimit, index) => (
+                                                            (diplomasLimit.splice(0,8)).map((diploLimit, index) => (
                                                                 <div key={index} className="d-flex gap-3 mt-3 w-50 w-100res">
                                                                     <img loading="lazy" src={diploLimit.imagen} alt="" width={50} height={50} className="rounded-circle border border-dark" />
                                                                     <div>
