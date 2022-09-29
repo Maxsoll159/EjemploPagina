@@ -33,7 +33,7 @@ export const Listar = ({ tipo, envivo, grabados }) => {
             <Container>
                 <Row>
                     <Col xl={12}>
-                        <h2 className="fw-bolder text-center mt-5">¿En qué curso deseas capacitarte?</h2>
+                        <h2 className="fw-bolder text-center mt-5">¿En qué {tipo} deseas capacitarte?</h2>
                         <h6 className="fw-bolder text-center">Más de 50,000 alumnos capacitados</h6>
                     </Col>
                     <Col xl={12}>

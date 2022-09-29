@@ -10,7 +10,7 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
     /*recordatndo array*/
     let cursoreRecortado = cursosLimit.slice(0, 4)
     let diplomaRecortado = diplomasLimit.slice(0, 4)
-
+    console.log(diplomasLimit)
     const proximos = [...cursoreRecortado, ...diplomaRecortado]
 
     let proximosSeminarios = proximos.sort((a, b) => new Date(a.inicio).getTime() - new Date(b.inicio).getTime())
