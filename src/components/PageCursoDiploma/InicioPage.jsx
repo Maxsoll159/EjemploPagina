@@ -93,6 +93,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
             })
         }
     }
+    /**orueba */
     const [asesors, setAsesors] = useState()
     useEffect(() => {
         if (asesores !== undefined) {
@@ -215,7 +216,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
                                                     Solicitar Informacion
                                                 </button>
                                             </Form>
-                                            <a className="btn w-100 gap-1 d-flex align-items-center justify-content-center mt-2" href={`https://api.whatsapp.com/send?phone=51${asesors}&text=Hola,%20solicito%20información%20del%20%20diploma:${titulo},%20mi%20correo%20es:`} style={{ background: "#25D366" }} target="_blank" rel="noreferrer">
+                                            <a className="btn w-100 gap-1 d-flex align-items-center justify-content-center mt-2" href={`https://api.whatsapp.com/send?phone=51${asesors}&text=Hola,%20solicito%20información%20del%20%20${tipo}:${titulo},%20mi%20correo%20es:`} style={{ background: "#25D366" }} target="_blank" rel="noreferrer">
                                                 <img src="/img/icons/IconWhatsAppBlanco.webp" alt="" width={30} />
                                                 <p className="text-white fw-bolder m-0 w-100 lh-1" style={{ fontSize: "11px" }}>Clic para Solicitar mas Información <span className="fs-4">WHATSAPP</span></p>
                                             </a>

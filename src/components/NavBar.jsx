@@ -59,7 +59,7 @@ export const NavBar = () => {
             if (resul.isConfirmed) {
                 CerrarSesion(data).then((resp) => { console.log() })
                 localStorage.removeItem("usuarioDesarrollo");
-                document.cookie = `token=;domain=.desarrolloglobal.pe`;
+                document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;domain=.desarrolloglobal.pe";
                 window.location.reload()
                 naviagte("/")
             }
@@ -90,7 +90,9 @@ export const NavBar = () => {
         }
     }, 500)
 
-    console.log(usuarioLogin)
+    /*Recorte */
+    let diplomasNav = diplomasLimit.slice(0,8)
+    let cursosNav = cursosLimit.slice(0,8)
 
     return (
         <Navbar collapseOnSelect bg="light" expand="xl" className="h-100" variant="white" >
@@ -151,8 +153,8 @@ export const NavBar = () => {
                                                 <h4 className="fw-bold">Cursos</h4>
                                                 <Row>
                                                     <Col xl={12} className="p-2 d-flex flex-wrap justify-content-start justify-content-xl-around flex-column flex-xl-row d-blok">
-                                                        {cursosLimit !== undefined ? (
-                                                            (cursosLimit.splice(0,8)).map((cursosLimit) => (
+                                                        {cursosNav !== undefined ? (
+                                                            cursosNav.map((cursosLimit) => (
                                                                 <div key={cursosLimit.id} className="d-flex gap-3 mt-3 w-50 w-100res">
                                                                     <img src={cursosLimit.icono} alt="" width={50} height={50} className="rounded-circle" />
                                                                     <div>
@@ -180,8 +182,8 @@ export const NavBar = () => {
                                                 <h4 className="fw-bold">Diplomas</h4>
                                                 <Row>
                                                     <Col xl={12} className="p-2 d-flex flex-wrap justify-content-start justify-content-xl-around flex-column flex-xl-row">
-                                                        {diplomasLimit !== undefined ? (
-                                                            (diplomasLimit.splice(0,8)).map((diploLimit, index) => (
+                                                        {diplomasNav !== undefined ? (
+                                                            diplomasNav.map((diploLimit, index) => (
                                                                 <div key={index} className="d-flex gap-3 mt-3 w-50 w-100res">
                                                                     <img loading="lazy" src={diploLimit.imagen} alt="" width={50} height={50} className="rounded-circle border border-dark" />
                                                                     <div>

@@ -1,6 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import Slider from "react-slick";
 import { ModalInHouse } from "../PageInHouse/ModalInHouse";
+
 export const FinalDiploma = ({ asesores, titulo, precio, testimonios, totalSesionesDiploma, tipo, id }) => {
     let settings = {
         dots: true,
@@ -46,51 +48,10 @@ export const FinalDiploma = ({ asesores, titulo, precio, testimonios, totalSesio
             }
         ]
     }
-    let settings2 = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        initialSlide: 0,
-        nextArrow: false,
-        prevArrow: false,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    initialSlide: 2
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    }
-
+  
+    /*Temporal */
+    let location = useLocation()
+    console.log(location)
     return (
         <>
             <div className="secWhat mt-5 pb-5">
@@ -166,13 +127,18 @@ export const FinalDiploma = ({ asesores, titulo, precio, testimonios, totalSesio
                                 <div className="w-100res padding-5res">
                                     <h3 className="text-white fw-bolder text-end text-center-res">Separa tu <br className="ocultar" />vacante ahora</h3>
                                     <p className="m-0 text-white text-end text-center-res">Aprovecha la oferta <br className="ocultar" />
-                                        y regístrate al Diploma</p>
+                                        y regístrate al {tipo}</p>
                                 </div>
 
                             </div>
                             <div className="bg-white rounded d-flex align-items-center flex-wrap-resp flex-md-nowrap">
                                 <div className="p-5 w-50 w-100res">
                                     <p className="fw-bolder fs-4 mt-4">Qué Incluye el Diploma:</p>
+                                    {
+                                        location.pathname.includes("congreso-nacional-de-gobierno-digital-y-derecho-laboral-en-la-administracion-publica") ? (
+                                            <p className="d-flex gap-3 align-items-center"><img src="/img/icons/IconCer.webp" alt="" width={15} height={15} />Certificado previo Pago</p>
+                                        ) : (<></>)
+                                    }
                                     <p className="d-flex gap-3 align-items-center"><img src="/img/icons/IconCer.webp" alt="" width={15} height={15} />Certificación Universitaria</p>
                                     <p className="d-flex gap-3 align-items-center"><img src="/img/icons/IconQrDiploma.webp" alt="" width={15} height={15} />Certificado Digital</p>
                                     <p className="d-flex gap-3 colorRed align-items-center"><img src="/img/icons/IconWifiDiploma.webp" alt="" width={15} height={15} />{"0" + totalSesionesDiploma} sesiones en vivo</p>
