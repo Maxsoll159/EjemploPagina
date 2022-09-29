@@ -93,6 +93,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
             })
         }
     }
+    /**orueba */
     const [asesors, setAsesors] = useState()
     useEffect(() => {
         if (asesores !== undefined) {
