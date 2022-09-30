@@ -92,7 +92,7 @@ export const Listar = ({ tipo, envivo, grabados }) => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-3 d-flex gap-2">
-                                                    <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${curvivo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${curvivo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                                    <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${curvivo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${curvivo.tipo}:${curvivo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
                                                         <img loading="lazy" src="/img/icons/whatsapp.svg" alt={curvivo.titulo} />
                                                     </a>
                                                     <button className="btn btn-light border border-dark w-75 rounded d-flex justify-content-center align-items-center" onClick={() => verDetalles(curvivo.etiqueta)}>
@@ -143,7 +143,7 @@ export const Listar = ({ tipo, envivo, grabados }) => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-3 d-flex gap-2">
-                                                    <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${grabado.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${grabado.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                                    <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${grabado.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${grabado.tipo}:${grabado.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
                                                         <img loading="lazy" src="/img/icons/whatsapp.svg" alt="" />
                                                     </a>
                                                     <button className="btn btn-light border border-dark w-75 rounded d-flex justify-content-center align-items-center" onClick={() => verDetalles(grabado.etiqueta)}>
