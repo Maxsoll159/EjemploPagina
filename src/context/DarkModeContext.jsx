@@ -29,14 +29,7 @@ export const DarkModeProvider = ({ children }) => {
             /*Validar*/
             const data = new FormData()
             data.append('token', JSON.parse(usuario).token)
-
-            valirdarUsuario(data).then((resp) => {
-                console.log(data, resp);
-                if (!resp) {
-                    localStorage.removeItem("usuarioDesarrollo");
-                }
-            })
-
+            valirdarUsuario(data).then((resp) => console.log("validar usuario", resp))
             setUsuarioLogin(JSON.parse(localStorage.getItem("usuarioDesarrollo")))
         } else {
             setUsuarioLogin([])
