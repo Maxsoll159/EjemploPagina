@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { createContext, useState } from "react";
-import { useLocation } from "react-router-dom";
+
 import { valirdarUsuario } from "../helpers/ApiLogin";
 import { ApiCursos, ApiDiplomas } from "../helpers/CursosDiplomas";
 
 export const UserContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
-    let location = useLocation()
+
     /*Cerrar sesion*/
     console.log("asdas",document.cookie)
     const validarCookie = () =>{
@@ -18,7 +18,7 @@ export const DarkModeProvider = ({ children }) => {
 
     useEffect(()=>{
         validarCookie()
-    },[location])
+    },[])
 
 
     const [usuarioLogin, setUsuarioLogin] = useState([])
@@ -42,11 +42,11 @@ export const DarkModeProvider = ({ children }) => {
 
     useEffect(() => {
         ApiDiplomas().then((diplo) => setDiplomasLimit(diplo.envivo))
-    }, [location])
+    }, [])
 
     useEffect(() => {
         ApiCursos().then((curso) => setCursosLimit(curso.envivo))
-    }, [location])
+    }, [])
 
 
 
