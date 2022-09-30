@@ -1,7 +1,7 @@
 
 import { useContext } from "react";
 import { useState } from "react";
-import { Row, Col, Modal, Form, FloatingLabel } from "react-bootstrap";
+import { Row, Col, Modal, Form } from "react-bootstrap";
 import { UserContext } from "../../context/DarkModeContext";
 import { LoginUsuario } from "../../helpers/ApiLogin";
 
@@ -39,6 +39,9 @@ export const BtnLogin = () => {
                     localStorage.setItem("usuarioDesarrollo", JSON.stringify(res))
                     document.cookie = `token=${res.token};domain=.desarrolloglobal.pe`;
                     setUsuarioLogin(res)
+                    setTimeout(() => {
+                        window.location.href = "https://aula.desarrolloglobal.pe/aula/#tab_tablero"
+                    }, 1000)
 
                 } else {
                     Swal.fire(
@@ -52,7 +55,18 @@ export const BtnLogin = () => {
 
     }
 
-
+    const [flagEye, setflagEye] = useState(true)
+    const MostrarContraseña = () => {
+        console.log("asd")
+        let cambio = document.getElementById("contraseña");
+        if (cambio.type === "password") {
+            cambio.type = "text";
+            setflagEye(!flagEye)
+        } else {
+            cambio.type = "password";
+            setflagEye(!flagEye)
+        }
+    }
     return (
         <>
             <button className="color-informacion text-primary rounded border-0 py-2 px-4 fw-bolder shadow w-100res" onClick={handleShow}>Ingreso al Aula Virtual</button>
@@ -80,21 +94,21 @@ export const BtnLogin = () => {
                                 <h4 className="fw-bolder mt-4">Iniciar Sesión</h4>
                                 <p>Ingresa tu email y contraseña para que ingresar al aula virtual</p>
                                 <Form className="mt-4 p-0" onSubmit={login}>
-                                    <FloatingLabel
-                                        controlId="correo"
-                                        label="Correo Electronico"
-                                        className="mb-3"
-                                    >
-                                        <Form.Control type="email" placeholder="Correo Electrónico" />
-                                    </FloatingLabel>
 
-                                    <FloatingLabel
-                                        controlId="contraseña"
-                                        label="Contraseña"
-                                        className="mb-3"
-                                    >
-                                        <Form.Control type="password" placeholder="Contraseña" />
-                                    </FloatingLabel>
+
+                                    <div className="py-2 w-100 border border-1 rounded ps-3 inputDiv">
+                                        <input type="email" className="border-0 inputContraseña" id="correo" placeholder="Correo Electronico"/>
+                                    </div>
+
+                                    <div className="py-2 w-100 border border-1 rounded ps-3 inputDiv mt-3 pe-2">
+                                        <input type="password" className="border-0 inputContraseña" id="contraseña" placeholder="Contraseña" />
+                                        <span className="border-0 bg-transparent cursor-pointer" onClick={MostrarContraseña}>
+                                            {
+                                                flagEye  ? (<i className="fa fa-eye-slash" aria-hidden="true"></i>) : (<i className="fa fa-eye" aria-hidden="true"></i>)
+                                            }
+                                        </span>
+                                    </div>
+
                                     <div className="d-flex justify-content-between mt-4">
                                         <Form.Group className="mb-3" controlId="formBasicCheckbox">
                                             <Form.Check type="checkbox" label="Recordar Contraseña" />

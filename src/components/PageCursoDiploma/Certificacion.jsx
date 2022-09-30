@@ -15,7 +15,8 @@ export const Certificacion = ({ tipo }) => {
                                     <p className="m-0 fw-bold text-start">Certificado por Curso</p>
                                 </div>
                                 {
-                                    tipo === "Diploma" ? (<div className="d-flex align-items-center gap-3 gap-response-0">
+                                    tipo === "Diploma" ? 
+                                    (<div className="d-flex align-items-center gap-3 gap-response-0">
                                         <img src="https://nuevapagina.s3.amazonaws.com/vistoDiploma.webp" alt="" />
                                         <p className="m-0 fw-bold text-start">Diploma de Especialización</p>
                                     </div>) : (<></>)

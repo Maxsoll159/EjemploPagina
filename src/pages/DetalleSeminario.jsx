@@ -24,7 +24,7 @@ export const DetalleSeminario = () => {
                                     <img src="/img/icons/calendarDeta.svg" alt="" />
                                     <p className="fw-bolder m-0 color-prin-detalle">Fecha: Jueves 24 Setiembre</p>
                                 </div>
-                                <div className="d-flex gap-2 gap-0-res-tab">
+                                <div className="d-flex gap-2 gap-0-res-tab inputDiv">
                                     <img src="/img/icons/ClockDeta.webp" alt="" />
                                     <p className="fw-bolder m-0 color-prin-detalle">7:00 PM</p>
                                 </div>
