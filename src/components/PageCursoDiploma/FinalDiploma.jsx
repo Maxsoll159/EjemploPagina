@@ -69,7 +69,7 @@ export const FinalDiploma = ({ asesores, titulo, precio, testimonios, totalSesio
                                                 <h6 className="fw-bolder m-0 text-center">{asesor.nombre}</h6>
                                                 <p className="m-0 fw-bolder text-center">Asesora Académica</p>
                                                 <h3 className="fw-bolder text-center">WHATSAPP</h3>
-                                                <a className="d-flex d-flex align-items-center text-decoration-none justify-content-center-res" href={`https://api.whatsapp.com/send?phone=51${asesor.telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                                <a className="d-flex d-flex align-items-center text-decoration-none justify-content-center-res" href={`https://api.whatsapp.com/send?phone=51${asesor.telefono}&text=Hola,%20solicito%20información%20del%20%20${tipo}:${titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
                                                     <img src="/img/iconBancos/WhatsAppIcon.webp" alt="" style={{ zIndex: "1" }} />
                                                     <div className="rounded-pill px-4 py-1" style={{ border: "2px solid #25d366", marginLeft: "-30px" }}>
                                                         <h4 className="m-0 text-center fw-bolder ms-3" style={{ color: "#25d366" }}>{asesor.telefono}</h4>

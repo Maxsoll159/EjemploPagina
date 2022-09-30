@@ -65,7 +65,7 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                                                     </div>
                                                 </div>
                                                 <div className="mt-3 d-flex gap-2">
-                                                    <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${proximo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${proximo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                                    <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${proximo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${proximo.tipo}:${proximo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
                                                         <img loading="lazy" src="/img/icons/whatsapp.svg" alt="" />
                                                     </a>
                                                     <button className="btn btn-light border border-dark w-75 rounded d-flex justify-content-center align-items-center" onClick={() => verDetalles(proximo.etiqueta, proximo.tipo)}>
@@ -114,7 +114,7 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                                                 </div>
                                             </div>
                                             <div className="mt-3 d-flex gap-2">
-                                                <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${diplo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${diplo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                                <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${diplo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${diplo.tipo}:${diplo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
                                                     <img loading="lazy" src="/img/icons/whatsapp.svg" alt="" />
                                                 </a>
                                                 <button className="btn btn-light border border-dark w-75 rounded d-flex justify-content-center align-items-center" onClick={() => verDetalles(diplo.etiqueta, diplo.tipo)}>
@@ -168,7 +168,7 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                                                 </div>
                                             </div>
                                             <div className="mt-3 d-flex gap-2">
-                                                <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${curso.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${curso.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                                <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${curso.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${curso.tipo}:${curso.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
                                                     <img loading="lazy" src="/img/icons/whatsapp.svg" alt="" />
                                                 </a>
                                                 <button className="btn btn-light border border-dark w-75 rounded d-flex justify-content-center align-items-center" onClick={() => verDetalles(curso.etiqueta, curso.tipo)}>
