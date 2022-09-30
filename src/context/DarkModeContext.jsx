@@ -10,7 +10,7 @@ export const DarkModeProvider = ({ children }) => {
     /*Cerrar sesion*/
     console.log("asdas",document.cookie)
     const validarCookie = () =>{
-        if(document.cookie.includes("token")){
+        if(document.cookie.includes("token") !== true){
             localStorage.removeItem("usuarioDesarrollo");
         }
     }
