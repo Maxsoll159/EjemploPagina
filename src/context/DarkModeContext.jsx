@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { createContext, useState } from "react";
-
 import { valirdarUsuario } from "../helpers/ApiLogin";
 import { ApiCursos, ApiDiplomas } from "../helpers/CursosDiplomas";
 
@@ -11,7 +10,7 @@ export const DarkModeProvider = ({ children }) => {
     /*Cerrar sesion*/
     console.log("asdas",document.cookie)
     const validarCookie = () =>{
-        if(document.cookie === ""){
+        if(document.cookie.includes("token")){
             localStorage.removeItem("usuarioDesarrollo");
         }
     }
