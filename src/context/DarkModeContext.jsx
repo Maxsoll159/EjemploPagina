@@ -19,7 +19,7 @@ export const DarkModeProvider = ({ children }) => {
             const data = new FormData()
             data.append('token', token)
             valirdarUsuario(data).then((resp) =>{
-                if(!resp){
+                if(resp !== true){
                     setUsuarioLogin(resp)
                     localStorage.setItem("usuarioDesarrollo", JSON.stringify(resp))
                 }else{
