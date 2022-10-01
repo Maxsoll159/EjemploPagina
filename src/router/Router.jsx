@@ -17,6 +17,7 @@ import { PageNosotros } from "../pages/PageNosotros";
 import { PagePrincipal } from "../pages/PagePrincipal";
 import { PageRegistro } from "../pages/PageRegistro";
 import { PageSeminarios } from "../pages/PageSeminarios";
+import { PasarelaPagos } from "../pages/PaseraPagos";
 import { PoliticasEmpresa } from "../pages/PoliticasEmpresa";
 import { Seminarios } from "../pages/Seminarios";
 import { VerCertificado } from "../pages/VerCertificado";
@@ -52,6 +53,7 @@ export const Router = () => {
                 </Route>
                 <Route path="buscar_certificado" element={<VerCertificado />}></Route>
                 <Route path="registro" element={<PageRegistro />}></Route>
+                <Route path="pasarela-pagos" element={<PasarelaPagos/>}></Route>
                 <Route path="/*" element={<Page404 />}></Route>
             </Routes>
             {

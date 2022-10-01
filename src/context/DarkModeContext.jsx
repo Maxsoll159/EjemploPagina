@@ -12,7 +12,21 @@ export const DarkModeProvider = ({ children }) => {
     const validarCookie = () =>{
         if(!document.cookie.includes("token")){
             localStorage.removeItem("usuarioDesarrollo");
-        }
+        }else{
+            let arrayCookie = document.cookie.split(";")
+            let filtro = arrayCookie.find(valor => valor.length == 47)
+            let token = filtro.substring(7)
+            const data = new FormData()
+            data.append('token', token)
+            valirdarUsuario(data).then((resp) =>{
+                if(!resp){
+                    setUsuarioLogin(resp)
+                    localStorage.setItem("usuarioDesarrollo", JSON.stringify(resp))
+                }else{
+                    setUsuarioLogin([])
+                }
+            })
+        }   
     }
 
     useEffect(()=>{
