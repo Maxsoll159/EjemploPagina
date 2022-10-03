@@ -46,7 +46,7 @@ export const PagePrincipal = () => {
             <div>
                 <Carousel>
                     <Carousel.Item interval={2000}>
-                        <img src="https://nuevapagina.s3.amazonaws.com/MicrosoftTeams-image+(23).png" alt="" className="d-none d-sm-block d-xl-block" height={448} />
+                        <img src="https://nuevapagina.s3.amazonaws.com/MicrosoftTeams-image+(23).webp" alt="" className="w-100 d-none d-sm-block d-xl-block" height={448} />
                         <img src="https://nuevapagina.s3.amazonaws.com/MicrosoftTeams-image+(22).webp" alt="" className="w-100 d-sm-none d-xl-none" height={448}/>
                     </Carousel.Item>
                     <Carousel.Item interval={2000}>
