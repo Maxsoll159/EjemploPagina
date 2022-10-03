@@ -10,7 +10,7 @@ import { CartsPagePrin } from "../components/PagePrincipal/CartsPagePrin";
 import AOS from 'aos';
 
 export const PagePrincipal = () => {
- 
+
     let navigate = useNavigate()
     const [botones, setBotones] = useState({
         btnProx: true,
@@ -31,14 +31,24 @@ export const PagePrincipal = () => {
 
     useEffect(() => {
         AOS.init({
-          duration : 2000
+            duration: 2000
         });
-      }, []);
+    }, []);
 
+
+    let banner = {
+        backgroundImage: 'url("https://images.thedirect.com/media/article_full/deadpool-3-creator-disney.jpg")',
+        height: '100%',
+        width: "100%"
+    }
     return (
         <>
             <div>
                 <Carousel>
+                    <Carousel.Item interval={2000}>
+                        <img src="https://nuevapagina.s3.amazonaws.com/MicrosoftTeams-image+(23).png" alt="" className="d-none d-sm-block d-xl-block" height={448} />
+                        <img src="https://nuevapagina.s3.amazonaws.com/MicrosoftTeams-image+(22).webp" alt="" className="w-100 d-sm-none d-xl-none" height={448}/>
+                    </Carousel.Item>
                     <Carousel.Item interval={2000}>
                         <div className="bannerStyle banner1">
                             <Container>

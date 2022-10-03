@@ -35,7 +35,6 @@ export const DarkModeProvider = ({ children }) => {
 
 
     const [usuarioLogin, setUsuarioLogin] = useState([])
-
     useEffect(() => {
         const usuario = localStorage.getItem("usuarioDesarrollo")
         if (usuario !== undefined && usuario !== "" && usuario !== null) {
@@ -48,7 +47,7 @@ export const DarkModeProvider = ({ children }) => {
             setUsuarioLogin([])
         }
     }, [])
-
+    console.log(usuarioLogin)
     const [diplomasLimit, setDiplomasLimit] = useState([])
     const [cursosLimit, setCursosLimit] = useState([])
 
