@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { FormLogin } from "../components/PagePrincipal/FormLogin";
 import { FormRegistro } from "../components/PagePrincipal/FormRegistro";
+import { FormPagos } from "../components/PasarelaPagos/FormPagos";
 import { UserContext } from "../context/DarkModeContext";
 
 
@@ -138,8 +139,7 @@ export const PasarelaPagos = () => {
                                                 loginPasa: false,
                                                 registroPasa: true
                                             })}>Regístrate aquí</button></>)
-                                    ) : (<>Soy el Metodo de pago</>)
-
+                                    ) : (<FormPagos />)
                                 }
 
                             </div>

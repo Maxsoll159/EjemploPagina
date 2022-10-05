@@ -20,6 +20,7 @@ import { ProteccionDatos } from "../Politicas/ProteccionDatos"
 import { TerminosCondiciones } from "../Politicas/TerminosCondiciones"
 import { Routes, Route, useLocation } from "react-router-dom";
 import {NavBar} from '../NavBar'
+
 export const RouterInternas = () => {
 
     const location = useLocation()
@@ -35,7 +36,6 @@ export const RouterInternas = () => {
             <Routes>
                 <Route path="/" element={<PagePrincipal />} />
                 <Route path="seminarios" element={<PageSeminarios />} />
-                <Route path="detalle" element={<DetalleSeminario />} />
                 <Route path="diplomas/:etiqueta" element={<PageDiplomas />} />
                 <Route path="cursos/:etiqueta" element={<PageCursos />} />
                 <Route path="cursos" element={<Cursos />} />
@@ -43,6 +43,7 @@ export const RouterInternas = () => {
                 <Route path="InHouse" element={<PageInHouse />} />
                 <Route path="nosotros" element={<PageNosotros />} />
                 <Route path="seminarios/:id" element={<Seminarios />} />
+                <Route path="seminariosInfo/:name" element={<DetalleSeminario />} />
                 <Route path="politicas-de-privacidad/" element={<PoliticasEmpresa />} >
                     <Route path="proteccion-datos" element={<ProteccionDatos />} />
                     <Route path="terminos-servicios" element={<TerminosCondiciones />} />

@@ -44,6 +44,9 @@ export const PageSeminarios = () => {
         navigate(`/seminarios/${etiqueta}`, { replace: false });
     }
 
+    const irSeminarioProximo = (etiqueta) =>{
+        navigate(`/seminariosInfo/${etiqueta}`, { replace: false });
+    }
 
     useEffect(() => {
         AOS.init({
@@ -112,7 +115,7 @@ export const PageSeminarios = () => {
                                                             <p className={`m-0 fw-bolder ${isdark ? "text-white" : "text-dark"}`}>{parsearHora(seminariosProxi.hora)}</p>
                                                         </div>
                                                     </div>
-                                                    <button className="btn btn-light w-100 mt-3 d-flex justify-content-center gap-2 p-2 border border-2 border-dark fw-bolder"><img src="/img/icons/pencilDark.webp" alt="" />Regístrame al Seminario</button>
+                                                    <button className="btn btn-light w-100 mt-3 d-flex justify-content-center gap-2 p-2 border border-2 border-dark fw-bolder" onClick={() => irSeminarioProximo(seminariosProxi.etiqueta)} ><img src="/img/icons/pencilDark.webp" alt=""/>Regístrame al Seminario</button>
                                                 </Card.Body>
                                             </Card>
                                         ))}

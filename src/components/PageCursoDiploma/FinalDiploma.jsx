@@ -133,7 +133,7 @@ export const FinalDiploma = ({ asesores, titulo, precio, testimonios, totalSesio
                             </div>
                             <div className="bg-white rounded d-flex align-items-center flex-wrap-resp flex-md-nowrap">
                                 <div className="p-5 w-50 w-100res">
-                                    <p className="fw-bolder fs-4 mt-4">Qué Incluye el Diploma:</p>
+                                    <p className="fw-bolder fs-4 mt-4">Qué Incluye el {tipo}:</p>
                                     {
                                         location.pathname.includes("congreso-nacional-de-gobierno-digital-y-derecho-laboral-en-la-administracion-publica") ? (
                                             <p className="d-flex gap-3 align-items-center"><img src="/img/icons/IconCer.webp" alt="" width={15} height={15} />Certificado previo Pago</p>
