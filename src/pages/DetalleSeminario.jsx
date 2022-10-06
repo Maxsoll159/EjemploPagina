@@ -48,13 +48,13 @@ export const DetalleSeminario = () => {
             postSeminario(data).then((resp) => {
                 if (resp.sta !== false) {
                     Swal.fire({
-                            icon: 'success',
-                            title: 'Registro Exitoso 😄',
-                            text: 'Something went wrong!',
-                            html: `<div><p class="fw-bolder">Hemos recibido tus datos de manera satisfactoria, te enviaremos un recordatorio por WhatsApp, unete a nuestro grupo y no pierdas las transmision.</p>${botones()}</div>`,
-                            showCancelButton: false, // There won't be any cancel button
-                            showConfirmButton: false
-                        })
+                        icon: 'success',
+                        title: 'Registro Exitoso 😄',
+                        text: 'Something went wrong!',
+                        html: `<div><p class="fw-bolder">Hemos recibido tus datos de manera satisfactoria, te enviaremos un recordatorio por WhatsApp, unete a nuestro grupo y no pierdas las transmision.</p>${botones()}</div>`,
+                        showCancelButton: false, // There won't be any cancel button
+                        showConfirmButton: false
+                    })
                 } else {
                     Swal.fire(
                         'Algo salio mal Ops..!',
@@ -90,7 +90,7 @@ export const DetalleSeminario = () => {
                                     <p className="fw-bolder m-0 color-prin-detalle">{parsearHora(detalleSeminario.hora)}</p>
                                 </div>
                             </div>
-                
+
                             <div className="d-flex align-items-center gap-2 mt-3 justify-content-center-res padding-0 my-4">
                                 <p className={`fw-bolder m-0 ${!isdark ? "text-white" : "text-dark"}`} >Compartir con un amigo</p>
                                 <img src="/img/icons/compartir.webp" alt="" height={18} />
@@ -160,8 +160,10 @@ export const DetalleSeminario = () => {
                             </div>
                         </Col>
                         <Col xl={6} sm={12} md={6} className="mt-3">
-                            <div className="img-detalle-seminario">
-                                <img src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.oferta) : (<></>)} alt="" width={400} className="d-block mx-auto rounded w-100res h-100res" />
+                            <div>
+                                <div className="">
+                                    <img src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.seminario) : (<></>)} alt="" width={400} className="d-block mx-auto rounded w-100res h-100res" />
+                                </div>
                             </div>
 
                         </Col>

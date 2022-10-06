@@ -44,7 +44,7 @@ export const PageSeminarios = () => {
         navigate(`/seminarios/${etiqueta}`, { replace: false });
     }
 
-    const irSeminarioProximo = (etiqueta) =>{
+    const irSeminarioProximo = (etiqueta) => {
         navigate(`/seminariosInfo/${etiqueta}`, { replace: false });
     }
 
@@ -53,7 +53,7 @@ export const PageSeminarios = () => {
             duration: 2000
         });
     }, []);
-    
+
     return (
         <>
             <div className={`${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`}>
@@ -84,7 +84,7 @@ export const PageSeminarios = () => {
                     <Row>
                         <Col xl={12}>
                             <div>
-                               <InfiniteScroll
+                                <InfiniteScroll
                                     className="w-100 d-flex justify-content-around flex-wrap"
                                     dataLength={seminariosTerminados.length} //This is important field to render the next data
                                     next={flag === true ? fetchData : ""}
@@ -94,28 +94,26 @@ export const PageSeminarios = () => {
                                         seminariosProximos.map((seminariosProxi) => (
                                             <Card key={seminariosProxi.id} style={{ width: '19rem' }} className={`mt-5 ${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`} data-aos="zoom-in">
                                                 <Card.Img variant="top" src={seminariosProxi.banner.seminario} height={220} />
+                                                <div className="bg-danger d-flex align-items-center gap-2 py-3 justify-content-center">
+                                                    <img src="/img/icons/LiveDiploCur.webp" alt="" />
+                                                    <h6 className="m-0 text-white fw-bolder">Proximo seminarios en vivo</h6>
+                                                </div>
+                                                <div className="bg-primary d-flex align-items-center gap-2 py-3 justify-content-center">
+                                                    <div className="d-flex gap-2 align-items-center">
+                                                        <img src="/img/icons/calendar.png" alt="" height={20} />
+                                                        <p className={`m-0 fw-bold ${isdark ? "text-white" : "text-dark"}`} >Fecha:  {(seminariosProxi.fecha).substring(8, 10)} de {parsearFecha(seminariosProxi.fecha)} </p>
+                                                    </div>
+                                                    <div className="d-flex gap-2 align-items-center">
+                                                        <img src="/img/iconsDarkMode/relojWhite.webp" alt="" height={20} />
+                                                        <p className={`m-0 fw-bold ${isdark ? "text-white" : "text-dark"}`}>{parsearHora(seminariosProxi.hora)}</p>
+                                                    </div>
+                                                </div>
                                                 <Card.Body className="p-4">
-                                                    <div className="d-flex gap-2 justify-content-center-res">
-                                                        <div className={`rec rounded-pill color-detalle fw-bolder text-center d-flex align-items-center justify-content-center color-prin-detalle ${isdark ? "bg-white" : ""}`}>Seminarios</div>
-                                                        <div className={`rec rounded-pill color2-detalle fw-bolder text-center d-flex justify-content-center align-items-center gap-2 ${isdark ? "bg-white" : ""}`}><div className="live"></div>En vivo</div>
-                                                    </div>
                                                     <div>
-                                                        <h5 className={`m-0 fw-bolder mt-3 altoTituloSeminario d-flex ${isdark ? "text-white" : "text-dark"}`}>{seminariosProxi.titulo.replace("<br>", "")}</h5>
-                                                        <div className="d-flex gap-2 mt-2 align-items-center">
-                                                            {!isdark ? (<img src="/img/icons/calendarDark.svg" alt="" />) :
-                                                                (<img loading="lazy" src="/img/icons/calendar.png" alt="" height={18} />)
-                                                            }
-                                                            <p className={`m-0 fw-bolder ${isdark ? "text-white" : "text-dark"}`} >Fecha:  {(seminariosProxi.fecha).substring(8, 10)} de {parsearFecha(seminariosProxi.fecha)} </p>
-                                                        </div>
-                                                        <div className="d-flex gap-2 mt-2 align-items-center">
-                                                            {
-                                                                !isdark ? (<img src="/img/icons/relojDark.svg" alt="" />)
-                                                                    : (<img src="/img/iconsDarkMode/relojWhite.webp" alt="" height={19} />)
-                                                            }
-                                                            <p className={`m-0 fw-bolder ${isdark ? "text-white" : "text-dark"}`}>{parsearHora(seminariosProxi.hora)}</p>
-                                                        </div>
+                                                        <h5 className={`m-0 fw-bolder altoTituloSeminario d-flex ${isdark ? "text-white" : "text-dark"}`}>{seminariosProxi.titulo.replace("<br>", "")}</h5>
                                                     </div>
-                                                    <button className="btn btn-light w-100 mt-3 d-flex justify-content-center gap-2 p-2 border border-2 border-dark fw-bolder" onClick={() => irSeminarioProximo(seminariosProxi.etiqueta)} ><img src="/img/icons/pencilDark.webp" alt=""/>Regístrame al Seminario</button>
+                                                    <button onClick={() => irSeminarioProximo(seminariosProxi.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
+                                                        {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/icons/IconLapizDiplomado.webp" alt="" />)}Ver Seminario Realizado</button>
                                                 </Card.Body>
                                             </Card>
                                         ))}

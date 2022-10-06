@@ -37,3 +37,7 @@
 .color-DarkMode-final{
     background-color: #00062A;
 }
+.img-detalle-seminario{
+    background-image: url("/public/img/icons/FondoDetalleSeminario.webp");
+    background-repeat: no-repeat;
+}
