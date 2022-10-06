@@ -113,7 +113,7 @@ export const PageSeminarios = () => {
                                                         <h5 className={`m-0 fw-bolder altoTituloSeminario d-flex ${isdark ? "text-white" : "text-dark"}`}>{seminariosProxi.titulo.replace("<br>", "")}</h5>
                                                     </div>
                                                     <button onClick={() => irSeminarioProximo(seminariosProxi.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
-                                                        {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/icons/IconLapizDiplomado.webp" alt="" />)}Ver Seminario Realizado</button>
+                                                        {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/icons/IconLapizDiplomado.webp" alt="" />)}Incribirme en el Seminario</button>
                                                 </Card.Body>
                                             </Card>
                                         ))}

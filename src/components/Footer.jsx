@@ -31,7 +31,7 @@ export const Footer = () => {
                                 </Accordion.Header>
                                 <Accordion.Body className="p-4">
                                     <img loading="" src="https://archivos-comunes.s3.amazonaws.com/2022/nuevo_logo_blanco.png" alt="" width={200} />
-                                    <p className="text-white mt-3 font-size-14">Más de 10 años Capacitación para
+                                    <p className="text-white mt-3 font-size-14">Más de 11 años Capacitación para
                                         Funcionarios y Servidores Públicos ❤️️</p>
                                 </Accordion.Body>
                             </Accordion.Item>
@@ -102,11 +102,11 @@ export const Footer = () => {
                         <Row className="">
                             <Col xl md={4} sm={6} className="py-5">
                                 <img loading="" src="https://archivos-comunes.s3.amazonaws.com/2022/nuevo_logo_blanco.png" alt="" width={200} />
-                                <p className="text-white mt-3 font-size-14">Más de 10 años Capacitación para
+                                <p className="text-white mt-3 font-size-14">Más de 11 años Capacitación para
                                     Funcionarios y Servidores Públicos ❤️️</p>
                             </Col>
                             <Col className="py-5">
-                                <h4 className="text-white fw-bolder">Cetificados</h4>
+                                <h4 className="text-white fw-bolder">Certificado</h4>
                                 <p className="text-white font-size-14">Verifica la validez de tu certificado
                                     a traves de este botón.</p>
                                 <button className="btn btn bg-white" onClick={verCertificado}>Verificar Certificado</button>
