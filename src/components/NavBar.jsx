@@ -1,5 +1,5 @@
 
-import { Container, Row, Col, Nav, Navbar, NavDropdown, Offcanvas, Popover, OverlayTrigger, Spinner, Dropdown } from "react-bootstrap";
+import { Container, Row, Col, Nav, Navbar, NavDropdown, Offcanvas, Spinner } from "react-bootstrap";
 import { UserContext } from '../context/DarkModeContext';
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ import { BtnLogin } from "./PagePrincipal/BtnLogin";
 import { CerrarSesion } from "../helpers/ApiLogin";
 import { useEffect } from "react";
 export const NavBar = () => {
-    const { cartItem, isdark, deleteItemsCart, diplomasLimit, cursosLimit, usuarioLogin } = useContext(UserContext)
+    const { cartItem, isdark, deleteItemsCart, diplomasLimit, cursosLimit, usuarioLogin, seminarios } = useContext(UserContext)
     const Swal = require('sweetalert2')
     let naviagte = useNavigate()
     const [show, setShow] = useState(false);
@@ -91,9 +91,9 @@ export const NavBar = () => {
     }, 500)
 
     /*Recorte */
-    let diplomasNav = diplomasLimit.slice(0,8)
-    let cursosNav = cursosLimit.slice(0,8)
-
+    let diplomasNav = diplomasLimit.slice(0, 8)
+    let cursosNav = cursosLimit.slice(0, 8)
+    console.log("Soiy seminario", seminarios)
     return (
         <Navbar collapseOnSelect bg="light" expand="xl" className="h-100" variant="white" >
             <Container fluid >
@@ -210,28 +210,46 @@ export const NavBar = () => {
                             </div>
 
                             <div className="d-flex gap-2 gap-xl-4 mt-3 mt-xl-0 justify-content-center flex-column  align-items-start flex-xl-row align-items-xl-center ">
-                                <OverlayTrigger
-                                    trigger="click"
-                                    placement="bottom"
-                                    overlay={
-                                        <Popover id={`popover-positioned-bottom`}>
-                                            <Popover.Header as="h3">{`Popover bottom`}</Popover.Header>
-                                            <Popover.Body>
-                                                <strong>Holy guacamole!</strong> Check this info.
-                                            </Popover.Body>
-                                        </Popover>
-                                    }
-                                >
-                                    <button type="button" className="btn bg-white position-relative rounded shadow border-light d-flex justify-content-xl-center
-                                    justify-content-start w-100res btnsNav p-0 align-items-center shadow-res w-100res" style={{ width: "40px", height: "40px" }} onClick={handleClick}>
-                                        <img src="/img/icons/NavNotificacion.webp" alt="" className="d-none d-xl-block mx-auto" width={20} />
+
+
+                                <div className="carrito position-relative w-100res">
+                                    <button type="button" className="btn bg-white position-relative rounded shadow border-light w-100res d-flex justify-content-start justify-content-xl-center align-items-center p-0 shadow-res w-100res prueba" style={{ width: "40px", height: "40px" }} onClick={handleClick}>
+                                        <img src="/img/icons/NavNotificacion.webp" alt="" className="d-block mx-auto d-none d-xl-block" width={20} />
                                         <span className="fw-bolder d-xl-none">Notificaciones</span>
                                         <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger respon">
-                                            0
+                                            {seminarios.length}
                                             <span className="visually-hidden">unread messages</span>
                                         </span>
                                     </button>
-                                </OverlayTrigger>
+
+                                    <div className="mostrar start-50 translate-middle-x bg-white rounded py-3 px-4 shadow responseCarrito">
+                                        <div><h5 className="fw-bolder text-danger">Seminarios en Vivo</h5></div>
+                                        <div>
+                                            {
+                                                seminarios !== undefined ? (
+                                                    seminarios.map((semi) => (
+                                                        <img src={semi.banner.seminario} alt="" className="img-fluid rounded" />
+
+                                                    )
+
+                                                    )
+                                                ) : (<></>)
+                                            }
+                                        </div>
+                                        <div>
+                                            {seminarios.length === 0 ? (
+                                                <div className="d-flex gap-3 align-items-center">
+                                                    <Spinner animation="grow" variant="primary" />
+                                                    <h4 className="m-0">No hay seminario en Vivo</h4>
+                                                </div>
+                                            ) : (<></>)
+
+
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
 
 
 
@@ -275,7 +293,12 @@ export const NavBar = () => {
                                                             <h4 className="m-0">No tiene productos</h4>
                                                         </div>
 
-                                                    ) : (<p className="m-0 fw-bolder mt-2 fs-4">Total: <span className="text-danger">S/. {total}</span></p>)
+                                                    ) : (<>
+                                                        <hr /><div className="d-flex justify-content-between">
+                                                            <p className="m-0 fw-bolder mt-2 fs-4">Total: <span className="text-danger">S/. {total}</span></p>
+                                                            <button className="btn btn-success">Comprar</button>
+                                                        </div>
+                                                    </>)
                                                 }
                                             </div>
                                         </div>

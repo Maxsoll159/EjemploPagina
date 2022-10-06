@@ -3,19 +3,60 @@ import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 import { UserContext } from '../context/DarkModeContext';
 import { useContext, useEffect } from "react";
-import { seminarioId } from "../helpers/SeminariosApi";
+import { postSeminario, seminarioId } from "../helpers/SeminariosApi";
 import { useState } from "react";
 import { parsearFecha, parsearHora } from "../helpers/funciones";
 export const DetalleSeminario = () => {
+    const Swal = require('sweetalert2')
     const { isdark } = useContext(UserContext)
 
     let { name } = useParams()
     const [detalleSeminario, setDetalleSeminario] = useState([])
     useEffect(() => {
-        seminarioId(name).then((resp) => 
+        seminarioId(name).then((resp) =>
             setDetalleSeminario(resp)
         )
     }, [name])
+
+
+    const infoSeminario = (e) => {
+        e.preventDefault()
+        const nombres = e.target.nombre.value
+        const correo = e.target.correo.value
+        const telefono = e.target.telefono.value
+
+        if (nombres === "" || correo === "" || telefono === "") {
+            Swal.fire(
+                'Algo salio mal Ops..!',
+                'Por favor llene todo los campos',
+                'error'
+            )
+        } else {
+            const data = new FormData()
+            data.append('titulo', detalleSeminario.titulo)
+            data.append('fecha_seminario', detalleSeminario.fecha)
+            data.append('correo', correo)
+            data.append('nombres', nombres)
+            data.append('telefono', telefono)
+
+            postSeminario(data).then((resp) => {
+                if (resp !== false) {
+                    Swal.fire(
+                        'Buen Trabajo!',
+                        'Datos enviados correctamente!',
+                        'success'
+                    )
+                } else {
+                    Swal.fire(
+                        'Algo salio mal Ops..!',
+                        'Los datos no fueron enviados!',
+                        'error'
+                    )
+                }
+            })
+        }
+
+    }
 
     console.log(detalleSeminario)
     return (
@@ -62,22 +103,20 @@ export const DetalleSeminario = () => {
                             <h3 className={`fw-bolder m-0 ${!isdark ? "text-white" : ""}`}>Profesor</h3>
                             <div className="linea-profesor bg-white rounded-pill"></div>
                             <div className={`d-flex gap-4 mx-auto p-4 rounded mt-4 flex-column flex-xl-row flex-lg-row ${!isdark ? "color-DarkMode-DetalleSeminario" : "bg-white border border-2"}`}>
-                                <img src="https://archivos-comunes.s3.amazonaws.com/2019/profesores/WILBER-CORONADO.jpg" alt="" width={137} height={137} className="rounded-circle border border-3 border-dark mx-auto " />
-                                <div>
-                                    {
-                                        detalleSeminario.profesor !== undefined ? (
-                                            <>
+                                {
+                                    detalleSeminario.profesor !== undefined ? (
+                                        <>
+                                            <img src={detalleSeminario.profesor.perfil} alt="" width={137} height={137} className="rounded-circle border border-3 border-dark mx-auto " />
+                                            <div>
                                                 <h5 className={`fw-bolder ${!isdark ? "text-white" : "text-dark"}`}>{detalleSeminario.profesor.nombre}</h5>
                                                 <p dangerouslySetInnerHTML={{ __html: detalleSeminario.profesor.descripcion }}></p>
-                                            </>
-                                        ) : (<></>)
-
-                                    }
-                                </div>
+                                            </div>
+                                        </>) : (<></>)
+                                }
                             </div>
                         </Col>
                         <Col xl={6} sm={12} md={6} className="mt-3">
-                            <Form className="bg-white p-4 mx-auto rounded w-100res form-width" style={{ width: "400px" }}>
+                            <Form className="bg-white p-4 mx-auto rounded w-100res form-width" style={{ width: "400px" }} onSubmit={infoSeminario}>
 
                                 <h5 className="fw-bolder text-center">Regístrate y participa en esta 👇
                                     transmisión en vivo !Gratuita!</h5>
@@ -95,15 +134,15 @@ export const DetalleSeminario = () => {
                                     </div>
                                 </div>
 
-                                <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
+                                <Form.Group className="mb-3 mt-3" controlId="nombre">
                                     <Form.Control type="text" placeholder="Nombres" className="border-0 shadow" style={{ height: "47px" }} />
                                 </Form.Group>
 
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Group className="mb-3" controlId="correo">
                                     <Form.Control type="email" placeholder="Correo Electronico" className="border-0 shadow" style={{ height: "47px" }} />
                                 </Form.Group>
 
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                <Form.Group className="mb-3" controlId="telefono">
                                     <Form.Control type="number" placeholder="Celular o WhatsApp" className="border-0 shadow" style={{ height: "47px" }} />
                                 </Form.Group>
 
@@ -126,7 +165,7 @@ export const DetalleSeminario = () => {
                         <Col xl={12}>
                             <h3 className={`fw-bolder text-center mt-5 d-block mx-auto w-100res ${!isdark ? "text-white" : "text-dark"}`} style={{ width: "35%" }}>Obtén un <span className="text-decoration-underline">Descuento Especial</span>
                                 &nbsp;en nuestro <span className="text-decoration-underline" style={{ color: "#CF1F4F" }}>próximo programa</span></h3>
-                            <img src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.promocion) : (<></>)} alt="" width={400} className="d-block mx-auto rounded w-100res h-100res my-5" />
+                            <img src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.promocion) : (<></>)} alt="" width={400} className="d-block mx-auto rounded my-5" />
                         </Col>
                     </Row>
                 </Container>

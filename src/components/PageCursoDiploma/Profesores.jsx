@@ -99,6 +99,7 @@ export const Profesores = ({ profe }) => {
 
                             </Slider>
                         </div>
+                        <p className="text-center fw-bolder text-danger mt-4 fs-5">*Segun disponibilidad de los docentes</p>
                     </Col>
                 </Row>
             </Container>

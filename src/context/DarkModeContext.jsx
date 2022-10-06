@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { createContext, useState } from "react";
 import { valirdarUsuario } from "../helpers/ApiLogin";
 import { ApiCursos, ApiDiplomas } from "../helpers/CursosDiplomas";
-
+import { seminariosLive } from "../helpers/SeminariosApi";
 export const UserContext = createContext();
 
 export const DarkModeProvider = ({ children }) => {
@@ -14,7 +14,7 @@ export const DarkModeProvider = ({ children }) => {
             localStorage.removeItem("usuarioDesarrollo");
         }else{
             let arrayCookie = document.cookie.split(";")
-            let filtro = arrayCookie.find(valor => valor.length == 47)
+            let filtro = arrayCookie.find(valor => valor.length === 47)
             let token = filtro.substring(7)
             const data = new FormData()
             data.append('token', token)
@@ -47,13 +47,18 @@ export const DarkModeProvider = ({ children }) => {
             setUsuarioLogin([])
         }
     }, [])
-    console.log(usuarioLogin)
+
+
     const [diplomasLimit, setDiplomasLimit] = useState([])
     const [cursosLimit, setCursosLimit] = useState([])
-
+    const [seminarios, setSeminarios] = useState([])
 
     useEffect(() => {
         ApiDiplomas().then((diplo) => setDiplomasLimit(diplo.envivo))
+    }, [])
+
+    useEffect(() => {
+        seminariosLive().then((seminario) => setSeminarios(seminario.proximos   ))
     }, [])
 
     useEffect(() => {
@@ -128,7 +133,7 @@ export const DarkModeProvider = ({ children }) => {
 
     const [isdark, setIsDark] = useState(true)
     return (
-        <UserContext.Provider value={{ isdark, setIsDark, cartItem, addToCart, deleteItemsCart, diplomasLimit, cursosLimit, setUsuarioLogin, usuarioLogin }}>
+        <UserContext.Provider value={{ isdark, setIsDark, cartItem, addToCart, deleteItemsCart, diplomasLimit, cursosLimit, setUsuarioLogin, usuarioLogin, seminarios }}>
             {children}
         </UserContext.Provider>
     )
