@@ -93,7 +93,7 @@ export const PageSeminarios = () => {
                                     {seminariosProximos === undefined ? (<h1>Cargando...</h1>) :
                                         seminariosProximos.map((seminariosProxi) => (
                                             <Card key={seminariosProxi.id} style={{ width: '19rem' }} className={`mt-5 ${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`} data-aos="zoom-in">
-                                                <Card.Img variant="top" src={seminariosProxi.banner.seminario} height={203} />
+                                                <Card.Img variant="top" src={seminariosProxi.banner.seminario} height={220} />
                                                 <Card.Body className="p-4">
                                                     <div className="d-flex gap-2 justify-content-center-res">
                                                         <div className={`rec rounded-pill color-detalle fw-bolder text-center d-flex align-items-center justify-content-center color-prin-detalle ${isdark ? "bg-white" : ""}`}>Seminarios</div>
@@ -122,7 +122,7 @@ export const PageSeminarios = () => {
                                     {seminariosTerminados === undefined ? (<h1>Cargando...</h1>) :
                                         seminariosTerminados.map((semTerminados) => (
                                             <Card key={semTerminados.id} style={{ width: '19rem' }} className={`mt-5 ${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`} data-aos="zoom-in">
-                                                <Card.Img variant="top" className="cursor-pointer" src={semTerminados.banner.seminario} height={203} onClick={() => irSeminario(semTerminados.etiqueta)} />
+                                                <Card.Img variant="top" className="cursor-pointer" src={semTerminados.banner.seminario} height={220} onClick={() => irSeminario(semTerminados.etiqueta)} />
                                                 <Card.Body className="p-4">
                                                     <div className="d-flex gap-1 justify-content-center-res">
                                                         <div className={`rec rounded-pill color-detalle fw-bolder text-center d-flex align-items-center justify-content-center color-prin-detalle ${isdark ? "" : ""}`}>Seminario</div>

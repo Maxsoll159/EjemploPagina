@@ -18,6 +18,12 @@ export const DetalleSeminario = () => {
         )
     }, [name])
 
+    const botones = () => {
+        return `<div class="mt-3 d-flex-res gap-3 flex-column-desa justify-content-center">
+        <a class="btn btn-primary p-2 fw-bolder d-flex gap-3 align-items-center w-100 justify-content-center w-100res" href="https://t.me/DesarrolloGlobal" target="_blank" rel="noreferrer"><i class="fa fa-telegram fa-2x" aria-hidden="true"></i>Registrarme por Telegram</a>
+        <a class="btn btn-light border border-dark p-2 fw-bolder d-flex align-items-center gap-3 mt-2 w-100 justify-content-center w-100res" href="https://chat.whatsapp.com/Lgx182kXXFCJEnJtwvYg4w" target="_blank" rel="noreferrer"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>Registrame por WhatsApp</a>
+    </div>`
+    }
 
     const infoSeminario = (e) => {
         e.preventDefault()
@@ -28,7 +34,7 @@ export const DetalleSeminario = () => {
         if (nombres === "" || correo === "" || telefono === "") {
             Swal.fire(
                 'Algo salio mal Ops..!',
-                'Por favor llene todo los campos',
+                'Por favor llene todos los campos!',
                 'error'
             )
         } else {
@@ -40,12 +46,15 @@ export const DetalleSeminario = () => {
             data.append('telefono', telefono)
 
             postSeminario(data).then((resp) => {
-                if (resp !== false) {
-                    Swal.fire(
-                        'Buen Trabajo!',
-                        'Datos enviados correctamente!',
-                        'success'
-                    )
+                if (resp.sta !== false) {
+                    Swal.fire({
+                            icon: 'success',
+                            title: 'Registro Exitoso 😄',
+                            text: 'Something went wrong!',
+                            html: `<div><p class="fw-bolder">Hemos recibido tus datos de manera satisfactoria, te enviaremos un recordatorio por WhatsApp, unete a nuestro grupo y no pierdas las transmision.</p>${botones()}</div>`,
+                            showCancelButton: false, // There won't be any cancel button
+                            showConfirmButton: false
+                        })
                 } else {
                     Swal.fire(
                         'Algo salio mal Ops..!',
@@ -81,42 +90,14 @@ export const DetalleSeminario = () => {
                                     <p className="fw-bolder m-0 color-prin-detalle">{parsearHora(detalleSeminario.hora)}</p>
                                 </div>
                             </div>
-                            <div className="mt-3 d-flex-res gap-3 flex-column-desa">
-                                <a className="btn btn-primary p-2 fw-bolder d-flex gap-3 align-items-center w-50 justify-content-center w-100res" href="https://chat.whatsapp.com/Lgx182kXXFCJEnJtwvYg4w" target="_blank" rel="noreferrer"><i class="fa fa-telegram fa-2x" aria-hidden="true"></i>Registrarme por Telegram</a>
-                                <a className="btn btn-light border border-dark p-2 fw-bolder d-flex align-items-center gap-3 mt-2 w-50 justify-content-center w-100res" href={`https://api.whatsapp.com/send?phone=51${detalleSeminario.asesor !== undefined ? (detalleSeminario.asesor[0].telefono) : (<></>)}&text=Hola,%20solicito%20información%20del%20%20Seminario:${detalleSeminario.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i>Registrame por WhatsApp</a>
-                            </div>
-                            <div className="d-flex align-items-center gap-2 mt-3 ps-5 justify-content-center-res padding-0 my-4">
+                
+                            <div className="d-flex align-items-center gap-2 mt-3 justify-content-center-res padding-0 my-4">
                                 <p className={`fw-bolder m-0 ${!isdark ? "text-white" : "text-dark"}`} >Compartir con un amigo</p>
                                 <img src="/img/icons/compartir.webp" alt="" height={18} />
                             </div>
                         </Col>
                         <Col xl={6} sm={12} md={6} className="p-5 padding-detalle-4 d-none d-sm-block">
-                            <img src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.promocion) : (<></>)} alt="" width={400} className="d-block mx-auto rounded w-100res h-100res" />
-                        </Col>
-                    </Row>
-                </Container>
-            </div>
-            <div className={`color-form ${!isdark ? "color-DarkMode-form" : ""}`}>
-                <Container>
-                    <Row className="py-5 align-items-center">
-                        <Col xl={6} sm={12} md={6} className="mt-3">
-                            <h3 className={`fw-bolder m-0 ${!isdark ? "text-white" : ""}`}>Profesor</h3>
-                            <div className="linea-profesor bg-white rounded-pill"></div>
-                            <div className={`d-flex gap-4 mx-auto p-4 rounded mt-4 flex-column flex-xl-row flex-lg-row ${!isdark ? "color-DarkMode-DetalleSeminario" : "bg-white border border-2"}`}>
-                                {
-                                    detalleSeminario.profesor !== undefined ? (
-                                        <>
-                                            <img src={detalleSeminario.profesor.perfil} alt="" width={137} height={137} className="rounded-circle border border-3 border-dark mx-auto " />
-                                            <div>
-                                                <h5 className={`fw-bolder ${!isdark ? "text-white" : "text-dark"}`}>{detalleSeminario.profesor.nombre}</h5>
-                                                <p dangerouslySetInnerHTML={{ __html: detalleSeminario.profesor.descripcion }}></p>
-                                            </div>
-                                        </>) : (<></>)
-                                }
-                            </div>
-                        </Col>
-                        <Col xl={6} sm={12} md={6} className="mt-3">
-                            <Form className="bg-white p-4 mx-auto rounded w-100res form-width" style={{ width: "400px" }} onSubmit={infoSeminario}>
+                            <Form className="bg-white p-4 mx-auto rounded w-100res form-width shadow" style={{ width: "400px" }} onSubmit={infoSeminario}>
 
                                 <h5 className="fw-bolder text-center">Regístrate y participa en esta 👇
                                     transmisión en vivo !Gratuita!</h5>
@@ -159,13 +140,42 @@ export const DetalleSeminario = () => {
                     </Row>
                 </Container>
             </div>
+            <div className={`color-form ${!isdark ? "color-DarkMode-form" : ""}`}>
+                <Container>
+                    <Row className="py-5 align-items-center">
+                        <Col xl={6} sm={12} md={6} className="mt-3">
+                            <h3 className={`fw-bolder m-0 ${!isdark ? "text-white" : ""}`}>Profesor</h3>
+                            <div className="linea-profesor bg-white rounded-pill"></div>
+                            <div className={`d-flex gap-4 mx-auto p-4 rounded mt-4 flex-column flex-xl-row flex-lg-row ${!isdark ? "color-DarkMode-DetalleSeminario" : "bg-white border border-2"}`}>
+                                {
+                                    detalleSeminario.profesor !== undefined ? (
+                                        <>
+                                            <img src={detalleSeminario.profesor.perfil} alt="" width={137} height={137} className="rounded-circle border border-3 border-dark mx-auto " />
+                                            <div>
+                                                <h5 className={`fw-bolder ${!isdark ? "text-white" : "text-dark"}`}>{detalleSeminario.profesor.nombre}</h5>
+                                                <p dangerouslySetInnerHTML={{ __html: detalleSeminario.profesor.descripcion }}></p>
+                                            </div>
+                                        </>) : (<></>)
+                                }
+                            </div>
+                        </Col>
+                        <Col xl={6} sm={12} md={6} className="mt-3">
+                            <div className="img-detalle-seminario">
+                                <img src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.oferta) : (<></>)} alt="" width={400} className="d-block mx-auto rounded w-100res h-100res" />
+                            </div>
+
+                        </Col>
+                    </Row>
+                </Container>
+            </div>
             <div className={`${!isdark ? "color-DarkMode-final" : ""}`}>
                 <Container>
                     <Row>
                         <Col xl={12}>
                             <h3 className={`fw-bolder text-center mt-5 d-block mx-auto w-100res ${!isdark ? "text-white" : "text-dark"}`} style={{ width: "35%" }}>Obtén un <span className="text-decoration-underline">Descuento Especial</span>
                                 &nbsp;en nuestro <span className="text-decoration-underline" style={{ color: "#CF1F4F" }}>próximo programa</span></h3>
-                            <img src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.promocion) : (<></>)} alt="" width={400} className="d-block mx-auto rounded my-5" />
+                            <img src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.promocion) : (<></>)} alt="" width={500} className="d-block mx-auto rounded my-5 img-fluid" />
+                            <h2 className="text-center fw-bolder my-5">No te pierdas la transmisión!!!!!</h2>
                         </Col>
                     </Row>
                 </Container>

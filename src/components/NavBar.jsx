@@ -3,11 +3,10 @@ import { Container, Row, Col, Nav, Navbar, NavDropdown, Offcanvas, Spinner } fro
 import { UserContext } from '../context/DarkModeContext';
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { parsearFecha, recortarTituloDiplomas } from "../helpers/funciones";
+import { parsearFecha, parsearHora, recortarTituloDiplomas } from "../helpers/funciones";
 import { BeneifioNav } from "./Navbar/BeneficioNav";
 import { BtnLogin } from "./PagePrincipal/BtnLogin";
 import { CerrarSesion } from "../helpers/ApiLogin";
-import { useEffect } from "react";
 export const NavBar = () => {
     const { cartItem, isdark, deleteItemsCart, diplomasLimit, cursosLimit, usuarioLogin, seminarios } = useContext(UserContext)
     const Swal = require('sweetalert2')
@@ -51,7 +50,7 @@ export const NavBar = () => {
             background: '#fff url(/images/trees.png)',
             backdrop: `
               rgba(0,0,123,0.4)
-              url("")
+              url("https://nuevapagina.s3.amazonaws.com/mascota.webp")
               left top
               no-repeat
             `
@@ -223,12 +222,21 @@ export const NavBar = () => {
                                     </button>
 
                                     <div className="mostrar start-50 translate-middle-x bg-white rounded py-3 px-4 shadow responseCarrito">
-                                        <div><h5 className="fw-bolder text-danger">Seminarios en Vivo</h5></div>
+                                        <div className="d-flex gap-3 align-items-center"><h6 className="fw-bolder m-0">Seminarios en Vivo</h6><div className="badge bg-danger bg-opacity-10 text-danger ms-2">{seminarios.length} seminario</div></div>
+                                        <hr />
                                         <div>
                                             {
                                                 seminarios !== undefined ? (
                                                     seminarios.map((semi) => (
-                                                        <img src={semi.banner.seminario} alt="" className="img-fluid rounded" />
+                                                        <div key={semi.id} className="d-flex gap-3">
+                                                            <img src={semi.banner.seminario} alt="" width={130} height={100} className="rounded mt-2 rounded" />
+                                                            <div>
+                                                                <h6 className="m-0 fw-bolder">{semi.titulo}</h6 >
+                                                                <p className="m-0"><span className="">Fecha : <span>{semi.fecha.substring(7,5)} de {parsearFecha(semi.fecha)}</span></span></p>
+                                                                <p className="m-0"><span className="">Hora : <span>{parsearHora(semi.hora)}</span></span></p>
+                                                                <Link to={`seminariosInfo/${semi.etiqueta}`} className="text-decoration-none">Ver Seminario 👉</Link>
+                                                            </div>
+                                                        </div>
 
                                                     )
 
@@ -238,7 +246,7 @@ export const NavBar = () => {
                                         </div>
                                         <div>
                                             {seminarios.length === 0 ? (
-                                                <div className="d-flex gap-3 align-items-center">
+                                                <div className="d-flex gap-3 align-items-center mt-2">
                                                     <Spinner animation="grow" variant="primary" />
                                                     <h4 className="m-0">No hay seminario en Vivo</h4>
                                                 </div>
@@ -265,7 +273,7 @@ export const NavBar = () => {
                                     </button>
 
                                     <div className="mostrar start-50 translate-middle-x bg-white rounded py-3 px-4 shadow responseCarrito">
-                                        <div><h4 className="fw-bolder">Carrito</h4></div>
+                                        <div className="d-flex gap-3 align-items-center"><h6 className="fw-bolder m-0">Carrito</h6><div className="badge bg-danger bg-opacity-10 text-danger ms-2">{cartItem.length} items</div></div>
                                         <div>
                                             {
                                                 cartItem !== undefined ? (
@@ -274,7 +282,7 @@ export const NavBar = () => {
                                                             <img loading="lazy" src={cart.imagen} alt="" width={100} height={65} className="rounded border border-dark" />
                                                             <div className="w-100">
                                                                 <p className="m-0 fw-bolder">{cart.titulo}</p>
-                                                                <p className="m-0 fs-6">{cart.tipo}</p>
+                                                                <p className="m-0 fs-6 fw-bolder">{cart.tipo}</p>
                                                                 <div className="d-flex gap-3 align-items-center">
                                                                     <p className="m-0 fw-bolder text-danger fs-5 ">S/. {cart.precio.final}</p>
                                                                     <p className="m-0 text-decoration-line-through">S/. {cart.precio.normal}</p>
@@ -288,13 +296,13 @@ export const NavBar = () => {
                                             <div>
                                                 {
                                                     cartItem.length === 0 ? (
-                                                        <div className="d-flex gap-3 align-items-center">
+                                                        <div className="d-flex gap-3 align-items-center mt-2">
                                                             <Spinner animation="grow" variant="primary" />
                                                             <h4 className="m-0">No tiene productos</h4>
                                                         </div>
 
                                                     ) : (<>
-                                                        <hr /><div className="d-flex justify-content-between">
+                                                        <hr /><div className="d-flex justify-content-between align-items-center">
                                                             <p className="m-0 fw-bolder mt-2 fs-4">Total: <span className="text-danger">S/. {total}</span></p>
                                                             <button className="btn btn-success">Comprar</button>
                                                         </div>
@@ -306,7 +314,7 @@ export const NavBar = () => {
                                 </div>
                                 {
                                     usuarioLogin.length !== 0 ? (
-                                        <div className="d-flex align-items-center gap-2 me-3">
+                                        <div className="d-flex align-items-center gap-4 me-3">
                                             <img src={usuarioLogin.avatar} alt="" width={50} height={50} className="rounded-circle" />
                                             <NavDropdown title={"Hola " + usuarioLogin.nombre} id="collasible-nav-dropdown" className="fw-bolder">
                                                 <div className="navbar-img py-3 d-flex align-items-center justify-content-center gap-3">
@@ -316,13 +324,13 @@ export const NavBar = () => {
                                                         <p className="m-0 text-white fw-normal font-size-14 text-light" >{usuarioLogin.tipo}</p>
                                                     </div>
                                                 </div>
-                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-laptop" aria-hidden="true"></i>Mi Aula</NavDropdown.Item>
-                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_perfil" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-user-circle-o" aria-hidden="true"></i>Mi perfil</NavDropdown.Item>
-                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/sesiones_hoy_manana.php" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Sesion Hoy y mañana</NavDropdown.Item>
+                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/" className="d-flex gap-3 align-items-center fw-bold text-secondary"><i className="fa fa-laptop" aria-hidden="true"></i>Mi Aula</NavDropdown.Item>
+                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_perfil" className="d-flex gap-3 align-items-center fw-bold text-secondary"><i className="fa fa-user-circle-o" aria-hidden="true"></i>Mi perfil</NavDropdown.Item>
+                                                <NavDropdown.Item href="https://aula.desarrolloglobal.pe/sesiones_hoy_manana.php" className="d-flex gap-3 align-items-center fw-bold text-secondary"><i className="fa fa-calendar" aria-hidden="true"></i>Sesion Hoy y mañana</NavDropdown.Item>
                                                 {
-                                                    usuarioLogin.tipo === "ADMI" ? (<NavDropdown.Item href="https://aula.desarrolloglobal.pe/admin/" className="d-flex gap-3 align-items-center fw-bold"><i className="fa fa-calendar" aria-hidden="true"></i>Administrador</NavDropdown.Item>) : (<></>)
+                                                    usuarioLogin.tipo === "ADMI" ? (<NavDropdown.Item href="https://aula.desarrolloglobal.pe/admin/" className="d-flex gap-3 align-items-center fw-bold text-secondary"><i className="fa fa-calendar" aria-hidden="true"></i>Administrador</NavDropdown.Item>) : (<></>)
                                                 }
-                                                <NavDropdown.Item className="d-flex gap-3 align-items-center fw-bold w-100 py-1" onClick={cerrarSesion}>
+                                                <NavDropdown.Item className="d-flex gap-3 align-items-center fw-bold w-100 py-1 text-secondary" onClick={cerrarSesion}>
                                                     <i className="fa fa-sign-in" aria-hidden="true"></i> Cerrar Sesion
                                                 </NavDropdown.Item>
                                             </NavDropdown>
