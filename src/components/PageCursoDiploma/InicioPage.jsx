@@ -11,6 +11,8 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
     let colorFondo = {
         background: color
     }
+
+    console.log(fecha)
     /*CONTADOR*/
     let dataParseada
 

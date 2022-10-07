@@ -7,6 +7,7 @@ import { parsearFecha, parsearHora, recortarTituloDiplomas } from "../helpers/fu
 import { BeneifioNav } from "./Navbar/BeneficioNav";
 import { BtnLogin } from "./PagePrincipal/BtnLogin";
 import { CerrarSesion } from "../helpers/ApiLogin";
+import { AlertaSeminario } from "./Navbar/AlertaSeminario";
 export const NavBar = () => {
     const { cartItem, isdark, deleteItemsCart, diplomasLimit, cursosLimit, usuarioLogin, seminarios } = useContext(UserContext)
     const Swal = require('sweetalert2')
@@ -94,6 +95,8 @@ export const NavBar = () => {
     let cursosNav = cursosLimit.slice(0, 8)
     console.log("Soiy seminario", seminarios)
     return (
+        <>
+        <AlertaSeminario {...seminarios}/>
         <Navbar collapseOnSelect bg="light" expand="xl" className="h-100" variant="white" >
             <Container fluid >
                 <Navbar.Brand href="#">{
@@ -232,7 +235,7 @@ export const NavBar = () => {
                                                             <img src={semi.banner.seminario} alt="" width={130} height={100} className="rounded mt-2 rounded" />
                                                             <div>
                                                                 <h6 className="m-0 fw-bolder">{semi.titulo}</h6 >
-                                                                <p className="m-0"><span className="">Fecha : <span>{semi.fecha.substring(7,5)} de {parsearFecha(semi.fecha)}</span></span></p>
+                                                                <p className="m-0"><span className="">Fecha : <span>{semi.fecha.substring(7, 5)} de {parsearFecha(semi.fecha)}</span></span></p>
                                                                 <p className="m-0"><span className="">Hora : <span>{parsearHora(semi.hora)}</span></span></p>
                                                                 <Link to={`seminariosInfo/${semi.etiqueta}`} className="text-decoration-none">Ver Seminario 👉</Link>
                                                             </div>
@@ -346,6 +349,7 @@ export const NavBar = () => {
                 </Navbar.Offcanvas>
             </Container>
         </Navbar >
+        </>
 
     )
 }
