@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { ApiCulqi } from "../../helpers/ApiCulqi";
+
+
 export const FormPasarela = () => {
+
+
     let inputStyle = {
         border: "1px solid #E4E7EE",
         height: "40px",
@@ -30,17 +34,21 @@ export const FormPasarela = () => {
         }
     };
 
-    /*  Configuracuion Culqi*/
+    const Culqi = window.Culqi;
+    const valor = 3000
     useEffect(() => {
-        window.Culqi.init();
+        Culqi.init();
     }, []);
-    window.Culqi.publicKey = "pk_test_6a775a8208136a3f";
-    window.Culqi.settings({
-        currency: "PEN",
-        amount: 3500, // Este parámetro es requerido para realizar pagos yape
-        order: "asdasd", // Este parámetro es requerido para realizar pagos con pagoEfectivo, billeteras y Cuotéalo
+
+    Culqi.publicKey = "pk_test_6a775a8208136a3f";
+
+
+    Culqi.settings({
+        currency: 'PEN',
+        amount: valor
     });
-    window.Culqi.options({
+
+    Culqi.options({
         paymentMethods: {
             tarjeta: true,
             bancaMovil: true,
@@ -50,46 +58,42 @@ export const FormPasarela = () => {
             yape: true,
         },
     });
-    const [contador, setContador] = useState(0);
 
 
-    useEffect(() => {
-        const btn_pagar = document.getElementById("btn_pagar");
-        window.Culqi.validationPaymentMethods();
+    const btn_pagar = document.getElementById("btn_pagar");
 
-        let paymentTypeAvailable = window.Culqi.paymentOptionsAvailable;
+    Culqi.validationPaymentMethods();
 
-        btn_pagar.addEventListener("click", function (e) {
-            setContador(contador + 1);
-            // Crea el objeto Token con Culqi JS
+    //Obtenemos los metodos de pagos disponibles
+    var paymentTypeAvailable = Culqi.paymentOptionsAvailable;
+    btn_pagar.addEventListener("click", function (e) {
+        // Crea el objeto Token con Culqi JS
+        if (paymentTypeAvailable.token.available) {
+            paymentTypeAvailable.token.generate();
+        }
+        // Crea el objeto Token con Culqi JS
+        if (paymentTypeAvailable.yape.available) {
+            paymentTypeAvailable.yape.generate();
+        }
+        // Crea cip
+        if (paymentTypeAvailable.cip.available) {
+            paymentTypeAvailable.cip.generate();
+        }
+        // Crea el link de cuotéalo
+        if (paymentTypeAvailable.cuotealo.available) {
+            paymentTypeAvailable.cuotealo.generate();
+        }
+        e.preventDefault();
+    });
 
-            if (paymentTypeAvailable.token.available) {
-                paymentTypeAvailable.token.generate();
-            }
-            // Crea el objeto Token con Culqi JS
-            if (paymentTypeAvailable.yape.available) {
-                paymentTypeAvailable.yape.generate();
-            }
-            // Crea cip
-            if (paymentTypeAvailable.cip.available) {
-                paymentTypeAvailable.cip.generate();
-            }
-            // Crea el link de cuotéalo
-            if (paymentTypeAvailable.cuotealo.available) {
-                paymentTypeAvailable.cuotealo.generate();
-            }
-            e.preventDefault();
-        });
-    }, []);
-    const culqi = () => {
-        if (window.Culqi.token) {
-            // Objeto Token creado exitosamente°!!
-            const token = window.Culqi.token.id;
-            ApiCulqi(window.Culqi.token)
+    function culqi() {
+        if (Culqi.token) {
+            // Objeto Token creado exitosamente!
+            const token = Culqi.token.id;
             console.log("Se ha creado un Token: ", token);
-        } else if (window.Culqi.order) {
+        } else if (Culqi.order) {
             // Objeto order creado exitosamente!
-            const order = window.Culqi.order;
+            const order = Culqi.order;
             console.log("Se ha creado el objeto Order: ", order);
             if (order.paymentCode) {
                 console.log("Se ha creado el cip: ", order.paymentCode);
@@ -102,20 +106,11 @@ export const FormPasarela = () => {
             }
         } else {
             // Mostramos JSON de objeto error en consola
-            console.log("Error : ", window.Culqi.error);
+            console.log("Error : ", Culqi.error);
         }
-    };
+    }
 
-    useEffect(() => {
-        const btn_pagar = document.getElementById("btn_pagar");
-        if (contador === 1) {
-            setTimeout(() => {
-                console.log("Entre");
-                btn_pagar.click();
-            }, 3000);
-            setContador(0);
-        }
-    }, [contador === 1]);
+
 
     return (
         <div className="w-100">
@@ -128,7 +123,7 @@ export const FormPasarela = () => {
                             {
                                 tarjetass()
                             }
-                            <input type="text" size="20" data-culqi="card[number]" id="card[number]" style={inputStyle} className="border-0" placeholder="0000-0000-0000-0000" value={tarjeta} onChange={onInputChange} />
+                            <input type="text" size="20" data-culqi="card[number]" id="card[number]" style={inputStyle} className="border-0" placeholder="0000-0000-0000-0000" />
                         </div>
                     </label>
                 </div>
@@ -162,7 +157,7 @@ export const FormPasarela = () => {
                     </label>
                 </div>
             </form>
-            <button id="btn_pagar" className="btn btn-primary mt-4 w-100 py-3 d-block mx-auto fw-bolder" onClick={culqi}>Completar Pago S/ 497.00</button>
+            <button id="btn_pagar" className="btn btn-primary mt-4 w-100 py-3 d-block mx-auto fw-bolder" onClick={culqi} >Completar Pago S/ 497.00</button>
         </div>
 
     )

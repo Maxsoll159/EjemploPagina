@@ -1,12 +1,13 @@
 import "../assets/DetalleSeminario.css";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { UserContext } from '../context/DarkModeContext';
 import { useContext, useEffect } from "react";
 import { postSeminario, seminarioId } from "../helpers/SeminariosApi";
 import { useState } from "react";
 import { parsearFecha, parsearHora } from "../helpers/funciones";
 export const DetalleSeminario = () => {
+    const location = useLocation()
     const Swal = require('sweetalert2')
     const { isdark } = useContext(UserContext)
 
@@ -176,16 +177,40 @@ export const DetalleSeminario = () => {
                         <Col xl={12}>
                             <h3 className={`fw-bolder text-center mt-5 d-block mx-auto w-100res ${!isdark ? "text-white" : "text-dark"}`} style={{ width: "35%" }}>Obtén un <span className="text-decoration-underline">Descuento Especial</span>
                                 &nbsp;en nuestro <span className="text-decoration-underline" style={{ color: "#CF1F4F" }}>próximo programa</span></h3>
-                            {
-                                detalleSeminario.asesor !== undefined ? (
-                                    <a href={`https://api.whatsapp.com/send?phone=51${detalleSeminario.asesor[0].telefono}&text=Hola,%20solicito%20información%20del%20%20Seminario:${detalleSeminario.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
-                                        <img loading="lazy" src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.promocion) : (<></>)} alt="" width={500} className="d-block mx-auto rounded my-5 img-fluid" />
-                                    </a>
-                                ) : (<></>)
-                            }
-
-                            <h2 className="text-center fw-bolder my-5">No te pierdas la transmisión!!!!!</h2>
                         </Col>
+                        {
+                            location.pathname.includes("conciliacion-entre-las-cuentas-contables-y-reportes-de-presupuestales-10086") ? (
+                                <>
+                                    <Col xl={6}>
+                                        {
+                                            detalleSeminario.asesor !== undefined ? (
+                                                <a href={`https://api.whatsapp.com/send?phone=51${detalleSeminario.asesor[0].telefono}&text=Hola,%20solicito%20información%20del%20%20Seminario:${detalleSeminario.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                                    <img loading="lazy" src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.promocion) : (<></>)} alt="" width={500} className="d-block mx-auto rounded my-5 img-fluid" />
+                                                </a>
+                                            ) : (<></>)
+                                        }
+
+                                    </Col>
+                                    <Col xl={6}>
+                                        <a href={`https://api.whatsapp.com/send?phone=51944551059&text=Hola,%20solicito%20información%20del%20%20Curso:CONTABILIDAD GUBERNAMENTAL EN EL SIAF RP,%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                            <img loading="lazy" src="https://nuevapagina.s3.amazonaws.com/curso-contabilidad-webp.webp" alt="" width={500} className="d-block mx-auto rounded my-5 img-fluid" />
+                                        </a>
+                                    </Col>
+                                </>
+                            ) : (
+                                <Col xl={12}>
+                                    {
+                                        detalleSeminario.asesor !== undefined ? (
+                                            <a href={`https://api.whatsapp.com/send?phone=51${detalleSeminario.asesor[0].telefono}&text=Hola,%20solicito%20información%20del%20%20Seminario:${detalleSeminario.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
+                                                <img loading="lazy" src={detalleSeminario.banner !== undefined ? (detalleSeminario.banner.promocion) : (<></>)} alt="" width={500} className="d-block mx-auto rounded my-5 img-fluid" />
+                                            </a>
+                                        ) : (<></>)
+                                    }
+                                    <h2 className="text-center fw-bolder my-5">No te pierdas la transmisión!!!!!</h2>
+                                </Col>
+                            )
+                        }
+
                     </Row>
                 </Container>
             </div>
