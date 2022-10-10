@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Form, Spinner, FloatingLabel  } from "react-bootstrap";
+import { Container, Row, Col, Card, Form, Spinner  } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import useObserver from "../../hooks/useObserver";
 import { parsearFecha } from "../../helpers/funciones";
@@ -110,7 +110,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
                     <Container fluid>
                         <Row>
                             <Col xl={8} lg={8} md={12} sm={12}>
-                                <div className="d-flex gap-3 px-5 py-3 align-items-center">
+                                <div className="d-flex gap-3 px-5 py-xxl-3 py-3 align-items-center">
                                     <img loading="lazy" src="https://archivos-comunes.s3.amazonaws.com/2022/nuevo_logo_blanco.png" alt="" width={190} />
                                     <img loading="lazy" src={imagen} alt="" width={171} height={70} className="rounded" />
                                     <p className="text-white fw-bolder m-0 lh-1 w-50">{titulo}</p>
@@ -137,7 +137,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
                         </Row>
                     </Container>
                 </div>
-                <div className={`w-100 bg-white position-fixed mt-4 z-index100 shadow ocultar d-md-none ${!prueba ? "d-lg-block" : "d-none"}`}>
+                <div className={`w-100 bg-white position-fixed z-index100 shadow ocultar d-md-none top-nav-curso ${!prueba ? "d-lg-block" : "d-none"}`}>
                     <Container>
                         <Row>
                             <Col xl={8} lg={8} md={12} sm={12}>
