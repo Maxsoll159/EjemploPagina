@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import useContador from "../../hooks/useContador"
 import useObserver from "../../hooks/useObserver"
 
@@ -8,6 +8,7 @@ import useObserver from "../../hooks/useObserver"
 export const AlertaSeminario = (prop) => {
     let navigate = useNavigate()
     const [fecha, setFecha] = useState("")
+    let location = useLocation()
 
     useEffect(() => {
         if (prop[0] !== undefined) {
@@ -34,16 +35,16 @@ export const AlertaSeminario = (prop) => {
     useEffect(() => {
         const intersector = document.querySelectorAll("#intersector")
         setElements(intersector)
-    }, [setElements])
+    }, [setElements,location.pathname ])
 
     useEffect(() => {
         entries.forEach(element => {
             setPrueba(element.isIntersecting)
         });
-    }, [entries, observe])
+    }, [entries, observe, location.pathname])
 
 
-
+    console.log("asd",prueba)
     return (
         <>
             {
