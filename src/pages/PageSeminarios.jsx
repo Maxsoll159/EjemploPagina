@@ -83,7 +83,7 @@ export const PageSeminarios = () => {
                     <h3 className={`fw-bolder text-center ${isdark ? "text-white" : "text-dark"}`} style={{ paddingTop: "80px" }}>Lista de Seminarios</h3>
                     <Row>
                         <Col xl={12}>
-                            <div>
+                            <Row>
                                 <InfiniteScroll
                                     className="w-100 d-flex justify-content-around flex-wrap"
                                     dataLength={seminariosTerminados.length} //This is important field to render the next data
@@ -92,67 +92,71 @@ export const PageSeminarios = () => {
                                     loader={<h4>Loading...</h4>}>
                                     {seminariosProximos === undefined ? (<h1>Cargando...</h1>) :
                                         seminariosProximos.map((seminariosProxi) => (
-                                            <Card key={seminariosProxi.id} style={{ width: '19rem' }} className={`mt-5 ${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`} data-aos="zoom-in">
-                                                <Card.Img variant="top" src={seminariosProxi.banner.seminario} height={220} />
-                                                <div className="bg-danger d-flex align-items-center gap-2 py-3 justify-content-center">
-                                                    <img src="/img/icons/LiveDiploCur.webp" alt="" />
-                                                    <h6 className="m-0 text-white fw-bolder">Proximo seminarios en vivo</h6>
-                                                </div>
-                                                <div className="bg-primary d-flex align-items-center gap-2 py-3 justify-content-center">
-                                                    <div className="d-flex gap-2 align-items-center">
-                                                        <img src="/img/icons/calendar.png" alt="" height={20} />
-                                                        <p className={`m-0 fw-bold ${isdark ? "text-white" : "text-dark"}`} >Fecha:  {(seminariosProxi.fecha).substring(8, 10)} de {parsearFecha(seminariosProxi.fecha)} </p>
+                                            <Col xl={3}>
+                                                <Card key={seminariosProxi.id} style={{ width: '19rem' }} className={`mt-5 ${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`} data-aos="zoom-in">
+                                                    <Card.Img variant="top" src={seminariosProxi.banner.oferta} height={180} />
+                                                    <div className="bg-danger d-flex align-items-center gap-2 py-3 justify-content-center">
+                                                        <img src="/img/icons/LiveDiploCur.webp" alt="" />
+                                                        <h6 className="m-0 text-white fw-bolder">Proximo seminarios en vivo</h6>
                                                     </div>
-                                                    <div className="d-flex gap-2 align-items-center">
-                                                        <img src="/img/iconsDarkMode/relojWhite.webp" alt="" height={20} />
-                                                        <p className={`m-0 fw-bold ${isdark ? "text-white" : "text-dark"}`}>{parsearHora(seminariosProxi.hora)}</p>
+                                                    <div className="bg-primary d-flex align-items-center gap-2 py-3 justify-content-center">
+                                                        <div className="d-flex gap-2 align-items-center">
+                                                            <img src="/img/icons/calendar.png" alt="" height={20} />
+                                                            <p className={`m-0 fw-bold ${isdark ? "text-white" : "text-dark"}`} >Fecha:  {(seminariosProxi.fecha).substring(8, 10)} de {parsearFecha(seminariosProxi.fecha)} </p>
+                                                        </div>
+                                                        <div className="d-flex gap-2 align-items-center">
+                                                            <img src="/img/iconsDarkMode/relojWhite.webp" alt="" height={20} />
+                                                            <p className={`m-0 fw-bold ${isdark ? "text-white" : "text-dark"}`}>{parsearHora(seminariosProxi.hora)}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <Card.Body className="p-4">
-                                                    <div>
-                                                        <h5 className={`m-0 fw-bolder altoTituloSeminario d-flex ${isdark ? "text-white" : "text-dark"}`}>{seminariosProxi.titulo.replace("<br>", "")}</h5>
-                                                    </div>
-                                                    <button onClick={() => irSeminarioProximo(seminariosProxi.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
-                                                        {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/icons/IconLapizDiplomado.webp" alt="" />)}Incribirme en el Seminario</button>
-                                                </Card.Body>
-                                            </Card>
+                                                    <Card.Body className="p-4">
+                                                        <div>
+                                                            <h5 className={`m-0 fw-bolder altoTituloSeminario d-flex ${isdark ? "text-white" : "text-dark"}`}>{seminariosProxi.titulo.replace("<br>", "")}</h5>
+                                                        </div>
+                                                        <button onClick={() => irSeminarioProximo(seminariosProxi.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
+                                                            {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/icons/IconLapizDiplomado.webp" alt="" />)}Incribirme en el Seminario</button>
+                                                    </Card.Body>
+                                                </Card>
+                                            </Col>
                                         ))}
                                     {seminariosTerminados === undefined ? (<h1>Cargando...</h1>) :
                                         seminariosTerminados.map((semTerminados) => (
-                                            <Card key={semTerminados.id} style={{ width: '19rem' }} className={`mt-5 ${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`} data-aos="zoom-in">
-                                                <Card.Img variant="top" className="cursor-pointer" src={semTerminados.banner.seminario} height={220} onClick={() => irSeminario(semTerminados.etiqueta)} />
-                                                <Card.Body className="p-4">
-                                                    <div className="d-flex gap-1 justify-content-center-res">
-                                                        <div className={`rec rounded-pill color-detalle fw-bolder text-center d-flex align-items-center justify-content-center color-prin-detalle ${isdark ? "" : ""}`}>Seminario</div>
-                                                        <div className={`rec rounded-pill fw-bolder text-center d-flex justify-content-center align-items-center gap-2 ${isdark ? "color-black back-black text-white" : "border border-dark"}`}>{
-                                                            !isdark ? (<img src="/img/icons/GrabadosIcon.svg" alt="" width={19} />) :
-                                                                (<img loading="lazy" src="/img/iconsDarkMode/GrabadosIconDark.svg" alt="" width={19} />)
-                                                        }Realizado</div>
-                                                    </div>
-                                                    <div>
-                                                        <h5 className={`m-0 fw-bolder mt-3 altoTituloSeminario d-flex cursor-pointer ${isdark ? "text-white" : "text-dark"}`} onClick={() => irSeminario(semTerminados.etiqueta)}>{recortarTitulo(semTerminados.titulo)}</h5>
-                                                        <div className="d-flex gap-2 mt-2 align-items-center">
-                                                            {!isdark ? (<img src="/img/icons/calendarDark.svg" alt="" />) :
-                                                                (<img src="/img/icons/calendar.png" alt="" height={18} />)
-                                                            }
-                                                            <p className={`m-0 fw-bolder ${isdark ? "text-white" : "text-dark"}`}>Fecha: {(semTerminados.fecha).substring(8, 10)} de {parsearFecha(semTerminados.fecha)}</p>
+                                            <Col xl={3}>
+                                                <Card key={semTerminados.id} style={{ width: '19rem' }} className={`mt-5 ${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`} data-aos="zoom-in">
+                                                    <Card.Img variant="top" className="cursor-pointer" src={semTerminados.banner.oferta} height={180} onClick={() => irSeminario(semTerminados.etiqueta)} />
+                                                    <Card.Body className="p-4">
+                                                        <div className="d-flex gap-1 justify-content-center-res">
+                                                            <div className={`rec rounded-pill color-detalle fw-bolder text-center d-flex align-items-center justify-content-center color-prin-detalle ${isdark ? "" : ""}`}>Seminario</div>
+                                                            <div className={`rec rounded-pill fw-bolder text-center d-flex justify-content-center align-items-center gap-2 ${isdark ? "color-black back-black text-white" : "border border-dark"}`}>{
+                                                                !isdark ? (<img src="/img/icons/GrabadosIcon.svg" alt="" width={19} />) :
+                                                                    (<img loading="lazy" src="/img/iconsDarkMode/GrabadosIconDark.svg" alt="" width={19} />)
+                                                            }Realizado</div>
                                                         </div>
-                                                        <div className="d-flex gap-2 mt-2 align-items-center">
-                                                            {
-                                                                !isdark ? (<img src="/img/icons/relojDark.svg" alt="" />)
-                                                                    : (<img src="/img/iconsDarkMode/relojWhite.webp" alt="" height={19} />)
-                                                            }
-                                                            <p className={`m-0 fw-bolder ${isdark ? "text-white" : "text-dark"}`}>{parsearHora(semTerminados.hora)}</p>
+                                                        <div>
+                                                            <h5 className={`m-0 fw-bolder mt-3 altoTituloSeminario d-flex cursor-pointer ${isdark ? "text-white" : "text-dark"}`} onClick={() => irSeminario(semTerminados.etiqueta)}>{recortarTitulo(semTerminados.titulo)}</h5>
+                                                            <div className="d-flex gap-2 mt-2 align-items-center">
+                                                                {!isdark ? (<img src="/img/icons/calendarDark.svg" alt="" />) :
+                                                                    (<img src="/img/icons/calendar.png" alt="" height={18} />)
+                                                                }
+                                                                <p className={`m-0 fw-bolder ${isdark ? "text-white" : "text-dark"}`}>Fecha: {(semTerminados.fecha).substring(8, 10)} de {parsearFecha(semTerminados.fecha)}</p>
+                                                            </div>
+                                                            <div className="d-flex gap-2 mt-2 align-items-center">
+                                                                {
+                                                                    !isdark ? (<img src="/img/icons/relojDark.svg" alt="" />)
+                                                                        : (<img src="/img/iconsDarkMode/relojWhite.webp" alt="" height={19} />)
+                                                                }
+                                                                <p className={`m-0 fw-bolder ${isdark ? "text-white" : "text-dark"}`}>{parsearHora(semTerminados.hora)}</p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <button onClick={() => irSeminario(semTerminados.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
-                                                        {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/iconsDarkMode/VerSeminarioDark.webp" alt="" />)}Ver Seminario Realizado</button>
-                                                </Card.Body>
-                                            </Card>
+                                                        <button onClick={() => irSeminario(semTerminados.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
+                                                            {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/iconsDarkMode/VerSeminarioDark.webp" alt="" />)}Ver Seminario Realizado</button>
+                                                    </Card.Body>
+                                                </Card>
+                                            </Col>
                                         ))
                                     }
                                 </InfiniteScroll>
-                            </div>
+                            </Row>
                         </Col>
                     </Row>
                 </Container>

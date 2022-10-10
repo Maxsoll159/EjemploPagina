@@ -160,7 +160,7 @@ export const Seminarios = () => {
                                             <div>
                                                 <h5 className='text-center mt-3'>Estamos en Linea 😃</h5>
                                                 <a className='btn btn-success w-100 p-2 fs-4 fw-bold' href={`https://api.whatsapp.com/send?phone=51${seminarios.asesor[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${seminarios.titulo},%20mi%20correo%20es:`}><i class="fa fa-whatsapp" aria-hidden="true"></i> {seminarios.asesor[0] === undefined ? (983495578) : (seminarios.asesor[0].telefono)}</a>
-                                                <ModalLive imagen={seminarios.banner.promocion} titulo={seminarios.titulo} fecha={seminarios.fecha}/>
+                                                <ModalLive imagen={seminarios.banner.promocion} titulo={seminarios.titulo} fecha={seminarios.fecha} />
                                             </div>
                                         </div>
                                     )
