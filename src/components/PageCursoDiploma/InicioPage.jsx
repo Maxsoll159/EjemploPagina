@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Form, Spinner  } from "react-bootstrap";
+import { Container, Row, Col, Card, Form, Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import useObserver from "../../hooks/useObserver";
 import { parsearFecha } from "../../helpers/funciones";
@@ -111,7 +111,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
                         <Row>
                             <Col xl={8} lg={8} md={12} sm={12}>
                                 <div className="d-flex gap-3 px-5 py-xxl-3 py-3 align-items-center">
-                                    <img loading="lazy" src="https://archivos-comunes.s3.amazonaws.com/2022/nuevo_logo_blanco.png" alt="" width={190} />
+                                    <img loading="lazy" src="https://archivos-comunes.s3.amazonaws.com/2022/nuevo_logo_blanco.png" alt="" width={190} className="d-xl-none d-xxl-block" />
                                     <img loading="lazy" src={imagen} alt="" width={171} height={70} className="rounded" />
                                     <p className="text-white fw-bolder m-0 lh-1 w-50">{titulo}</p>
                                     <div className="d-flex gap-3 me-5 d-lg-none d-xl-flex">
@@ -137,7 +137,8 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
                         </Row>
                     </Container>
                 </div>
-                <div className={`w-100 bg-white position-fixed z-index100 shadow ocultar d-md-none top-nav-curso ${!prueba ? "d-lg-block" : "d-none"}`}>
+
+                <div className={`w-100 bg-white position-fixed  z-index100 shadow ocultar mt-4 mt-lg-0 mt-xl-4 d-md-none ${!prueba ? "d-lg-block" : "d-none"}`}>
                     <Container>
                         <Row>
                             <Col xl={8} lg={8} md={12} sm={12}>
@@ -152,6 +153,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
                         </Row>
                     </Container>
                 </div>
+
                 <Container>
                     <Row>
                         <Col xl={8} lg={8} md={12} sm={12} className="my-4">
