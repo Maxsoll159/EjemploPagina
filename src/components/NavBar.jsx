@@ -209,6 +209,7 @@ export const NavBar = () => {
                                 <Link to="/InHouse" className="text-decoration-none text-dark" onClick={cerrarNavLink}><Nav className="fw-bolder">InHouse</Nav></Link>
                                 <Link to="/seminarios" className="text-decoration-none text-dark" onClick={cerrarNavLink}><Nav className="fw-bolder">Seminarios</Nav></Link>
                                 <Link to="/nosotros" className="text-decoration-none text-dark" onClick={cerrarNavLink}><Nav className="fw-bolder">Contactenos</Nav></Link>
+                                <a href="https://blog.desarrolloglobal.pe" className="text-decoration-none text-dark" ><Nav className="fw-bolder">Blog</Nav></a>
                             </div>
 
                             <div className="d-flex gap-2 gap-xl-4 mt-3 mt-xl-0 justify-content-center flex-column  align-items-start flex-xl-row align-items-xl-center ">
