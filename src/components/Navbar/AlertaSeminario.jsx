@@ -44,7 +44,6 @@ export const AlertaSeminario = (prop) => {
     }, [entries, observe, location.pathname])
 
 
-    console.log("asd",prueba)
     return (
         <>
             {

@@ -4,16 +4,28 @@ import { Row, Col, Modal } from "react-bootstrap";
 import { FormLogin } from "./FormLogin";
 
 
-export const BtnLogin = () => {
+export const BtnLogin = ({tipo}) => {
+
+    console.log(tipo)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
 
+    const tipoBoton = () =>{
+        if(tipo !== undefined){
+            return <button className="btn text-white d-flex align-items-center gap-2 d-xl-none d-xxl-none" style={{ background: "#4828FC" }} onClick={handleShow}><img src='/img/icons/IconLapto.webp' alt="desarrolloGlobal" /> Aula Virtual</button>
+        }else{
+            return <button className="color-informacion text-primary rounded border-0 py-2 px-4 fw-bolder shadow w-100res" onClick={handleShow}>Ingreso al Aula Virtual</button>
+        }
+    }
+
     return (
         <>
-            <button className="color-informacion text-primary rounded border-0 py-2 px-4 fw-bolder shadow w-100res" onClick={handleShow}>Ingreso al Aula Virtual</button>
+            {
+                tipoBoton()
+            }
             <Modal
                 show={show}
                 onHide={handleClose}
