@@ -7,6 +7,7 @@ import { seminarioId } from '../helpers/SeminariosApi';
 import { parsearFecha, parsearHora } from '../helpers/funciones';
 import Plyr from "plyr";
 import "../../node_modules/plyr/dist/plyr.css";
+import { Helmet } from 'react-helmet';
 export const Seminarios = () => {
     let { id } = useParams();
     const [seminarios, setSeminarios] = useState([])
@@ -36,9 +37,35 @@ export const Seminarios = () => {
             };
         }
     }, 10)
-
+    console.log(seminarios)
     return (
         <>
+            <Helmet>
+
+                <title>{seminarios.titulo}</title>
+                <meta name={seminarios.titulo} content={seminarios.descripcion} />
+
+                <meta name="author" content="Centro de Capacitación y Desarrollo Global" />
+                <meta name="google-signin-client_id" content="740073627785-npq9orne985ob2cs6j5qlb9m2sdsl2lg.apps.googleusercontent.com" />
+                <meta name="google-site-verification" content="hWAwX4vVYax5SPwJoWF6AzsqmoKcV1XmuWQgHgqoD44" />
+                <link rel="alternate" hreflang="es" href="https://aula.desarrolloglobal.pe/" />
+
+                <meta property="og:site_name" content="Centro de Capacitación y Desarrollo Global" />
+                <meta property="fb:app_id" content="226972427818042" />
+
+                <meta property="og:title" content={seminarios.titulo} />
+                <meta property="og:description" content={seminarios.descripcion} />
+                <Helmet>
+                    {
+                        seminarios.banner !== undefined ? (
+                            <>
+                                <meta property="og:image" content={seminarios.banner.seminario} />
+                                <meta property="og:image:secure_url" content={seminarios.banner.seminario} />
+                            </>
+                        ) : (<></>)
+                    }
+                </Helmet>
+            </Helmet>
             {(seminarios === [] || seminarios === undefined) ? (<h1>Cargando</h1>)
                 : (<Container fluid>
                     <Row style={{ height: "calc(100vh - 76.72px)" }}>

@@ -1,6 +1,6 @@
 import { LoginUsuario } from "../../helpers/ApiLogin";
 import { Form } from "react-bootstrap";
-import { useContext , useState} from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../context/DarkModeContext";
 import { useLocation } from "react-router-dom";
 
@@ -33,8 +33,8 @@ export const FormLogin = () => {
                     document.cookie = `token=${res.token};domain=.desarrolloglobal.pe`;
                     setUsuarioLogin(res)
                     setTimeout(() => {
-                        if(!location.pathname.includes("/pasarela-pagos")){
-                            window.location.href = "https://aula.desarrolloglobal.pe/aula/#tab_tablero"
+                        if (!location.pathname.includes("/pasarela-pagos")) {
+                           // window.location.href = "https://aula.desarrolloglobal.pe/aula/#tab_tablero"
                         }
                     }, 1000)
 

@@ -8,7 +8,7 @@ import { confeti } from "../helpers/funciones";
 import { Informacion } from "../components/CursosDiploma/Infomacion";
 import { CartsPagePrin } from "../components/PagePrincipal/CartsPagePrin";
 import AOS from 'aos';
-
+import { Helmet } from "react-helmet";
 export const PagePrincipal = () => {
 
     let navigate = useNavigate()
@@ -43,11 +43,37 @@ export const PagePrincipal = () => {
     }
     return (
         <>
+
+            <Helmet>
+                <title>Centro de Capacitación y Desarrollo Global</title>
+                <meta
+                    name="Desarrollo Global"
+                    content="Centro de Capacitación y Desarrollo Global es una Empresa Educativa privada dedicada a proveer desarrollo gerencial de amplio rango a los servidores civiles, técnicos y profesionales de nuestro país, a través de los servicios educativos en temas de gestión gubernamental."
+                />
+
+                <meta name="author" content="Centro de Capacitación y Desarrollo Global" />
+                <meta name="google-signin-client_id" content="740073627785-npq9orne985ob2cs6j5qlb9m2sdsl2lg.apps.googleusercontent.com" />
+                <meta name="google-site-verification" content="hWAwX4vVYax5SPwJoWF6AzsqmoKcV1XmuWQgHgqoD44" />
+                <link rel="alternate" hreflang="es" href="https://aula.desarrolloglobal.pe/" />
+
+                <meta property="og:site_name" content="Centro de Capacitación y Desarrollo Global" />
+                <meta property="fb:app_id" content="226972427818042" />
+
+                <meta property="og:title" content="Planeamiento y Presupuesto en la Gestión Pública" />
+                <meta property="og:description" content="Centro de Capacitación y Desarrollo Global es una Empresa Educativa privada dedicada a proveer desarrollo gerencial de amplio rango a los servidores civiles, técnicos y profesionales de nuestro país, a través de los servicios educativos en temas de gestión gubernamental." />
+                {/*
+                    <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
+                    <meta property="og:image:secure_url" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
+                */}
+                
+
+            </Helmet>
+
             <div>
                 <Carousel>
                     <Carousel.Item interval={2000}>
                         <img src="https://nuevapagina.s3.amazonaws.com/bannerPc.webp" alt="" className="w-100 d-none d-sm-block d-xl-block" height={448} />
-                        <img src="https://nuevapagina.s3.amazonaws.com/bannerMovil.webp" alt="" className="w-100 d-sm-none d-xl-none" height={448}/>
+                        <img src="https://nuevapagina.s3.amazonaws.com/bannerMovil.webp" alt="" className="w-100 d-sm-none d-xl-none" height={448} />
                     </Carousel.Item>
                     <Carousel.Item interval={2000}>
                         <div className="bannerStyle banner1">

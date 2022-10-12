@@ -245,7 +245,9 @@ input:checked+.slider:before {
 .formPago::placeholder{
   padding-left: 2px;
 }
-
+.dropdown-menu{
+  padding-bottom: 15px !important;
+}
 @media only screen and (max-width: 600px) {
   .prueba{
     display: block;

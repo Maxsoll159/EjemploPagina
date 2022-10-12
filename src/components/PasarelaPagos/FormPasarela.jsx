@@ -60,31 +60,33 @@ export const FormPasarela = () => {
     });
 
 
-    const btn_pagar = document.getElementById("btn_pagar");
+    useEffect(() => {
+        const btn_pagar = document.getElementById("btn_pagar");
 
-    Culqi.validationPaymentMethods();
+        Culqi.validationPaymentMethods();
 
-    //Obtenemos los metodos de pagos disponibles
-    var paymentTypeAvailable = Culqi.paymentOptionsAvailable;
-    btn_pagar.addEventListener("click", function (e) {
-        // Crea el objeto Token con Culqi JS
-        if (paymentTypeAvailable.token.available) {
-            paymentTypeAvailable.token.generate();
-        }
-        // Crea el objeto Token con Culqi JS
-        if (paymentTypeAvailable.yape.available) {
-            paymentTypeAvailable.yape.generate();
-        }
-        // Crea cip
-        if (paymentTypeAvailable.cip.available) {
-            paymentTypeAvailable.cip.generate();
-        }
-        // Crea el link de cuotéalo
-        if (paymentTypeAvailable.cuotealo.available) {
-            paymentTypeAvailable.cuotealo.generate();
-        }
-        e.preventDefault();
-    });
+        //Obtenemos los metodos de pagos disponibles
+        var paymentTypeAvailable = Culqi.paymentOptionsAvailable;
+        btn_pagar.addEventListener("click", function (e) {
+            // Crea el objeto Token con Culqi JS
+            if (paymentTypeAvailable.token.available) {
+                paymentTypeAvailable.token.generate();
+            }
+            // Crea el objeto Token con Culqi JS
+            if (paymentTypeAvailable.yape.available) {
+                paymentTypeAvailable.yape.generate();
+            }
+            // Crea cip
+            if (paymentTypeAvailable.cip.available) {
+                paymentTypeAvailable.cip.generate();
+            }
+            // Crea el link de cuotéalo
+            if (paymentTypeAvailable.cuotealo.available) {
+                paymentTypeAvailable.cuotealo.generate();
+            }
+            e.preventDefault();
+        });
+    },[])
 
     function culqi() {
         if (Culqi.token) {

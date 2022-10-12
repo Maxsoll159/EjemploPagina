@@ -344,15 +344,15 @@ export const NavBar = () => {
                                                         </div>
                                                     </div>
                                                     <hr className="m-0 mb-3" />
-                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/" className="d-flex gap-3 align-items-center fw-bold"><img src="/img/icons/IconNavLap.webp" alt="" width={20} />Mi Aula</NavDropdown.Item>
-                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_perfil" className="d-flex gap-3 align-items-center fw-bold"><img src="/img/icons/IconNavUsu.webp" alt="" width={20} />Mi perfil</NavDropdown.Item>
-                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_cursos" className="d-flex gap-3 align-items-center fw-bold"><img src="/img/icons/IconNavCur.webp" alt="" width={20} />Mis Cursos</NavDropdown.Item>
-                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_diplomas" className="d-flex gap-3 align-items-center fw-bold"><img src="/img/icons/IconNavCur.webp" alt="" width={20} />Miss Diplomas</NavDropdown.Item>
-                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/sesiones_hoy_manana.php" className="d-flex gap-3 align-items-center fw-bold"><img src="/img/icons/IconNavCalen.webp" alt="" width={20} />Sesion Hoy y mañana</NavDropdown.Item>
+                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/" className="d-flex gap-3 align-items-center"><img src="/img/icons/IconNavLap.webp" alt="" width={20} />Mi Aula</NavDropdown.Item>
+                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_perfil" className="d-flex gap-3 align-items-center"><img src="/img/icons/IconNavUsu.webp" alt="" width={20} />Mi perfil</NavDropdown.Item>
+                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_cursos" className="d-flex gap-3 align-items-center"><img src="/img/icons/IconNavCur.webp" alt="" width={20} />Mis Cursos</NavDropdown.Item>
+                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/aula/#tab_diplomas" className="d-flex gap-3 align-items-center"><img src="/img/icons/IconNavCur.webp" alt="" width={20} />Miss Diplomas</NavDropdown.Item>
+                                                    <NavDropdown.Item href="https://aula.desarrolloglobal.pe/sesiones_hoy_manana.php" className="d-flex gap-3 align-items-center"><img src="/img/icons/IconNavCalen.webp" alt="" width={20} />Sesion Hoy y mañana</NavDropdown.Item>
                                                     {
-                                                        usuarioLogin.tipo === "ADMI" ? (<NavDropdown.Item href="https://aula.desarrolloglobal.pe/admin/" className="d-flex gap-3 align-items-center fw-bold"><img src="/img/icons/IconNavAdmin.webp" alt="" width={20} />Administrador</NavDropdown.Item>) : (<></>)
+                                                        usuarioLogin.tipo === "ADMI" ? (<NavDropdown.Item href="https://aula.desarrolloglobal.pe/admin/" className="d-flex gap-3 align-items-center"><img src="/img/icons/IconNavAdmin.webp" alt="" width={20} />Administrador</NavDropdown.Item>) : (<></>)
                                                     }
-                                                    <NavDropdown.Item className="d-flex gap-3 align-items-center w-100 py-1 fw-bold" onClick={cerrarSesion}>
+                                                    <NavDropdown.Item className="d-flex gap-3 align-items-center w-100 py-1" onClick={cerrarSesion}>
                                                         <img src="/img/icons/IconNavSalir.webp" alt="" width={20} />Cerrar Sesion
                                                     </NavDropdown.Item>
                                                 </NavDropdown>
