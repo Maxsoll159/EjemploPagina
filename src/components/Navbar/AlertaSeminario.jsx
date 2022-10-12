@@ -43,7 +43,6 @@ export const AlertaSeminario = (prop) => {
         });
     }, [entries, observe, location.pathname])
 
-
     return (
         <>
             {
