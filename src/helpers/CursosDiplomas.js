@@ -106,3 +106,27 @@ export const getLocalizacion = () => {
       console.log(error);
     });
 };
+
+
+
+export const ApiDiplomados = () => {
+  return axios
+    .get("https://aula.desarrolloglobal.pe/v03/api/diplomados")
+    .then(function (response) {
+      return response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};
+
+export const ApiDiplomadosEtiqueta = (etiqueta) => {
+  return axios
+    .get(`https://aula.desarrolloglobal.pe/v03/api/diplomados/${etiqueta}`)
+    .then(function (response) {
+      return response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+};

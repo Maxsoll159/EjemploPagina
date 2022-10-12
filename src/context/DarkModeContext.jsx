@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { createContext, useState } from "react";
 import { valirdarUsuario } from "../helpers/ApiLogin";
-import { ApiCursos, ApiDiplomas } from "../helpers/CursosDiplomas";
+import { ApiCursos, ApiDiplomados, ApiDiplomas } from "../helpers/CursosDiplomas";
 import { seminariosLive } from "../helpers/SeminariosApi";
 export const UserContext = createContext();
 
@@ -52,20 +52,23 @@ export const DarkModeProvider = ({ children }) => {
     const [diplomasLimit, setDiplomasLimit] = useState([])
     const [cursosLimit, setCursosLimit] = useState([])
     const [seminarios, setSeminarios] = useState([])
-
+    const [diplomados, setDiplomados] = useState([])
     useEffect(() => {
         ApiDiplomas().then((diplo) => setDiplomasLimit(diplo.envivo))
     }, [])
 
     useEffect(() => {
-        seminariosLive().then((seminario) => setSeminarios(seminario.proximos   ))
+        seminariosLive().then((seminario) => setSeminarios(seminario.proximos))
     }, [])
 
     useEffect(() => {
         ApiCursos().then((curso) => setCursosLimit(curso.envivo))
     }, [])
 
-
+    useEffect(() => {
+        ApiDiplomados().then((diplomado) => setDiplomados(diplomado.envivo))
+    }, [])
+    
 
     const Swal = require('sweetalert2')
 
@@ -133,7 +136,7 @@ export const DarkModeProvider = ({ children }) => {
 
     const [isdark, setIsDark] = useState(true)
     return (
-        <UserContext.Provider value={{ isdark, setIsDark, cartItem, addToCart, deleteItemsCart, diplomasLimit, cursosLimit, setUsuarioLogin, usuarioLogin, seminarios }}>
+        <UserContext.Provider value={{ isdark, setIsDark, cartItem, addToCart, deleteItemsCart, diplomasLimit, cursosLimit, setUsuarioLogin, usuarioLogin, seminarios ,diplomados}}>
             {children}
         </UserContext.Provider>
     )

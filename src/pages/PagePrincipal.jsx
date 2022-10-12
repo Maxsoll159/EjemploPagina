@@ -16,8 +16,9 @@ export const PagePrincipal = () => {
         btnProx: true,
         btnDiplo: false,
         btnCur: false,
+        btnDiplomado: false,
     })
-    const { btnProx, btnDiplo, btnCur } = botones
+    const { btnProx, btnDiplo, btnCur, btnDiplomado} = botones
     useEffect(() => {
         setTimeout(() => {
             confeti()
@@ -150,19 +151,27 @@ export const PagePrincipal = () => {
                                 <button className={`btn rounded-pill px-4 py-2 padding-button-principal border-radius-res fw-bold ${btnProx ? "btn-light text-primary" : "contenedorBotonesPrinc text-white"}`} onClick={() => setBotones({
                                     btnProx: true,
                                     btnDiplo: false,
-                                    btnCur: false
+                                    btnCur: false,
+                                    btnDiplomado: false,
                                 })}>Proximo Inicios</button>
                                 <button className={`btn rounded-pill px-4 py-2 padding-button-principal border-radius-res fw-bold ${btnDiplo ? "btn-light text-primary" : "contenedorBotonesPrinc text-white"}`} onClick={() => setBotones({
                                     btnProx: false,
                                     btnDiplo: true,
-                                    btnCur: false
+                                    btnCur: false,
+                                    btnDiplomado: false,
                                 })} >Diplomas</button>
                                 <button className={`btn rounded-pill px-4 py-2 padding-button-principal border-radius-res fw-bold ${btnCur ? "btn-light text-primary" : "contenedorBotonesPrinc text-white"}`} onClick={() => setBotones({
                                     btnProx: false,
                                     btnDiplo: false,
-                                    btnCur: true
+                                    btnCur: true,
+                                    btnDiplomado: false,
                                 })}>Cursos</button>
-                                <button className="btn contenedorBotonesPrinc text-white rounded-pill px-4 py-2 padding-button-principal border-radius-res fw-bold" onClick={() => verMas("diplomados")}>Diplomados</button>
+                                <button className={`btn rounded-pill px-4 py-2 padding-button-principal border-radius-res fw-bold ${btnDiplomado ? "btn-light text-primary" : "contenedorBotonesPrinc text-white"}`} onClick={() => setBotones({
+                                    btnProx: false,
+                                    btnDiplo: false,
+                                    btnCur: false,
+                                    btnDiplomado: true,
+                                })}>Diplomados</button>
                                 <button className="btn contenedorBotonesPrinc text-white rounded-pill px-4 py-2 padding-button-principal border-radius-res fw-bold" onClick={() => verMas("inhouse")}>InHouse</button>
                                 <button className="btn contenedorBotonesPrinc text-white rounded-pill px-4 py-2 padding-button-principal border-radius-res fw-bold" onClick={() => verMas("seminarios")}>Seminarios Gratuitos</button>
                             </div>

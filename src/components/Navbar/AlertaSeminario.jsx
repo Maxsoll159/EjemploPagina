@@ -43,12 +43,13 @@ export const AlertaSeminario = (prop) => {
         });
     }, [entries, observe, location.pathname])
 
+    console.log()
     return (
         <>
             {
                 prop[0] !== undefined ? (
                     new Date((prop[0].fecha)) > new Date() ? (
-                        <div style={{ background: "#2C3C67" }} className={`${!prueba ? "d-none" : "d-block"}`}>
+                        <div style={{ background: "#2C3C67" }}>
                             <div className="d-flex align-items-center justify-content-center flex-wrap py-3 py-xl-0 py-lg-0 flex-md-nowrap w-100">
                                 <p className="fw-bolder text-center m-0 text-white">🚀 Nuestro Proximo seminario gratuito inicia en: </p>
                                 <div className="d-flex gap-3 px-lg-5 px-xl-5 px-sm-5 py-1 align-items-center">

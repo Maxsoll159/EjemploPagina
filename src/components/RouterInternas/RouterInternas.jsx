@@ -20,6 +20,7 @@ import { ProteccionDatos } from "../Politicas/ProteccionDatos"
 import { TerminosCondiciones } from "../Politicas/TerminosCondiciones"
 import { Routes, Route, useLocation } from "react-router-dom";
 import {NavBar} from '../NavBar'
+import { PageDiplomado } from "../../pages/PageDiplomado"
 
 export const RouterInternas = () => {
 
@@ -40,6 +41,7 @@ export const RouterInternas = () => {
                 <Route path="cursos/:etiqueta" element={<PageCursos />} />
                 <Route path="cursos" element={<Cursos />} />
                 <Route path="diplomas" element={<Diplomas />} />
+                <Route path="diplomados/:etiqueta" element={<PageDiplomado />} />
                 <Route path="InHouse" element={<PageInHouse />} />
                 <Route path="nosotros" element={<PageNosotros />} />
                 <Route path="seminarios/:id" element={<Seminarios />} />

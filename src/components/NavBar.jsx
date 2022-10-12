@@ -103,7 +103,7 @@ export const NavBar = () => {
     console.log("Soiy seminario", usuarioLogin)
     return (
         <>
-            {/*}<AlertaSeminario {...seminarios} /> */}
+            <AlertaSeminario {...seminarios} />
             <Navbar collapseOnSelect bg="light" expand="xl" className="h-100" variant="white" >
                 <Container fluid >
                     <Navbar.Brand href="#">{
