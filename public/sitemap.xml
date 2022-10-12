@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url> 
+  <loc>https://desarrolloGlobal.pe/</loc> 
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/seminarios</loc> 
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/diplomas/:etiqueta</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/cursos/:etiqueta</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>  
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/cursos</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>  
+</url>
+<url>
+  <loc>https://desarrolloGlobal.pe/diplomas</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/diplomados/:etiqueta</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/InHouse</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/nosotros</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>  
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/seminarios/:id</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>  
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/seminariosInfo/:name</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/politicas-de-privacidad</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/politicas-de-privacidad/proteccion-datos</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/politicas-de-privacidad/terminos-servicios</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>  
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/politicas-de-privacidad/politicas-cookies</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/politicas-de-privacidad/politicas-calidad</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/politicas-de-privacidad/libro-reclamaciones</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/buscar_certificado</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+  </url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/registro</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+<url> 
+  <loc>https://desarrolloGlobal.pe/*</loc>
+  <lastmod>2022-10-12T20:59:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority> 
+</url>
+</urlset>
