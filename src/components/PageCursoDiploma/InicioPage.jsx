@@ -218,7 +218,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
                                             ) : (<Spinner animation="grow" variant="primary" className="mx-auto" />)}
                                         </div>
                                         <div>
-                                            <Form className="mt-2" onSubmit={handlerFrom}>
+                                            <Form className="mt-2" onSubmit={handlerFrom} id="form-page-curDipo">
                                                 <Form.Group className="mb-2 border border-dark rounded" controlId="nombre">
                                                     <Form.Control type="text" placeholder="Nombres" />
                                                 </Form.Group>
