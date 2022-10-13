@@ -31,6 +31,7 @@ export const Seminarios = () => {
                 sources: [
                     {
                         src: `https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/play.html?name=seminario13`,
+                        provider: 'antmediaserver',
                     },
                 ],
                 previewThumbnails: {
