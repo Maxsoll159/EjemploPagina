@@ -41,7 +41,7 @@ export const AlertaSeminario = (prop) => {
             setPrueba(element.isIntersecting)
         });
     }, [entries, observe, location.pathname])
-
+    console.log("asd",prop)
     return (
         <>
             {
@@ -74,7 +74,7 @@ export const AlertaSeminario = (prop) => {
                             </div>
                         </div>) : (<div className="bg-danger d-flex justify-content-center align-items-center gap-3 py-3 flex-column flex-xl-row flex-lg-row flex-md-row flex-sm-row">
                             <p className="fw-bolder m-0 text-white text-center">🚀 Entamos transmitiendo en vivo en este momento</p>
-                            <button className="btn text-danger fw-bolder bg-white"><a href="https://aula.desarrolloglobal.pe/prox-seminario/sistemas-administrativos-del-estado-10081" className="text-danger text-decoration-none"> <img src="/img/icons/LiveSeminario.webp" alt="" /> Ver Seminario</a></button>
+                            <button className="btn text-danger fw-bolder bg-white"><a href={`https://aula.desarrolloglobal.pe/prox-seminario/${prop[0].etiqueta}`} className="text-danger text-decoration-none"> <img src="/img/icons/LiveSeminario.webp" alt="" /> Ver Seminario</a></button>
                         </div>
                     )
                 ) : (<></>)
