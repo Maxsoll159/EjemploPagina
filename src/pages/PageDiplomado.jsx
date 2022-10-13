@@ -35,6 +35,7 @@ export const PageDiplomado = () => {
             asesores: diplo.asesores,
             testimonios: diplo.testimonios,
             cursos: diplo.cursos,
+            seo: diplo.seo
         }))
     }, [etiqueta])
     /*Para el Acordeon*/
@@ -50,11 +51,12 @@ export const PageDiplomado = () => {
         }
 
     }
+    console.log("ASD",infoIni)
     totalSesiones()
     const [isActive, setIsActive] = useState(false)
     return (
         <>
-            <InicioPage {...infoIni.dataInicial} totalSesionesDiploma={TotalSesionesDiploma}  asesores={infoIni.asesores}/>
+            <InicioPage {...infoIni.dataInicial} totalSesionesDiploma={TotalSesionesDiploma}  asesores={infoIni.asesores} seo={infoIni.seo}/>
             <div id="temario">
                 <Container>
                     <Row>

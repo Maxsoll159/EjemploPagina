@@ -26,6 +26,9 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
         navigate(`/diplomas`, { replace: false });
     }
 
+    const irDiplomados = () => {
+        navigate(`/diplomados`, { replace: false });
+    }
 
     return (
         <>
@@ -234,7 +237,7 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                         ))}
                         <Col xl={12}>
                             <div className="mt-5">
-                                <button className="btn btn-primary d-block mx-auto fw-bolder" onClick={irCursos}>Ver mas Cursos</button>
+                                <button className="btn btn-primary d-block mx-auto fw-bolder" onClick={irDiplomados}>Ver mas Diplomados</button>
                             </div>
                         </Col>
                     </Row>) : (<>Cargando....</>)

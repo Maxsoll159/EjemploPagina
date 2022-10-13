@@ -21,6 +21,7 @@ import { TerminosCondiciones } from "../Politicas/TerminosCondiciones"
 import { Routes, Route, useLocation } from "react-router-dom";
 import {NavBar} from '../NavBar'
 import { PageDiplomado } from "../../pages/PageDiplomado"
+import { Diplomados } from "../../pages/Diplomado"
 
 export const RouterInternas = () => {
 
@@ -41,6 +42,7 @@ export const RouterInternas = () => {
                 <Route path="cursos/:etiqueta" element={<PageCursos />} />
                 <Route path="cursos" element={<Cursos />} />
                 <Route path="diplomas" element={<Diplomas />} />
+                <Route path="diplomados" element={<Diplomados />} />
                 <Route path="diplomados/:etiqueta" element={<PageDiplomado />} />
                 <Route path="InHouse" element={<PageInHouse />} />
                 <Route path="nosotros" element={<PageNosotros />} />

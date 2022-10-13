@@ -37,6 +37,7 @@ export const PageCursos = () => {
             colorCurso: curso.color,
             icono: curso.icono,
             titulo: curso.titulo,
+            seo: curso.seo
         }))
     }, [etiqueta])
     let TotalSesionesDiploma = 0
@@ -63,10 +64,9 @@ export const PageCursos = () => {
         }
     }
 
-
     return (
         <>
-            <InicioPage {...infoIni.dataInicial} totalSesionesDiploma={TotalSesionesDiploma} asesores={infoIni.asesores}/>
+            <InicioPage {...infoIni.dataInicial} totalSesionesDiploma={TotalSesionesDiploma} asesores={infoIni.asesores} seo={infoIni.seo}/>
             <div>
                 <Container>
                     <Row>

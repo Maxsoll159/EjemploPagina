@@ -35,6 +35,7 @@ export const PageDiplomas = () => {
             asesores: diplo.asesores,
             testimonios: diplo.testimonios,
             cursos: diplo.cursos,
+            seo: diplo.seo
         }))
     }, [etiqueta])
     /*Para el Acordeon*/
@@ -54,7 +55,7 @@ export const PageDiplomas = () => {
     const [isActive, setIsActive] = useState(false)
     return (
         <>
-            <InicioPage {...infoIni.dataInicial} totalSesionesDiploma={TotalSesionesDiploma}  asesores={infoIni.asesores}/>
+            <InicioPage {...infoIni.dataInicial} totalSesionesDiploma={TotalSesionesDiploma}  asesores={infoIni.asesores} seo={infoIni.seo}/>
             <div id="temario">
                 <Container>
                     <Row>

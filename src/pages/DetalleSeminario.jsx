@@ -103,7 +103,7 @@ export const DetalleSeminario = () => {
                 <div className={`${!isdark ? "color-DarkMode-DetalleSeminario" : ""}`}>
                     <Container>
                         <Row className="align-items-center">
-                            <Col xl={6} sm={12} md={6}>
+                            <Col xl={6} sm={12} md={6} className="p-4">
                                 <div className="d-flex gap-2 mt-5 justify-content-center-res">
                                     <div className={`rec rounded-pill color-detalle fw-bolder text-center d-flex align-items-center justify-content-center color-prin-detalle ${!isdark ? "bg-white" : ""}`}>Seminario</div>
                                     <div className={`rec rounded-pill color2-detalle fw-bolder text-center d-flex justify-content-center align-items-center gap-2 ${!isdark ? "bg-white" : ""}`}><div className="live"></div>En vivo</div>
@@ -126,7 +126,7 @@ export const DetalleSeminario = () => {
                                     <img src="/img/icons/compartir.webp" alt="" height={18} />
                                 </div>
                             </Col>
-                            <Col xl={6} sm={12} md={6} className="p-5 padding-detalle-4 d-none d-sm-block">
+                            <Col xl={6} sm={12} md={6} className="p-5 padding-detalle-4">
                                 <Form className="bg-white p-4 mx-auto rounded w-100res form-width shadow" style={{ width: "400px" }} onSubmit={infoSeminario}>
 
                                     <h5 className="fw-bolder text-center">Regístrate y participa en esta 👇

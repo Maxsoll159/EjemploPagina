@@ -8,6 +8,7 @@ export const Listar = ({ tipo, envivo, grabados }) => {
     {/*USECONTEXT PARA CARRITO*/ }
     const { addToCart } = useContext(UserContext)
 
+    console.log(tipo)
 
     let navigate = useNavigate();
     const [{ Apivivo, Apigrabado }, setInformacion] = useState({
@@ -70,7 +71,7 @@ export const Listar = ({ tipo, envivo, grabados }) => {
                                                     <div className={`rec rounded-pill color-detalle fw-bolder text-center d-flex align-items-center justify-content-center color-prin-detalle bg-white`}>{tipo}</div>
                                                     <div className={`rec rounded-pill color2-detalle fw-bolder text-center d-flex justify-content-center align-items-center gap-2 bg-white`}><div className="live"></div>En vivo</div>
                                                 </div>
-                                                <Card.Title className="mt-2 fw-bolder cursor-pointer" style={{ height: "50px" }} onClick={() => verDetalles(curvivo.etiqueta)}>{recortarTituloDiplomas(curvivo.titulo)}</Card.Title>
+                                                <Card.Title className="mt-2 fw-bolder cursor-pointer" style={{ height: "63px" }} onClick={() => verDetalles(curvivo.etiqueta)}>{recortarTituloDiplomas(curvivo.titulo)}</Card.Title>
                                                 <div>
                                                     <div className="d-flex align-items-center gap-1">
                                                         <img loading="lazy" src="/img/icons/IconCer.webp" alt="" height={18} />

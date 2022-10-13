@@ -31,7 +31,7 @@ export const Cursos = () => {
                 <Container>
                     <Row className='pt-xl-5 pt-0  align-items-md-baseline align-items-lg-start align-items-xl-start'>
                         <Col xl={6} md={6} className="p-5" data-aos="zoom-in">
-                            <h1 className='text-white fw-bolder w-50 w-100res'>Cursos especializados</h1>
+                            <h1 className='text-white fw-bolder w-50 w-100res'>Cursos Especializados</h1>
                             <h5 className='color-l-diplomados fw-bolder'>Porque aprender con nosotros</h5>
                             <div className='d-flex align-items-center gap-2'>
                                 <img src="/img/icons/VistoBuenoCursos.webp" alt="" />

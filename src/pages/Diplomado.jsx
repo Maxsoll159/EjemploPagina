@@ -3,17 +3,17 @@ import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { Informacion } from "../components/CursosDiploma/Infomacion";
 import { Listar } from "../components/CursosDiploma/Listar";
-import { ApiDiplomas } from "../helpers/CursosDiplomas";
+import { ApiDiplomados } from "../helpers/CursosDiplomas";
 import AOS from 'aos';
-export const Diplomas = () => {
-    const [infoDiploma, setInfoDiploma] = useState({
-        tipo: "diplomas",
+export const Diplomados = () => {
+    const [infoDiplomado, setInfoDiplomado] = useState({
+        tipo: "Diplomados",
         envivo: [],
         grabados: []
     })
     useEffect(()=>{
-        ApiDiplomas().then((diplomas)=>setInfoDiploma({
-            tipo: "diplomas",
+        ApiDiplomados().then((diplomas)=>setInfoDiplomado({
+            tipo: "Diplomados",
             envivo: diplomas.envivo,
             grabados: diplomas.grabado
         }))
@@ -27,11 +27,11 @@ export const Diplomas = () => {
 
     return (
         <>
-            <div className="color-header-diploma">
+            <div className="color-header-diplomados">
                 <Container>
                     <Row className='pt-4 align-items-md-baseline align-items-lg-start'>
                         <Col xl={6} md={6} className="p-5" data-aos="zoom-in">
-                            <h1 className='text-white fw-bolder w-50 w-100res'>Diplomas Especializados</h1>
+                            <h1 className='text-white fw-bolder w-50 w-100res'>Diplomados Especializados</h1>
                             <h5 className='color-l-diplomados fw-bolder'>Porque aprender con nosotros</h5>
                             <div className='d-flex align-items-center gap-2'>
                                 <img src="/img/icons/VistoBuenoCursos.webp" alt="" />
@@ -60,14 +60,14 @@ export const Diplomas = () => {
                         </Col>
                         <Col xl={6} md={6} className="position-relative" data-aos="zoom-in">
                             <div className="position-absolute position-md-relative bottom-0 top-0 translate-xl-middle-x mt-lg-3">
-                                <img src="/img/imaganesPaginas/LogoDiploma.webp" alt="" width={492}  className="d-none d-md-block img-fluid"/>
+                                <img src="https://nuevapagina.s3.amazonaws.com/Martin_diplomado.webp" alt="" width={492}  className="d-none d-md-block img-fluid"/>
                             </div>
                         </Col>
                     </Row>
                 </Container>
             </div>
             <Informacion />
-            <Listar {...infoDiploma} />
+            <Listar {...infoDiplomado} />
         </>
     )
 }

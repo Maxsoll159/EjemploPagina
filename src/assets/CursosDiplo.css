@@ -1,21 +1,31 @@
-.color-header-curso{
+.color-header-curso {
     background: linear-gradient(180deg, rgba(38, 0, 241, 1) 0.025422479957342148%, rgba(104, 134, 255, 1) 79%, rgba(104, 134, 255, 1) 100%);
 }
-.color-informacion{
+
+.color-informacion {
     background-color: #ECF5FF;
 }
-.color-header-diploma{
-    background: linear-gradient(180deg, rgba(0,40,119,1) 0.025422479957342148%, rgba(16,111,255,1) 65%, rgba(16,111,255,1) 100%);
+
+.color-header-diploma {
+    background: linear-gradient(180deg, rgba(0, 40, 119, 1) 0.025422479957342148%, rgba(16, 111, 255, 1) 65%, rgba(16, 111, 255, 1) 100%);
 }
-.color-header-inhouse{
+
+.color-header-inhouse {
     background-color: #2000D1;
 }
-.color-info-inhouse{
+
+.color-info-inhouse {
     background-color: #1900a2;
 }
-.color-btn-what{
+
+.color-btn-what {
     background-color: #16C121;
 }
-.margin-top-logo{
+
+.margin-top-logo {
     margin-top: -55px;
+}
+
+.color-header-diplomados {
+    background: linear-gradient(180deg, rgba(49, 0, 63, 1) 0.025422479957342148%, rgba(98, 0, 126, 1) 65%, rgba(124, 53, 144, 1) 100%);
 }

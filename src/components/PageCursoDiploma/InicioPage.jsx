@@ -6,7 +6,7 @@ import useContador from "../../hooks/useContador";
 import { ApiInformacion, getLocalizacion } from "../../helpers/CursosDiplomas";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
-export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcion, alumnos, color, totalSesionesDiploma, asesores }) => {
+export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcion, alumnos, color, totalSesionesDiploma, asesores, seo }) => {
     const [geo, setGeo] = useState()
     let location = useLocation()
     let colorFondo = {
@@ -103,10 +103,13 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
         }
     }, [asesores])
 
+
+    console.log("Soy el seo",seo)
+
     return (
         <>
             <Helmet>
-                <title>{titulo}</title>
+                <title>{`▷ ${titulo}`}</title>
 
                 <meta name={titulo} content={descripcion} />
 
@@ -123,6 +126,8 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
 
                 <meta property="og:image" content={imagen} />
                 <meta property="og:image:secure_url" content={imagen} />
+
+                <meta property="article:tag" content={seo} />
 
             </Helmet>
             <div className="color-diploma" >
