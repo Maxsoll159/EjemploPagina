@@ -75,7 +75,7 @@ export const Seminarios = () => {
                     <Row style={{ height: "calc(100vh - 76.72px)" }}>
                         <Col xl={9} sm={12} className={`p-0 ${!isdark ? "color-live-litgth" : "color"}`}>
                             {/* <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>*/}
-                            <iframe width="560" height="315" src="https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/play.html?name=curso-1602-sesion-9713" frameborder="0" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/play.html?name=seminario13" frameborder="0" allowfullscreen></iframe>
                             <div className='pt-2 ps-4 pe-4 ocultar'>
                                 <div className='d-flex align-items-center justify-content-between mt-2'>
                                     <div className='caja-camara rounded'>
