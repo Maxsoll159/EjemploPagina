@@ -65,7 +65,7 @@ export const PageDiplomado = () => {
                                 <img src="/img/icons/LiveSeminario.webp" alt="" />
                                 <h6 className="fw-bolder text-center colorRed m-0">Este Diploma contiene {TotalSesionesDiploma} sesiones de clases en vivo</h6>
                             </div>
-                            <img src={infoIni.banner} alt="" />
+                            <img src={infoIni.banner} alt={infoIni.titulo} className="shadow-lg bg-body rounded img-fluid w-100 mt-4" />
                             <h4 className="fw-semibold text-center mt-5">Contenido Temático</h4>
                             <div>
                                 {

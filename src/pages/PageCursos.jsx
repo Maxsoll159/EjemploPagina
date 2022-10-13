@@ -37,7 +37,8 @@ export const PageCursos = () => {
             colorCurso: curso.color,
             icono: curso.icono,
             titulo: curso.titulo,
-            seo: curso.seo
+            seo: curso.seo,
+            banner: curso.banner
         }))
     }, [etiqueta])
     let TotalSesionesDiploma = 0
@@ -75,6 +76,7 @@ export const PageCursos = () => {
                                 <img src="/img/icons/LiveSeminario.webp" alt="" />
                                 <h6 className="fw-bolder text-center colorRed m-0">Este Curso contiene 0{TotalSesionesDiploma} sesiones de clases en vivo</h6>
                             </div>
+                            <img src={infoIni.banner} alt={infoIni.titulo} className="shadow-lg bg-body rounded img-fluid w-100 mt-4" />
                             <h4 className="fw-semibold text-center mt-5">Contenido Temático</h4>
                             <div>
                                 <Accordion bsPrefix className="mt-5 pb-3" defaultActiveKey="0">
