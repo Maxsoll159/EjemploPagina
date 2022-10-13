@@ -30,10 +30,13 @@ export const Seminarios = () => {
                 type: 'video',
                 sources: [
                     {
-                        src: `${seminarios.id_video}`,
-                        provider: 'youtube',
+                        src: `https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/curso-959-sesion-5854.m3u8`
                     },
                 ],
+                previewThumbnails: {
+                    enabled: true,
+                    src: '/vtt_sesiones/0/vtt-curso-959-sesion-5854.vvt'
+                }
             };
         }
     }, 10)
