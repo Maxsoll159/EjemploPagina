@@ -49,7 +49,7 @@ export const PagePrincipal = () => {
                 <title>Centro de Capacitación y Desarrollo Global</title>
                 <meta
                     name="Desarrollo Global"
-                    content="Centro de Capacitación y Desarrollo Global es una Empresa Educativa privada dedicada a proveer desarrollo gerencial de amplio rango a los servidores civiles, técnicos y profesionales de nuestro país, a través de los servicios educativos en temas de gestión gubernamental."
+                    content="Desarrollo Global con mas de 11 años mejorando las competencias y capacidades de los servidores públicos y privados. Contamos con la Certificación de calidad ISO 9001-2015."
                 />
 
                 <meta name="author" content="Centro de Capacitación y Desarrollo Global" />
@@ -61,13 +61,13 @@ export const PagePrincipal = () => {
                 <meta property="fb:app_id" content="226972427818042" />
 
                 <meta property="og:title" content="Planeamiento y Presupuesto en la Gestión Pública" />
-                <meta property="og:description" content="Centro de Capacitación y Desarrollo Global es una Empresa Educativa privada dedicada a proveer desarrollo gerencial de amplio rango a los servidores civiles, técnicos y profesionales de nuestro país, a través de los servicios educativos en temas de gestión gubernamental." />
+                <meta property="og:description" content="Desarrollo Global con mas de 11 años mejorando las competencias y capacidades de los servidores públicos y privados. Contamos con la Certificación de calidad ISO 9001-2015." />
                 {/*
                     <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
                     <meta property="og:image:secure_url" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
                 */}
                 
-
+                <meta property="article:tag" content="Desarrollo global, centro de capacitaciones, cursos, diplomas" />
             </Helmet>
 
             <div>

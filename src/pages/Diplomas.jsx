@@ -5,28 +5,53 @@ import { Informacion } from "../components/CursosDiploma/Infomacion";
 import { Listar } from "../components/CursosDiploma/Listar";
 import { ApiDiplomas } from "../helpers/CursosDiplomas";
 import AOS from 'aos';
+import { Helmet } from "react-helmet";
 export const Diplomas = () => {
     const [infoDiploma, setInfoDiploma] = useState({
         tipo: "diplomas",
         envivo: [],
         grabados: []
     })
-    useEffect(()=>{
-        ApiDiplomas().then((diplomas)=>setInfoDiploma({
+    useEffect(() => {
+        ApiDiplomas().then((diplomas) => setInfoDiploma({
             tipo: "diplomas",
             envivo: diplomas.envivo,
             grabados: diplomas.grabado
         }))
-    },[])
+    }, [])
 
     useEffect(() => {
         AOS.init({
-          duration : 2000
+            duration: 2000
         });
-      }, []);
+    }, []);
 
     return (
         <>
+            <Helmet>
+                <title>Diplomas Especializados</title>
+                <meta
+                    name="Diplomas Especializados"
+                    content="Ingresa a nuestro Catalogo de Diplomas"
+                />
+
+                <meta name="author" content="Centro de Capacitación y Desarrollo Global" />
+                <meta name="google-signin-client_id" content="740073627785-npq9orne985ob2cs6j5qlb9m2sdsl2lg.apps.googleusercontent.com" />
+                <meta name="google-site-verification" content="hWAwX4vVYax5SPwJoWF6AzsqmoKcV1XmuWQgHgqoD44" />
+                <link rel="alternate" hreflang="es" href="https://aula.desarrolloglobal.pe/" />
+
+                <meta property="og:site_name" content="Diplomas Especializados" />
+                <meta property="fb:app_id" content="226972427818042" />
+
+                <meta property="og:title" content="Diplomas Especializados" />
+                <meta property="og:description" content="Ingresa a nuestro Catalogo de Diplomas" />
+                {/*
+                    <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
+                    <meta property="og:image:secure_url" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
+                */}
+
+                <meta property="article:tag" content="Desarrollo global, centro de capacitaciones, cursos, diplomas" />
+            </Helmet>
             <div className="color-header-diploma">
                 <Container>
                     <Row className='pt-4 align-items-md-baseline align-items-lg-start'>
@@ -60,7 +85,7 @@ export const Diplomas = () => {
                         </Col>
                         <Col xl={6} md={6} className="position-relative" data-aos="zoom-in">
                             <div className="position-absolute position-md-relative bottom-0 top-0 translate-xl-middle-x mt-lg-3">
-                                <img src="/img/imaganesPaginas/LogoDiploma.webp" alt="" width={492}  className="d-none d-md-block img-fluid"/>
+                                <img src="/img/imaganesPaginas/LogoDiploma.webp" alt="" width={492} className="d-none d-md-block img-fluid" />
                             </div>
                         </Col>
                     </Row>
