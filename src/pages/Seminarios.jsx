@@ -30,7 +30,7 @@ export const Seminarios = () => {
                 type: 'video',
                 sources: [
                     {
-                        src: `https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/curso-959-sesion-5854.m3u8`
+                        src: `https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/seminario13`,
                     },
                 ],
                 previewThumbnails: {
