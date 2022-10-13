@@ -17,7 +17,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
     let dataParseada
 
     const [timerDays, timerHours, timerMinutes, timerSeconds] = useContador(
-        dataParseada = String(new Date(fecha).toUTCString()).split(" ")
+        dataParseada = String(new Date(fecha)).split(" ")
     )
 
     /*UseObserver*/

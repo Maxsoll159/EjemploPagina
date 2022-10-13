@@ -8,7 +8,7 @@ export default function (fecha) {
   const startTimer = () => {
     if (fecha[0] !== "Invalid") {
       const countdownDate = new Date(
-        `${fecha[2]} ${fecha[1]}, ${fecha[3]} 00:00:00`
+        `${fecha[1]} ${fecha[2]}, ${fecha[3]} ${fecha[4]}`
       ).getTime();
       interval = setInterval(() => {
         const now = new Date().getTime();

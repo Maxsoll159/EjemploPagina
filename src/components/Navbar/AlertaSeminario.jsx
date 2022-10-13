@@ -12,14 +12,13 @@ export const AlertaSeminario = (prop) => {
 
     useEffect(() => {
         if (prop[0] !== undefined) {
-            setFecha(prop[0].fecha)
+            setFecha(`${prop[0].fecha} ${prop[0].hora}`)
         }
-
     }, [prop])
 
     let fechaparseada
     const [timerDays, timerHours, timerMinutes, timerSeconds] = useContador(
-        fechaparseada = String(new Date(fecha).toUTCString()).split(" ")
+        fechaparseada = String(new Date(fecha)).split(" ")
     )
     const irSeminario = (title) => {
         navigate(`seminariosInfo/${title}`, { replace: false })
@@ -42,13 +41,12 @@ export const AlertaSeminario = (prop) => {
             setPrueba(element.isIntersecting)
         });
     }, [entries, observe, location.pathname])
-    
-    console.log()
+
     return (
         <>
             {
                 prop[0] !== undefined ? (
-                    new Date((prop[0].fecha)) > new Date() ? (
+                    new Date(fecha) > new Date() ? (
                         <div style={{ background: "#2C3C67" }} className={`${!prueba ? "d-lg-none d-xl-none" : "d-xl-block d-xl-block"}`}>
                             <div className="d-flex align-items-center justify-content-center flex-wrap py-3 py-xl-0 py-lg-0 flex-md-nowrap w-100">
                                 <p className="fw-bolder text-center m-0 text-white">🚀 Nuestro Proximo seminario gratuito inicia en: </p>
