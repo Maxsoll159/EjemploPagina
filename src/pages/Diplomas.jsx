@@ -32,7 +32,7 @@ export const Diplomas = () => {
                 <title>Diplomas Especializados</title>
                 <meta
                     name="Diplomas Especializados"
-                    content="Ingresa a nuestro Catalogo de Diplomas"
+                    content="Certificate eb Finanzas Públicas, Contrataciones del Estado, Inversión Pública"
                 />
 
                 <meta name="author" content="Centro de Capacitación y Desarrollo Global" />
@@ -44,7 +44,7 @@ export const Diplomas = () => {
                 <meta property="fb:app_id" content="226972427818042" />
 
                 <meta property="og:title" content="Diplomas Especializados" />
-                <meta property="og:description" content="Ingresa a nuestro Catalogo de Diplomas" />
+                <meta property="og:description" content="Certificate eb Finanzas Públicas, Contrataciones del Estado, Inversión Pública" />
                 {/*
                     <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
                     <meta property="og:image:secure_url" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />

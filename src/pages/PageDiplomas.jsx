@@ -35,7 +35,8 @@ export const PageDiplomas = () => {
             asesores: diplo.asesores,
             testimonios: diplo.testimonios,
             cursos: diplo.cursos,
-            seo: diplo.seo
+            seo: diplo.seo,
+            banner: diplo.banner
         }))
     }, [etiqueta])
     /*Para el Acordeon*/
@@ -64,6 +65,7 @@ export const PageDiplomas = () => {
                                 <img src="/img/icons/LiveSeminario.webp" alt="" />
                                 <h6 className="fw-bolder text-center colorRed m-0">Este Diploma contiene {TotalSesionesDiploma} sesiones de clases en vivo</h6>
                             </div>
+                            <img src={infoIni.banner} alt={infoIni.titulo} className="shadow-lg bg-body rounded img-fluid w-100 mt-4" />
                             <h4 className="fw-semibold text-center mt-5">Contenido Temático</h4>
                             <div>
                                 {

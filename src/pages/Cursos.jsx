@@ -32,7 +32,7 @@ export const Cursos = () => {
                 <title>DCursos Especializados</title>
                 <meta
                     name="Cursos Especializados"
-                    content="Ingresa a nuestro Catalogo de Cursos"
+                    content="Aprende SIAF RP, SIGA MEF, SEACE 3.0, Invierte.pe"
                 />
 
                 <meta name="author" content="Centro de Capacitación y Desarrollo Global" />
@@ -44,7 +44,7 @@ export const Cursos = () => {
                 <meta property="fb:app_id" content="226972427818042" />
 
                 <meta property="og:title" content="Cursos Especializados" />
-                <meta property="og:description" content="Ingresa a nuestro Catalogo de Cursos" />
+                <meta property="og:description" content="Aprende SIAF RP, SIGA MEF, SEACE 3.0, Invierte.pe" />
                 {/*
                     <meta property="og:image" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
                     <meta property="og:image:secure_url" content="https://s3-us-west-2.amazonaws.com/uploads-desarrolloglobal.pe/2021/05/PLANEAMIENTO%20Y%20PRESUPUESTO.png" />
