@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Container, Row, Col, Accordion, Spinner  } from "react-bootstrap";
+import { forwardRef, useEffect, useState } from "react";
+import { Container, Row, Col, Accordion, Spinner } from "react-bootstrap";
 import "../assets/PageDiplomas.css"
 import { Certificacion } from "../components/PageCursoDiploma/Certificacion";
 import { PorqueCapacitarte } from "../components/PageCursoDiploma/PorqueCapacitarte";
@@ -8,6 +8,7 @@ import { FinalDiploma } from "../components/PageCursoDiploma/FinalDiploma";
 import { InicioPage } from "../components/PageCursoDiploma/InicioPage";
 import { useParams } from "react-router-dom";
 import { ApiDiplomasEtiqueta } from "../helpers/CursosDiplomas";
+import { BtnWhats } from "../components/PageCursoDiploma/BtnWhats";
 
 export const PageDiplomas = () => {
     /* Traer la etiqueta para hacer la peticion*/
@@ -44,19 +45,20 @@ export const PageDiplomas = () => {
 
     /*PARA CALCULAR EL TOTAL DE SESSIONES*/
     let TotalSesionesDiploma = 0
-    const totalSesiones = () =>{
-        if (infoIni.cursos !== undefined){
-            infoIni.cursos.map((total)=>{
-                TotalSesionesDiploma += parseFloat(total.sesiones.length) 
+    const totalSesiones = () => {
+        if (infoIni.cursos !== undefined) {
+            infoIni.cursos.map((total) => {
+                TotalSesionesDiploma += parseFloat(total.sesiones.length)
             })
         }
 
     }
     totalSesiones()
     const [isActive, setIsActive] = useState(false)
+
     return (
         <>
-            <InicioPage {...infoIni.dataInicial} totalSesionesDiploma={TotalSesionesDiploma}  asesores={infoIni.asesores} seo={infoIni.seo}/>
+            <InicioPage {...infoIni.dataInicial} totalSesionesDiploma={TotalSesionesDiploma} asesores={infoIni.asesores} seo={infoIni.seo} />
             <div id="temario">
                 <Container>
                     <Row>
@@ -124,17 +126,16 @@ export const PageDiplomas = () => {
             </div>
             {/*Componentes Estaticos*/}
 
-            <Certificacion tipo={tipo}/>
+            <Certificacion tipo={tipo} />
 
             <Profesores profe={infoIni.profesores} />
 
             <PorqueCapacitarte />
 
-            <FinalDiploma asesores={infoIni.asesores} {...infoIni.dataInicial} testimonios={infoIni.testimonios} totalSesionesDiploma={TotalSesionesDiploma} tipo={tipo}/>
+            <FinalDiploma asesores={infoIni.asesores} {...infoIni.dataInicial} testimonios={infoIni.testimonios} totalSesionesDiploma={TotalSesionesDiploma} tipo={tipo} />
 
-
-
-
+            <BtnWhats asesores={infoIni.asesores} tipo={tipo} {...infoIni.dataInicial}/>
+                            
         </>
     )
 }

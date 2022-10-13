@@ -528,6 +528,9 @@ input:checked+.slider:before {
   .responseCarrito{
     width: 390px !important
   }
+  .w-50res-tab {
+    width: 50% !important;
+  }
 }
 
 @media only screen and (max-width: 1200px) {

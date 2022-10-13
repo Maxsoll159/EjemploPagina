@@ -103,9 +103,6 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
         }
     }, [asesores])
 
-
-    console.log("Soy el seo",seo)
-
     return (
         <>
             <Helmet>

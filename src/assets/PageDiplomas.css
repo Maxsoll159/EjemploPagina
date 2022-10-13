@@ -53,3 +53,11 @@
 .top-card{
     margin-top: -80px !important;
 }
+.icon-noti-whats{
+    top: 15%;
+    left: 90%
+}
+.contenedor-icon-whats{
+    bottom: 6%;
+    width: 10%;
+}

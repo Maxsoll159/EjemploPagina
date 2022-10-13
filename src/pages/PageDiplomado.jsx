@@ -8,6 +8,7 @@ import { FinalDiploma } from "../components/PageCursoDiploma/FinalDiploma";
 import { InicioPage } from "../components/PageCursoDiploma/InicioPage";
 import { useParams } from "react-router-dom";
 import { ApiDiplomadosEtiqueta } from "../helpers/CursosDiplomas";
+import { BtnWhats } from "../components/PageCursoDiploma/BtnWhats";
 
 export const PageDiplomado = () => {
     /* Traer la etiqueta para hacer la peticion*/
@@ -133,7 +134,7 @@ export const PageDiplomado = () => {
             <FinalDiploma asesores={infoIni.asesores} {...infoIni.dataInicial} testimonios={infoIni.testimonios} totalSesionesDiploma={TotalSesionesDiploma} tipo={tipo}/>
 
 
-
+            <BtnWhats asesores={infoIni.asesores} tipo={tipo} {...infoIni.dataInicial}/>
 
         </>
     )

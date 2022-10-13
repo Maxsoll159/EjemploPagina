@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Container, Row, Col, Accordion } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { BtnWhats } from "../components/PageCursoDiploma/BtnWhats";
 import { Certificacion } from "../components/PageCursoDiploma/Certificacion";
 import { FinalDiploma } from "../components/PageCursoDiploma/FinalDiploma";
 import { InicioPage } from "../components/PageCursoDiploma/InicioPage"
@@ -137,6 +138,7 @@ export const PageCursos = () => {
             <Profesores profe={infoIni.profesores} />
             <PorqueCapacitarte />
             <FinalDiploma asesores={infoIni.asesores} {...infoIni.dataInicial} testimonios={infoIni.testimonios} totalSesionesDiploma={TotalSesionesDiploma} tipo={tipo}/>
+            <BtnWhats asesores={infoIni.asesores} tipo={tipo} {...infoIni.dataInicial}/>
         </>
     )
 }
