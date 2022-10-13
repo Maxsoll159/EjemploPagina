@@ -234,9 +234,10 @@ export const NavBar = () => {
                                         <button type="button" className="btn bg-white position-relative rounded shadow border-light w-100res d-flex justify-content-start justify-content-xl-center align-items-center p-0 shadow-res w-100res prueba" style={{ width: "40px", height: "40px" }} onClick={handleClick}>
                                             <img src="/img/icons/NavNotificacion.webp" alt="" className="d-block mx-auto d-none d-xl-block" width={20} />
                                             <span className="fw-bolder d-xl-none">Notificaciones</span>
-                                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger respon">
-                                                {seminarios.length}
-                                                <span className="visually-hidden">unread messages</span>
+                                            <span className="position-absolute translate-middle rounded-pill p-0 m-0 top-0 start-100" style={{ top: "10%" }}>
+                                                <div class="badge rounded-pill icon-noti-whats">
+                                                    {seminarios.length}
+                                                </div>
                                             </span>
                                         </button>
 
@@ -285,9 +286,10 @@ export const NavBar = () => {
                                         <button type="button" className="btn bg-white position-relative rounded shadow border-light w-100res d-flex justify-content-start justify-content-xl-center align-items-center p-0 shadow-res w-100res prueba" style={{ width: "40px", height: "40px" }} onClick={handleClick}>
                                             <img src="/img/icons/NavCarrito.webp" alt="" className="d-block mx-auto d-none d-xl-block" width={20} />
                                             <span className="fw-bolder d-xl-none">Carrito</span>
-                                            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger respon">
-                                                {cartItem.length}
-                                                <span className="visually-hidden">unread messages</span>
+                                            <span className="position-absolute translate-middle rounded-pill p-0 m-0 top-0 start-100" style={{ top: "10%" }}>
+                                                <div class="badge rounded-pill icon-noti-whats">
+                                                    {cartItem.length}
+                                                </div>
                                             </span>
                                         </button>
 

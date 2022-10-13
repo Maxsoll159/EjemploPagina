@@ -14,9 +14,10 @@ export const BtnWhats = ({ tipo, titulo, asesores }) => {
                     href={`https://api.whatsapp.com/send?phone=51${asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${tipo}:${titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer"
                 >
                     <img src="https://cdn.shopify.com/s/files/1/0033/3538/9233/files/504.png" alt="" width={50} style={{ zIndex: "99999999" }} className="rounded rounded-circle" />
-                    <span class="position-absolute translate-middle badge rounded-pill bg-danger icon-noti-whats">
-                        1
-                        <span class="visually-hidden">unread messages</span>
+                    <span className="position-absolute translate-middle rounded-pill p-0 m-0" style={{top: "10%"}}>
+                        <div class="badge rounded-pill  icon-noti-whats">
+                            1
+                        </div>
                     </span>
                 </a>) : (<></>)
             }
@@ -26,7 +27,7 @@ export const BtnWhats = ({ tipo, titulo, asesores }) => {
 
                         <div className="d-flex ">
                             <p className="m-0" style={{ fontSize: "12px" }}>Hola, solicito información del {tipo} : <strong>{titulo}</strong></p>
-                            <CloseButton onClick={ftnWhats} style={{width: "1px"}} />
+                            <CloseButton onClick={ftnWhats} style={{ width: "1px" }} />
                         </div>
                     </div>
 
