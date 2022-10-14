@@ -8,6 +8,7 @@ import { parsearFecha, parsearHora } from '../helpers/funciones';
 import Plyr from "plyr";
 import "../../node_modules/plyr/dist/plyr.css";
 import { Helmet } from 'react-helmet';
+import ReactHlsPlayer from 'react-hls-player';
 export const Seminarios = () => {
     let { id } = useParams();
     const [seminarios, setSeminarios] = useState([])
