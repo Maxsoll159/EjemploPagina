@@ -8,7 +8,6 @@ import { parsearFecha, parsearHora } from '../helpers/funciones';
 import Plyr from "plyr";
 import "../../node_modules/plyr/dist/plyr.css";
 import { Helmet } from 'react-helmet';
-import ReactHlsPlayer from 'react-hls-player';
 export const Seminarios = () => {
     let { id } = useParams();
     const [seminarios, setSeminarios] = useState([])
@@ -23,7 +22,7 @@ export const Seminarios = () => {
     }, [id])
 
     setTimeout(() => {
-        /*if (seminarios.id_video !== undefined) {
+        if (seminarios.id_video !== undefined) {
             const player = new Plyr('#vdplayer', {
                 ratio: '13:6'
             });
@@ -36,8 +35,7 @@ export const Seminarios = () => {
                     },
                 ],
             };
-        }*/
-
+        }
     }, 10)
     console.log(seminarios)
     return (
@@ -72,14 +70,7 @@ export const Seminarios = () => {
                 : (<Container fluid>
                     <Row style={{ height: "calc(100vh - 76.72px)" }}>
                         <Col xl={9} sm={12} className={`p-0 ${!isdark ? "color-live-litgth" : "color"}`}>
-                            {/*  <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>*/}
-                            <ReactHlsPlayer
-                                src="https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/seminario13.m3u8"
-                                autoPlay={false}
-                                controls={true}
-                                width="100%"
-                                height="auto"
-                            />,
+                            <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>
                             <div className='pt-2 ps-4 pe-4 ocultar'>
                                 <div className='d-flex align-items-center justify-content-between mt-2'>
                                     <div className='caja-camara rounded'>
