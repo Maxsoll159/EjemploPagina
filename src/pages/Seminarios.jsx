@@ -74,7 +74,7 @@ export const Seminarios = () => {
                         <Col xl={9} sm={12} className={`p-0 ${!isdark ? "color-live-litgth" : "color"}`}>
                             {/*  <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>*/}
                             <ReactHlsPlayer
-                                src="https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/play.html?name=seminario13"
+                                src="https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/seminario13.m3u8"
                                 autoPlay={false}
                                 controls={true}
                                 width="100%"
