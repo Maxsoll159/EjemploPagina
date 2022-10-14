@@ -8,6 +8,7 @@ import { parsearFecha, parsearHora } from '../helpers/funciones';
 import Plyr from "plyr";
 import "../../node_modules/plyr/dist/plyr.css";
 import { Helmet } from 'react-helmet';
+import ReactHlsPlayer from 'react-hls-player/dist';
 export const Seminarios = () => {
     let { id } = useParams();
     const [seminarios, setSeminarios] = useState([])
@@ -66,11 +67,25 @@ export const Seminarios = () => {
                     }
                 </Helmet>
             </Helmet>
+
             {(seminarios === [] || seminarios === undefined) ? (<h1>Cargando</h1>)
                 : (<Container fluid>
                     <Row style={{ height: "calc(100vh - 76.72px)" }}>
                         <Col xl={9} sm={12} className={`p-0 ${!isdark ? "color-live-litgth" : "color"}`}>
-                            <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>
+                            {
+                                seminarios.tipo === "PROXIMO" ? (
+                                    <ReactHlsPlayer
+                                        src={`https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/${seminarios.codigo_envivo}.m3u8`}
+                                        autoPlay={true}
+                                        controls={true}
+                                        width="100%"
+                                        height="73%"
+                                        className='h-100res'
+                                    />
+                                ) : (
+                                    <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>
+                                )
+                            }
                             <div className='pt-2 ps-4 pe-4 ocultar'>
                                 <div className='d-flex align-items-center justify-content-between mt-2'>
                                     <div className='caja-camara rounded'>

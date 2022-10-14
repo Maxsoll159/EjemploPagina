@@ -100,7 +100,6 @@ export const NavBar = () => {
     console.log(nombreUsu)
     let diplomasNav = diplomasLimit.slice(0, 8)
     let cursosNav = cursosLimit.slice(0, 8)
-    console.log("Soiy seminario", usuarioLogin)
     return (
         <>
             <AlertaSeminario {...seminarios} />
@@ -252,7 +251,7 @@ export const NavBar = () => {
                                                                 <img src={semi.banner.seminario} alt="" width={130} height={100} className="rounded mt-2 rounded" />
                                                                 <div>
                                                                     <h6 className="m-0 fw-bolder">{semi.titulo}</h6 >
-                                                                    <p className="m-0"><span className="">Fecha : <span>{semi.fecha.substring(7, 5)} de {parsearFecha(semi.fecha)}</span></span></p>
+                                                                    <p className="m-0"><span className="">Fecha : <span>{semi.fecha.substring(8, 10)} de {parsearFecha(semi.fecha)}</span></span></p>
                                                                     <p className="m-0"><span className="">Hora : <span>{parsearHora(semi.hora)}</span></span></p>
                                                                     <Link to={`seminariosInfo/${semi.etiqueta}`} className="text-decoration-none">Ver Seminario 👉</Link>
                                                                 </div>
