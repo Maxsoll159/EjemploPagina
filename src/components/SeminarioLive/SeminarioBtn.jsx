@@ -15,7 +15,7 @@ export const SeminarioBtn = (seminarios) => {
     /*Configuracion de Socket*/
     const [mensajes, setMensajes] = useState([])
     const [mensaje, setMensaje] = useState('')
-    const socket = io('http://45.33.81.115:3035')
+    const socket = io('http://desarrolloglobal.pe:3035')
     useEffect(() => {
         socket.on('connect', () => {
             const user = { id: 2005, name: 'Martin' }
