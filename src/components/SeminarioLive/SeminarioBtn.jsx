@@ -48,7 +48,7 @@ export const SeminarioBtn = (seminarios) => {
         e.preventDefault()
         setMensaje(e.target.mensaje.value)
     }
-    console.log("oe nad",mensajes)
+    console.log("oe nad",socket)
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
