@@ -23,8 +23,8 @@ export const SeminarioBtn = (seminarios) => {
     const [mensajes, setMensajes] = useState([])
 
     useEffect(() => {
-        Socket.emit('conectado', "Juan")
-    }, ["Juan"])
+        Socket.emit('conectado', datos.nombre)
+    }, [datos.nombre])
 
 
     useEffect(() => {
@@ -36,7 +36,7 @@ export const SeminarioBtn = (seminarios) => {
 
     const submit = (e) => {
         e.preventDefault();
-        Socket.emit('mensaje', "Juan", mensaje)
+        Socket.emit('mensaje', datos.nombre, mensaje)
     }
  
     return (
