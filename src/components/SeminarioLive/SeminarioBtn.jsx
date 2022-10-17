@@ -26,7 +26,7 @@ export const SeminarioBtn = (seminarios) => {
         if (datos !== null) {
             setIdUsuario(datos.id)
             socket.on('connect', () => {
-                const user = { id: datos.id, name: datos.nombre }
+                const user = { id: datos.id, name: datos.nombre, avatar: datos.avatar }
                 socket.emit('conectado',
                     seminarios.id,
                     user
