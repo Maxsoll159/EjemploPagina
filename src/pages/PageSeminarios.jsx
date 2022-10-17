@@ -65,7 +65,7 @@ export const PageSeminarios = () => {
         setFechaActual(new Date())
     }, [seminariosProximos])
 
-    
+
     return (
         <>
             <div className={`${isdark ? "color-DarkMode-DetalleSeminario" : "bg-white"}`}>

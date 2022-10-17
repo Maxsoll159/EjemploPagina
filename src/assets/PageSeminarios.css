@@ -8,3 +8,21 @@
 .color-chat2{
     background-color: #4B58A5;
 }
+
+.medidas-seminario{
+    height: calc(100vh - 148px)
+}
+
+.medidas-seminario2{
+    height: calc(100vh - 77px)
+}
+
+.scrollChat{
+    overflow: auto !important;
+}
+.medida1{
+    height: 700px;
+}
+.medida2{
+    height: 599px;
+}

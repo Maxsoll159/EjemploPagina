@@ -248,7 +248,11 @@ input:checked+.slider:before {
 .dropdown-menu{
   padding-bottom: 15px !important;
 }
+
 @media only screen and (max-width: 600px) {
+  .h-auto-res{
+    height: auto !important;
+  }
   .prueba{
     display: block;
   }
@@ -380,6 +384,9 @@ input:checked+.slider:before {
 }
 
 @media only screen and (max-width: 768px) {
+  .h-auto-res{
+    height: auto !important;
+  }
   .resTablet {
     height: calc(100vh - 600px);
     overflow: scroll;
@@ -468,6 +475,9 @@ input:checked+.slider:before {
 }
 
 @media only screen and (max-width: 992px) {
+  .h-auto-res{
+    height: auto !important;
+  }
   .resTablet {
     height: calc(100vh - 360px);
     overflow: scroll;

@@ -36,6 +36,11 @@ export const Seminarios = () => {
             };
         }
     }, 10)
+    const [alertaSemi, setAlertaSemi] = useState()
+
+    useEffect(() => {
+        setAlertaSemi(document.querySelector("#alertaEnVivo"))
+    }, [])
 
     return (
         <>
@@ -67,9 +72,9 @@ export const Seminarios = () => {
             </Helmet>
 
             <Container fluid>
-                <Row style={{ height: "calc(100vh - 76.72px)" }}>
-                    <Col xl={9} sm={12} className={`p-0 ${!isdark ? "color-live-litgth" : "color"}`}>
-
+                <Row>
+                    <Col xl={9} sm={12} className={`color h-100res p-0 ${alertaSemi !== undefined ? ("medidas-seminario") : ("medidas-seminario1")}`} style={{overflow: "auto"}}>
+                        <div className={`h-100res ${alertaSemi !== undefined ? ("medida1") : ("medida2")}`}>
                         {
                             seminarios.tipo === "PROXIMO" ? (
                                 <ReactHlsPlayer
@@ -77,13 +82,14 @@ export const Seminarios = () => {
                                     autoPlay={true}
                                     controls={true}
                                     width="100%"
-                                    height="73%"
+                                    height="100%"
                                     className='h-100res'
                                 />
                             ) : (
                                 <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>
                             )
                         }
+                        </div>
                         <div className='pt-2 ps-4 pe-4 ocultar'>
                             <div className='d-flex align-items-center justify-content-between mt-2'>
                                 <div className='caja-camara rounded'>
@@ -108,18 +114,17 @@ export const Seminarios = () => {
                                 <div>
                                     <button className='bg-white p-3 rounded text-primary fw-bold shadow' style={{ border: "none" }}>Compartir <img loading='lazy' src="/img/icons/compartir.png" alt="" /></button>
                                 </div>
-
                             </div>
-                            <div style={{ borderTop: "3px solid #14206B" }} className="mt-3">
-                                <h5 className={`mt-2 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios</h5>
-                                <div className='mt-3'>
-                                    <a className='btn btn-success fw-bold'>Grupo Whatsapp</a>
-                                    <button className='btn btn-primary fw-bold ms-3'>Grupo Telegram</button>
-                                </div>
+                        </div>
+                        <div style={{ borderTop: "3px solid #14206B" }} className="mt-3 mb-2 px-4 ocultar">
+                            <h5 className={`mt-2 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios</h5>
+                            <div className='mt-3'>
+                                <a className='btn btn-success fw-bold'>Grupo Whatsapp</a>
+                                <button className='btn btn-primary fw-bold ms-3'>Grupo Telegram</button>
                             </div>
                         </div>
                     </Col>
-                    <SeminarioBtn {...seminarios}/>
+                    <SeminarioBtn {...seminarios} />
                 </Row>
             </Container>
         </>

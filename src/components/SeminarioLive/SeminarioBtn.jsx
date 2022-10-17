@@ -15,9 +15,6 @@ export const SeminarioBtn = (seminarios) => {
     /*Recuperar datos de local*/
     let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
 
-    if (datos !== null) {
-        setIdUsuario(datos.id)
-    }
     /*Configuracion de Socket*/
 
     const socket = io('https://desarrolloglobal.pe:8443/')
@@ -26,14 +23,17 @@ export const SeminarioBtn = (seminarios) => {
     const [mensajes, setMensajes] = useState([])
 
     useEffect(() => {
-        socket.on('connect', () => {
-            const user = { id: datos.id, name: datos.name }
-            socket.emit('conectado',
-                seminarios.id,
-                user
-            )
-        })
-    }, [])
+        if (datos !== null) {
+            setIdUsuario(datos.id)
+            socket.on('connect', () => {
+                const user = { id: datos.id, name: datos.nombre }
+                socket.emit('conectado',
+                    seminarios.id,
+                    user
+                )
+            })
+        }
+    }, [datos])
 
     useEffect(() => {
         if (mensaje !== '') {
@@ -48,7 +48,7 @@ export const SeminarioBtn = (seminarios) => {
     socket.on('mostrar_mensajes', mensajes => {
         setMensajes(mensajes)
     })
-
+    console.log(mensajes)
     socket.on('mostrar_usuarios', usuarios => {
         console.log(usuarios)
     })
@@ -57,7 +57,7 @@ export const SeminarioBtn = (seminarios) => {
         e.preventDefault()
         setMensaje(e.target.mensajeUsu.value)
     }
-
+    console.log(datos)
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
@@ -86,15 +86,21 @@ export const SeminarioBtn = (seminarios) => {
             <div className='text-white'>
                 {
                     chat === true ? (
-                        <div className='res resTablet'>
-                            <div className="mx-3 mb-3">
+                        <div className='res resTablet' >
+                            <div className="mx-3 mb-3" style={{height: "580px",overflow: "auto"}} >
                                 {
-                                    datos === null ? (<h2>Debe logearse Primero</h2>) : (
+                                    datos === null ? (<div className="">
+                                        Iniciar sesion
+                                    </div>) : (
                                         mensajes !== [] ? (
-                                            mensajes.map((men) => (
-                                                <div>
-                                                    <img src="" alt="" />
-                                                    <div className={`p-3 rounded ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
+                                            mensajes.map((men, index) => (
+                                                <div className="d-flex w-100 gap-4 align-items-center" key={index}>
+                                                    {
+                                                        idUsuario !== men.user ? (
+                                                            <img src={men.avatar} alt="" width={50} height={50} className="border rounded-circle" />
+                                                        ) : (<img src={datos.avatar} alt="" width={50} height={50} className="border rounded-circle" />)
+                                                    }
+                                                    <div className={`p-3 rounded w-100 mt-3 ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
                                                         <p className="m-0 text-white fw-bolder">{men.name}</p>
                                                         <p className="m-0">{men.message}</p>
                                                     </div>
@@ -104,10 +110,15 @@ export const SeminarioBtn = (seminarios) => {
                                     )
                                 }
                             </div>
-                            <form action="" onSubmit={enviar} className="w-100">
-                                <input type="text" className="rounded p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" />
-                                <button className="btn w-25 btn-primary h-100">Enviar</button>
-                            </form>
+                            {
+                                datos !== null
+                                    ? (<form action="" onSubmit={enviar} className="w-100 px-3">
+                                        <div className="w-100 bg-white">
+                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" />
+                                            <button className="btn w-25 btn-primary h-100">Enviar</button>
+                                        </div>
+                                    </form>) : (<></>)
+                            }
                         </div>
                     ) : detalle === true ? (
                         <div className='p-4 res resTablet'>
