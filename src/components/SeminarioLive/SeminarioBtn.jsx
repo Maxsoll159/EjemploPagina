@@ -12,43 +12,33 @@ export const SeminarioBtn = (seminarios) => {
     })
     const [idUsuario, setIdUsuario] = useState(2005)
 
+    /*Recuperar datos de local*/ 
+
+
     /*Configuracion de Socket*/
+
+    const [mensaje, setMensaje] = useState("")
     const [mensajes, setMensajes] = useState([])
-    const [mensaje, setMensaje] = useState('')
-    const socket = io('https://chat.desarrolloglobal.pe')
+    const socket = io('https://45.33.81.115:3035/')
+    console.log(socket)
+    /*
+
     useEffect(() => {
-        socket.on('connect', () => {
-            const user = { id: 2005, name: 'Martin' }
-            socket.emit('conectado',
-                1001, //id seminario
-                user
-            )
+        socket.emit('conectado', "Martin")
+    }, ["Martin"])
+
+    useEffect(() => {
+        socket.on('mensajes', mensaje => {
+            setMensajes([...mensajes, mensaje]);
         })
-    }, [socket])
+        return () => { socket.off() }
+    }, [mensajes])
 
-    useEffect(() => {
-        if (mensaje !== '') {
-            socket.emit('enviar_mensaje', {
-                room: 1001, //id seminario
-                user: 2005,
-                content: mensaje
-            })
-        }
-    }, [mensaje])
+   }*/
+   const enviar = (e) => {
+    e.preventDefault()
 
-    socket.on('mostrar_mensajes', mensajes => {
-        setMensajes(mensajes)
-    })
-
-    socket.on('mostrar_usuarios', usuarios => {
-        
-    })
-
-    const enviar = (e) => {
-        e.preventDefault()
-        setMensaje(e.target.mensaje.value)
-    }
-    console.log("oe nad",socket)
+   }
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
@@ -85,8 +75,8 @@ export const SeminarioBtn = (seminarios) => {
                                             <div>
                                                 <img src="" alt="" />
                                                 <div className={`p-3 rounded ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
-                                                    <p className="m-0 text-white fw-bolder">{men.name}</p>
-                                                    <p className="m-0">{men.message}</p>
+                                                    <p className="m-0 text-white fw-bolder">{men.nombre}</p>
+                                                    <p className="m-0">{men.mensaje}</p>
                                                 </div>
                                             </div>
                                         ))
@@ -94,7 +84,7 @@ export const SeminarioBtn = (seminarios) => {
                                 }
                             </div>
                             <form action="" onSubmit={enviar} className="w-100">
-                                <input type="text" id="mensaje" className="rounded p-3 w-75" placeholder="Escribe tu comentario o pregunta..." />
+                                <input type="text" className="rounded p-3 w-75" placeholder="Escribe tu comentario o pregunta..." value={mensaje} onChange={e => setMensaje(e.target.value)}/>
                                 <button className="btn w-25 btn-primary h-100">Enviar</button>
                             </form>
                         </div>

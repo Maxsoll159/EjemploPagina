@@ -96,8 +96,8 @@ export const NavBar = () => {
             setNomnreUsu(usuarioLogin.nombre.split(" "))
         }
     }, [usuarioLogin])
-    /*Recorte */
-    console.log(nombreUsu)
+
+
     let diplomasNav = diplomasLimit.slice(0, 8)
     let cursosNav = cursosLimit.slice(0, 8)
     return (

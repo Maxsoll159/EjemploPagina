@@ -6,7 +6,6 @@ import { FormLogin } from "./FormLogin";
 
 export const BtnLogin = ({tipo}) => {
 
-    console.log(tipo)
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);

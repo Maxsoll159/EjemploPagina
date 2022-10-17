@@ -41,7 +41,7 @@ export const AlertaSeminario = (prop) => {
             setPrueba(element.isIntersecting)
         });
     }, [entries, observe, location.pathname])
-    console.log(prop)
+
     return (
         <>
             {

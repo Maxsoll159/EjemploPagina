@@ -9,7 +9,6 @@ import Plyr from "plyr";
 import "../../node_modules/plyr/dist/plyr.css";
 import { Helmet } from 'react-helmet';
 import ReactHlsPlayer from 'react-hls-player/dist';
-import { VideoSeminario } from '../components/SeminarioLive/VideoSeminario';
 import { SeminarioBtn } from '../components/SeminarioLive/SeminarioBtn';
 
 export const Seminarios = () => {
@@ -120,7 +119,7 @@ export const Seminarios = () => {
                             </div>
                         </div>
                     </Col>
-                    <SeminarioBtn {...seminarios} />
+                    <SeminarioBtn {...seminarios}/>
                 </Row>
             </Container>
         </>

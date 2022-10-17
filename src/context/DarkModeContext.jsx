@@ -8,7 +8,6 @@ export const UserContext = createContext();
 export const DarkModeProvider = ({ children }) => {
 
     /*Cerrar sesion*/
-    console.log("asdas",document.cookie)
     const validarCookie = () =>{
         if(!document.cookie.includes("token")){
             localStorage.removeItem("usuarioDesarrollo");

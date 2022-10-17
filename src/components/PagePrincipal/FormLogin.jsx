@@ -34,7 +34,7 @@ export const FormLogin = () => {
                     setUsuarioLogin(res)
                     setTimeout(() => {
                         if (!location.pathname.includes("/pasarela-pagos")) {
-                           window.location.href = "https://aula.desarrolloglobal.pe/aula/#tab_tablero"
+                           //window.location.href = "https://aula.desarrolloglobal.pe/aula/#tab_tablero"
                         }
                     }, 1000)
 
