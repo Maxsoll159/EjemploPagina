@@ -17,47 +17,28 @@ export const SeminarioBtn = (seminarios) => {
 
     /*Configuracion de Socket*/
 
-    const socket = io('https://desarrolloglobal.pe:8443/')
+    const Socket = io('https://socketdesarrolloglobal.herokuapp.com/')
 
     const [mensaje, setMensaje] = useState("")
     const [mensajes, setMensajes] = useState([])
 
     useEffect(() => {
-        if (datos !== null) {
-            setIdUsuario(datos.id)
-            socket.on('connect', () => {
-                const user = { id: datos.id, name: datos.nombre, avatar: datos.avatar }
-                socket.emit('conectado',
-                    seminarios.id,
-                    user
-                )
-            })
-        }
-    }, [datos])
+        Socket.emit('conectado', "Juan")
+    }, ["Juan"])
+
 
     useEffect(() => {
-        if (mensaje !== '') {
-            socket.emit('enviar_mensaje', {
-                room: seminarios.id,
-                user: datos.id,
-                content: mensaje
-            })
-        }
-    }, [mensaje])
+        Socket.on('mensajes', mensaje => {
+            setMensajes([...mensajes, mensaje]);
+        })
+        return () => { Socket.off() }
+    }, [mensajes])
 
-    socket.on('mostrar_mensajes', mensajes => {
-        setMensajes(mensajes)
-    })
-    console.log(mensajes)
-    socket.on('mostrar_usuarios', usuarios => {
-        console.log(usuarios)
-    })
-
-    const enviar = (e) => {
-        e.preventDefault()
-        setMensaje(e.target.mensajeUsu.value)
+    const submit = (e) => {
+        e.preventDefault();
+        Socket.emit('mensaje', "Juan", mensaje)
     }
-    console.log(datos)
+ 
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
@@ -87,7 +68,7 @@ export const SeminarioBtn = (seminarios) => {
                 {
                     chat === true ? (
                         <div className='res resTablet' >
-                            <div className="mx-3 mb-3" style={{height: "580px",overflow: "auto"}} >
+                            <div className="mx-3 mb-3" style={{ height: "580px", overflow: "auto" }} >
                                 {
                                     datos === null ? (<div className="">
                                         Iniciar sesion
@@ -101,8 +82,8 @@ export const SeminarioBtn = (seminarios) => {
                                                         ) : (<img src={datos.avatar} alt="" width={50} height={50} className="border rounded-circle" />)
                                                     }
                                                     <div className={`p-3 rounded w-100 mt-3 ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
-                                                        <p className="m-0 text-white fw-bolder">{men.name}</p>
-                                                        <p className="m-0">{men.message}</p>
+                                                        <p className="m-0 text-white fw-bolder">{men.nombre}</p>
+                                                        <p className="m-0">{men.mensaje}</p>
                                                     </div>
                                                 </div>
                                             ))
@@ -112,9 +93,9 @@ export const SeminarioBtn = (seminarios) => {
                             </div>
                             {
                                 datos !== null
-                                    ? (<form action="" onSubmit={enviar} className="w-100 px-3">
+                                    ? (<form action="" onSubmit={submit} className="w-100 px-3">
                                         <div className="w-100 bg-white">
-                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" />
+                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" value={mensaje} onChange={e => setMensaje(e.target.value)} />
                                             <button className="btn w-25 btn-primary h-100">Enviar</button>
                                         </div>
                                     </form>) : (<></>)
