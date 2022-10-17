@@ -10,32 +10,52 @@ export const SeminarioBtn = (seminarios) => {
         detalle: false,
         promo: false
     })
-    const [idUsuario, setIdUsuario] = useState(2005)
+    const [idUsuario, setIdUsuario] = useState("")
 
     /*Recuperar datos de local*/
+    let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
 
-
+    if (datos !== null) {
+        setIdUsuario(datos.id)
+    }
     /*Configuracion de Socket*/
 
-    const socket = io('https://socketdesarrolloglobal.herokuapp.com/')
+    const socket = io('https://desarrolloglobal.pe:8443/')
 
     const [mensaje, setMensaje] = useState("")
     const [mensajes, setMensajes] = useState([])
 
     useEffect(() => {
-        socket.emit('conectado', "Martin")
-    }, ["Martin"])
+        socket.on('connect', () => {
+            const user = { id: datos.id, name: datos.name }
+            socket.emit('conectado',
+                seminarios.id,
+                user
+            )
+        })
+    }, [])
 
     useEffect(() => {
-        socket.on('mensajes', mensaje => {
-            setMensajes([...mensajes, mensaje]);
-        })
-        return () => { socket.off() }
-    }, [mensajes])
+        if (mensaje !== '') {
+            socket.emit('enviar_mensaje', {
+                room: seminarios.id,
+                user: datos.id,
+                content: mensaje
+            })
+        }
+    }, [mensaje])
+
+    socket.on('mostrar_mensajes', mensajes => {
+        setMensajes(mensajes)
+    })
+
+    socket.on('mostrar_usuarios', usuarios => {
+        console.log(usuarios)
+    })
 
     const enviar = (e) => {
         e.preventDefault()
-        socket.emit('mensaje', "Martin", mensaje)
+        setMensaje(e.target.mensajeUsu.value)
     }
 
     return (
@@ -69,21 +89,23 @@ export const SeminarioBtn = (seminarios) => {
                         <div className='res resTablet'>
                             <div className="mx-3 mb-3">
                                 {
-                                    mensajes !== [] ? (
-                                        mensajes.map((men) => (
-                                            <div>
-                                                <img src="" alt="" />
-
-                                                <p className="m-0 text-white fw-bolder">{men.nombre}</p>
-                                                <p className="m-0">{men.mensaje}</p>
-
-                                            </div>
-                                        ))
-                                    ) : (<>No hay mensajkes...</>)
+                                    datos === null ? (<h2>Debe logearse Primero</h2>) : (
+                                        mensajes !== [] ? (
+                                            mensajes.map((men) => (
+                                                <div>
+                                                    <img src="" alt="" />
+                                                    <div className={`p-3 rounded ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
+                                                        <p className="m-0 text-white fw-bolder">{men.name}</p>
+                                                        <p className="m-0">{men.message}</p>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        ) : (<>No hay mensajkes...</>)
+                                    )
                                 }
                             </div>
                             <form action="" onSubmit={enviar} className="w-100">
-                                <input type="text" className="rounded p-3 w-75" placeholder="Escribe tu comentario o pregunta..." value={mensaje} onChange={e => setMensaje(e.target.value)} />
+                                <input type="text" className="rounded p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" />
                                 <button className="btn w-25 btn-primary h-100">Enviar</button>
                             </form>
                         </div>
