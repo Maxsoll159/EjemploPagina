@@ -12,16 +12,15 @@ export const SeminarioBtn = (seminarios) => {
     })
     const [idUsuario, setIdUsuario] = useState(2005)
 
-    /*Recuperar datos de local*/ 
+    /*Recuperar datos de local*/
 
 
     /*Configuracion de Socket*/
 
+    const socket = io('https://socketdesarrolloglobal.herokuapp.com/')
+
     const [mensaje, setMensaje] = useState("")
     const [mensajes, setMensajes] = useState([])
-    const socket = io('https://45.33.81.115:3035/')
-    console.log(socket)
-    /*
 
     useEffect(() => {
         socket.emit('conectado', "Martin")
@@ -34,11 +33,11 @@ export const SeminarioBtn = (seminarios) => {
         return () => { socket.off() }
     }, [mensajes])
 
-   }*/
-   const enviar = (e) => {
-    e.preventDefault()
+    const enviar = (e) => {
+        e.preventDefault()
+        socket.emit('mensaje', "Martin", mensaje)
+    }
 
-   }
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
@@ -74,17 +73,17 @@ export const SeminarioBtn = (seminarios) => {
                                         mensajes.map((men) => (
                                             <div>
                                                 <img src="" alt="" />
-                                                <div className={`p-3 rounded ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
-                                                    <p className="m-0 text-white fw-bolder">{men.nombre}</p>
-                                                    <p className="m-0">{men.mensaje}</p>
-                                                </div>
+
+                                                <p className="m-0 text-white fw-bolder">{men.nombre}</p>
+                                                <p className="m-0">{men.mensaje}</p>
+
                                             </div>
                                         ))
                                     ) : (<>No hay mensajkes...</>)
                                 }
                             </div>
                             <form action="" onSubmit={enviar} className="w-100">
-                                <input type="text" className="rounded p-3 w-75" placeholder="Escribe tu comentario o pregunta..." value={mensaje} onChange={e => setMensaje(e.target.value)}/>
+                                <input type="text" className="rounded p-3 w-75" placeholder="Escribe tu comentario o pregunta..." value={mensaje} onChange={e => setMensaje(e.target.value)} />
                                 <button className="btn w-25 btn-primary h-100">Enviar</button>
                             </form>
                         </div>
