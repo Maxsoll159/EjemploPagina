@@ -39,7 +39,7 @@ export const VerCertificado = () => {
         }
 
     }
-
+    console.log(respCerti)
     return (
         <>
             <div style={{ background: "#1F44A7"}}>
@@ -95,7 +95,8 @@ export const VerCertificado = () => {
                                                 <td className="">{cer.categoria}</td>
                                                 <td className="">{cer.programa}</td>
                                                 <td className="">{cer.mes}/{cer.year}</td>
-                                                <td className="">{cer.estado === "entregado" ? (<>Entregado</>) : (<>En Oficina</>)}</td>
+                                                {/*<td className="">{cer.estado === "entregado" ? (<>Entregado</>) : (<>En Oficina</>)}</td>*/}
+                                                <td className="">{cer.estado === "entregado" ? (<>Entregado</>) : cer.estado === "aula" ? (<>En Aula Virtual</>) : (<>En Oficina</>)}</td>
                                             </tr>
                                         ))
                                     ) : (<h1>Cargando</h1>)
