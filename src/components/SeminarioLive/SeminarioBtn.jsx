@@ -26,14 +26,14 @@ export const SeminarioBtn = (seminarios) => {
         if (datos !== null) {
             setIdUsuario(datos.id)
             socket.on('connect', () => {
-                const user = { id: datos.id, name: datos.nombre, avatar: datos.avatar }
+                const user = { id: datos.id, name: datos.nombre }
                 socket.emit('conectado',
                     seminarios.id,
                     user
                 )
             })
         }
-    }, [])
+    }, [datos])
 
     useEffect(() => {
         if (mensaje !== '') {
