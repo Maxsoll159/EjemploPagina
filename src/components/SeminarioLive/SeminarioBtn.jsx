@@ -11,49 +11,53 @@ export const SeminarioBtn = (seminarios) => {
         promo: false
     })
     const [idUsuario, setIdUsuario] = useState("")
-    const [nombreUsu, setNombreUsu] = useState("")
 
     /*Recuperar datos de local*/
     let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
 
     /*Configuracion de Socket*/
 
-    const Socket = io('https://socketdesarrolloglobal.herokuapp.com/')
+    const socket = io('https://desarrolloglobal.pe:8443/')
 
     const [mensaje, setMensaje] = useState("")
     const [mensajes, setMensajes] = useState([])
 
     useEffect(() => {
         if (datos !== null) {
-            setNombreUsu(datos.nombre)
+            setIdUsuario(datos.id)
+            socket.on('connect', () => {
+                const user = { id: datos.id, name: datos.nombre }
+                socket.emit('conectado',
+                    seminarios.id,
+                    user
+                )
+            })
         }
-    }, [])
+    }, [datos])
 
     useEffect(() => {
-        if (datos !== null) {
-            Socket.emit("conectado", datos.nombre);
+        if (mensaje !== '') {
+            socket.emit('enviar_mensaje', {
+                room: seminarios.id,
+                user: datos.id,
+                content: mensaje
+            })
         }
-    }, [nombreUsu]);
+    }, [mensaje])
 
-
-    useEffect(() => {
-        Socket.on("mensajes", (mensaje) => {
-            setMensajes([...mensajes, mensaje]);
-        });
-
-        return () => {
-            Socket.off();
-        };
-    }, [mensajes]);
+    socket.on('mostrar_mensajes', mensajes => {
+        setMensajes(mensajes)
+    })
+    console.log(mensajes)
+    socket.on('mostrar_usuarios', usuarios => {
+        console.log(usuarios)
+    })
 
     const enviar = (e) => {
-        e.preventDefault();
-        Socket.emit("mensaje", datos.nombre, mensaje, datos.avatar);
-        setMensaje("");
-    };
-
-    console.log(mensajes)
-
+        e.preventDefault()
+        setMensaje(e.target.mensajeUsu.value)
+    }
+    console.log(datos)
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
@@ -83,7 +87,7 @@ export const SeminarioBtn = (seminarios) => {
                 {
                     chat === true ? (
                         <div className='res resTablet' >
-                            <div className="mx-3 mb-3" style={{ height: "580px", overflow: "auto" }} >
+                            <div className="mx-3 mb-3" style={{height: "580px",overflow: "auto"}} >
                                 {
                                     datos === null ? (<div className="">
                                         Iniciar sesion
@@ -97,8 +101,8 @@ export const SeminarioBtn = (seminarios) => {
                                                         ) : (<img src={datos.avatar} alt="" width={50} height={50} className="border rounded-circle" />)
                                                     }
                                                     <div className={`p-3 rounded w-100 mt-3 ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
-                                                        <p className="m-0 text-white fw-bolder">{men.nombre}</p>
-                                                        <p className="m-0">{men.mensaje}</p>
+                                                        <p className="m-0 text-white fw-bolder">{men.name}</p>
+                                                        <p className="m-0">{men.message}</p>
                                                     </div>
                                                 </div>
                                             ))
@@ -110,7 +114,7 @@ export const SeminarioBtn = (seminarios) => {
                                 datos !== null
                                     ? (<form action="" onSubmit={enviar} className="w-100 px-3">
                                         <div className="w-100 bg-white">
-                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." value={mensaje} onChange={e => setMensaje(e.target.value)} />
+                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" />
                                             <button className="btn w-25 btn-primary h-100">Enviar</button>
                                         </div>
                                     </form>) : (<></>)
