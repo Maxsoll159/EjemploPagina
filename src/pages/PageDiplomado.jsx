@@ -20,7 +20,7 @@ export const PageDiplomado = () => {
     useEffect(() => {
         ApiDiplomadosEtiqueta(etiqueta).then((diplo) => setInfoIni({
             dataInicial: {
-                tipo: "Diploma",
+                tipo: "Diplomado",
                 id: diplo.id,
                 titulo: diplo.titulo,
                 imagen: diplo.imagen,

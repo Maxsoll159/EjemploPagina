@@ -102,7 +102,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
             setAsesors(asesores[0].telefono)
         }
     }, [asesores])
-
+    console.log(tipo)
     return (
         <>
             <Helmet>
