@@ -52,7 +52,7 @@ export const SeminarioBtn = (seminarios) => {
         setMensaje("");
     };
 
-    console.log(me)
+
 
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
