@@ -229,7 +229,7 @@ export const NavBar = () => {
                                 <div className="d-flex gap-2 gap-xl-4 mt-3 mt-xl-0 justify-content-center flex-column  align-items-start flex-xl-row align-items-xl-center ">
 
 
-                                    <div className="carrito position-relative w-100res h-100">
+                                    <div className="carrito position-relative w-100res">
                                         <button type="button" className="btn bg-white position-relative rounded shadow border-light w-100res d-flex justify-content-start justify-content-xl-center align-items-center p-0 shadow-res w-100res prueba" style={{ width: "40px", height: "40px" }} >
                                             <img src="/img/icons/NavNotificacion.webp" alt="" className="d-block mx-auto d-none d-xl-block" width={20} />
                                             <span className="fw-bolder d-xl-none">Notificaciones</span>
