@@ -87,8 +87,8 @@ export const SeminarioBtn = (seminarios) => {
                                                         ) : (<img src={datos.avatar} alt="" width={50} height={50} className="border rounded-circle" />)
                                                     }
                                                     <div className={`p-3 rounded w-100 mt-3 ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
-                                                        <p className="m-0 text-white fw-bolder">{men.name}</p>
-                                                        <p className="m-0">{men.message}</p>
+                                                        <p className="m-0 text-white fw-bolder">{men.nombre}</p>
+                                                        <p className="m-0">{men.mensaje}</p>
                                                     </div>
                                                 </div>
                                             ))
