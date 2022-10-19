@@ -205,18 +205,20 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
                                         <p className="fw-bolder text-center m-0">con un descuento especial 👇</p>
                                         <div className="d-flex align-items-center">
                                             {precio !== undefined ? (
-                                                <> <div className="w-50">
-                                                    <p className="lh-1 mt-2"><span className="fs-3 fw-bolder m-0">S/ {precio.final}.</span><span className="fs-6 lh-1 fw-bolder">00</span><br />
+                                                <> <div className="w-100">
+                                                    <p className="lh-1 mt-2 text-center"><span className="fs-3 fw-bolder m-0">S/ {precio.final}.</span><span className="fs-6 lh-1 fw-bolder">00</span><br />
                                                         <span className="colorRed font-size-14">Normal: <span className="text-decoration-line-through lh-1">
                                                             S/ {precio.normal}.00</span></span>
                                                     </p>
                                                 </div>
-                                                    <div className="w-50">
-                                                        <div className="bg-danger rounded py-1 px-2 d-flex align-items-center gap-2 shadow justify-content-center">
+                                                    {/*<div className="w-50">
+                                                  
+                                                            <div className="bg-danger rounded py-1 px-2 d-flex align-items-center gap-2 shadow justify-content-center">
                                                             <p className="text-white fw-bolder fs-3 m-0">{precio.descuento}%</p>
                                                             <p className="text-white fw-bolder m-0">Dsct</p>
-                                                        </div>
-                                                    </div></>
+                                                            </div> 
+                                                            
+                                                    </div>*/}</>
                                             ) : (<Spinner animation="grow" variant="primary" className="mx-auto" />)}
                                         </div>
                                         <div>

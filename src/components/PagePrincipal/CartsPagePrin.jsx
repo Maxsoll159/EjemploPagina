@@ -62,10 +62,12 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                                                         <p className="m-0 text-center" style={{ fontSize: "12px" }}>Normal <span className="text-decoration-line-through">S/ {proximo.precio.normal}.00</span></p>
                                                         <p className="m-0 text-center fw-bolder fs-4">S/ {proximo.precio.final}.00</p>
                                                     </div>
-                                                    <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
+                                                    {/*
+                                                        <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
                                                         <span className="m-0 fs-4 fw-bolder text-center mt-1">{proximo.precio.descuento}%</span>
                                                         <span className="m-0 fw-bolder fs-6 text-center marginNegativo">Dscto</span>
                                                     </div>
+                                                    */ }
                                                 </div>
                                                 <div className="mt-3 d-flex gap-2">
                                                     <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${proximo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${proximo.tipo}:${proximo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
@@ -111,10 +113,12 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                                                     <p className="m-0 text-center" style={{ fontSize: "12px" }}>Normal <span className="text-decoration-line-through">S/ {diplo.precio.normal}.00</span></p>
                                                     <p className="m-0 text-center fw-bolder fs-4">S/ {diplo.precio.final}.00</p>
                                                 </div>
+                                                {/*
                                                 <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
                                                     <span className="m-0 fs-4 fw-bolder text-center mt-1">{diplo.precio.descuento}%</span>
                                                     <span className="m-0 fw-bolder fs-6 text-center marginNegativo">Dscto</span>
                                                 </div>
+                                                */}
                                             </div>
                                             <div className="mt-3 d-flex gap-2">
                                                 <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${diplo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${diplo.tipo}:${diplo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
@@ -165,10 +169,12 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                                                     <p className="m-0 text-center" style={{ fontSize: "12px" }}>Normal <span className="text-decoration-line-through">S/ {curso.precio.normal}.00</span></p>
                                                     <p className="m-0 text-center fw-bolder fs-4">S/ {curso.precio.final}.00</p>
                                                 </div>
-                                                <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
+                                                {/*
+                                                    <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
                                                     <span className="m-0 fs-4 fw-bolder text-center mt-1">{curso.precio.descuento}%</span>
                                                     <span className="m-0 fw-bolder fs-6 text-center marginNegativo">Dscto</span>
                                                 </div>
+                                                */}
                                             </div>
                                             <div className="mt-3 d-flex gap-2">
                                                 <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${curso.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${curso.tipo}:${curso.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
@@ -217,10 +223,12 @@ export const CartsPagePrin = ({ btnCur, btnDiplo, btnProx }) => {
                                                 <p className="m-0 text-center" style={{ fontSize: "12px" }}>Normal <span className="text-decoration-line-through">S/ {diplomado.precio.normal}.00</span></p>
                                                 <p className="m-0 text-center fw-bolder fs-4">S/ {diplomado.precio.final}.00</p>
                                             </div>
+                                            {/*
                                             <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
                                                 <span className="m-0 fs-4 fw-bolder text-center mt-1">{diplomado.precio.descuento}%</span>
                                                 <span className="m-0 fw-bolder fs-6 text-center marginNegativo">Dscto</span>
                                             </div>
+                                            */}
                                         </div>
                                         <div className="mt-3 d-flex gap-2">
                                             <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${diplomado.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${diplomado.tipo}:${diplomado.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">

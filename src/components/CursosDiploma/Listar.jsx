@@ -87,10 +87,12 @@ export const Listar = ({ tipo, envivo, grabados }) => {
                                                         <p className="m-0 text-center" style={{ fontSize: "12px" }}>Normal <span className="text-decoration-line-through">S/ {curvivo.precio.normal}.00</span></p>
                                                         <p className="m-0 text-center fw-bolder fs-4">S/ {curvivo.precio.final}.00</p>
                                                     </div>
-                                                    <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
+                                                    {/*
+                                                        <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
                                                         <span className="m-0 fs-4 fw-bolder text-center mt-1">{curvivo.precio.descuento}%</span>
                                                         <span className="m-0 fw-bolder fs-6 text-center marginNegativo">Dscto</span>
                                                     </div>
+                                                    */}
                                                 </div>
                                                 <div className="mt-3 d-flex gap-2">
                                                     <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${curvivo.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${curvivo.tipo}:${curvivo.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
@@ -114,7 +116,7 @@ export const Listar = ({ tipo, envivo, grabados }) => {
                                 Apigrabado.map((grabado) => (
                                     <Col xl={3} lg={4} md={6} key={grabado.id}>
                                         <Card style={{ width: '310px' }} className="mt-5 shadow mx-auto" data-aos="zoom-in">
-                                            <Card.Img loading="lazy" variant="top" src={grabado.imagen} onClick={() => verDetalles(grabado.etiqueta)} className="cursor-pointer"/>
+                                            <Card.Img loading="lazy" variant="top" src={grabado.imagen} onClick={() => verDetalles(grabado.etiqueta)} className="cursor-pointer" />
                                             <Card.Body>
                                                 <div className="d-flex gap-2 justify-content-center-res">
                                                     <div className={`rec rounded-pill color-detalle fw-bolder text-center d-flex align-items-center justify-content-center color-prin-detalle bg-white`}>{tipo}</div>
@@ -138,10 +140,12 @@ export const Listar = ({ tipo, envivo, grabados }) => {
                                                         <p className="m-0 text-center" style={{ fontSize: "12px" }}>Normal <span className="text-decoration-line-through">S/ {grabado.precio.normal}.00</span></p>
                                                         <p className="m-0 text-center fw-bolder fs-4">S/ {grabado.precio.final}.00</p>
                                                     </div>
-                                                    <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
+                                                    {/*
+                                                        <div className="colorRed borderRedPrin rounded mt-3 d-flex align-items-center flex-column" style={{ width: "76px", height: "64px" }}>
                                                         <span className="m-0 fs-4 fw-bolder text-center mt-1">{grabado.precio.descuento}%</span>
                                                         <span className="m-0 fw-bolder fs-6 text-center marginNegativo">Dscto</span>
                                                     </div>
+                                                    */}
                                                 </div>
                                                 <div className="mt-3 d-flex gap-2">
                                                     <a className="btn btn-light border border-dark w-25 rounded d-flex justify-content-center align-items-center cajaWhap" href={`https://api.whatsapp.com/send?phone=51${grabado.asesores[0].telefono}&text=Hola,%20solicito%20información%20del%20%20${grabado.tipo}:${grabado.titulo},%20mi%20correo%20es:`} target="_blank" rel="noreferrer">
