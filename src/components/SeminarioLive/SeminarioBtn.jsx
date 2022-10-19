@@ -3,6 +3,7 @@ import { Col } from "react-bootstrap"
 import { ModalLive } from "./ModalLive"
 import { io } from 'socket.io-client'
 import { useEffect } from "react"
+const socket = io('https://desarrolloglobal.pe:8443/')
 export const SeminarioBtn = (seminarios) => {
 
     const [{ chat, detalle, promo }, setPartes] = useState({
@@ -17,7 +18,7 @@ export const SeminarioBtn = (seminarios) => {
 
     /*Configuracion de Socket*/
 
-    const socket = io('https://desarrolloglobal.pe:8443/')
+
 
     const [mensaje, setMensaje] = useState("")
     const [mensajes, setMensajes] = useState([])
@@ -26,7 +27,6 @@ export const SeminarioBtn = (seminarios) => {
         if (datos !== null) {
             setIdUsuario(datos.id)
             socket.on('connect', () => {
-                console.log("datos => ", datos)
                 const user = { id: datos.id, name: datos.nombre }
                 socket.emit('conectado',
                     seminarios.id,
@@ -36,33 +36,23 @@ export const SeminarioBtn = (seminarios) => {
         }
     }, [datos])
 
-    useEffect(() => {
-        if (mensaje !== '') {
-            console.log("mensaje => ", mensaje)
-            console.log("seminarios.id => ", seminarios.id)
-            console.log("datos.id => ", datos.id)
-            socket.emit('enviar_mensaje', {
-                room: seminarios.id,
-                user: datos.id,
-                content: mensaje
-            })
-        }
-    }, [mensaje])
+        useEffect(() => {
+            if (mensaje !== '') {
+                socket.emit('enviar_mensaje', {
+                    room: seminarios.id,
+                    user: datos.id,
+                    content: mensaje
+                })
+            }
+            console.log("El problema")
+        }, [mensaje])
 
-    socket.on('mostrar_mensajes', mensajes => {
-        console.log("pepe")
-        setMensajes(mensajes)
-    })
-
-    socket.on('mostrar_usuarios', usuarios => {
-        console.log(usuarios)
-    })
 
     const enviar = (e) => {
         e.preventDefault()
         setMensaje(e.target.mensajeUsu.value)
     }
-    console.log("INIT ---")
+
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
