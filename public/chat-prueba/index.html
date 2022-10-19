@@ -1,0 +1,22 @@
+<h1>hola mundo</h2>
+
+<script src="socket.io.js"></script>
+
+<div id="mensajes"></div>
+<input type="text" id="text1"/>
+<input type="button" onclick="enviar_mensaje()" value="enviar">
+
+<script>
+    var socket = io('https://desarrolloglobal.pe:8443/');
+    socket.on('connect', function(){
+    socket.on('event', function(data){});
+    socket.on('disconnect', function(){});
+    });
+
+function enviar_mensaje(){
+        var element = document.getElementById('text1');
+        var text1 = element.value;
+        alert ("prueba "+text1);
+}
+</script>
+    

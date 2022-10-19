@@ -26,6 +26,7 @@ export const SeminarioBtn = (seminarios) => {
         if (datos !== null) {
             setIdUsuario(datos.id)
             socket.on('connect', () => {
+                console.log("datos => ", datos)
                 const user = { id: datos.id, name: datos.nombre }
                 socket.emit('conectado',
                     seminarios.id,
@@ -37,6 +38,9 @@ export const SeminarioBtn = (seminarios) => {
 
     useEffect(() => {
         if (mensaje !== '') {
+            console.log("mensaje => ", mensaje)
+            console.log("seminarios.id => ", seminarios.id)
+            console.log("datos.id => ", datos.id)
             socket.emit('enviar_mensaje', {
                 room: seminarios.id,
                 user: datos.id,
@@ -58,7 +62,7 @@ export const SeminarioBtn = (seminarios) => {
         e.preventDefault()
         setMensaje(e.target.mensajeUsu.value)
     }
-    console.log("",)
+    console.log("INIT ---")
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
