@@ -17,7 +17,7 @@ export const SeminarioBtn = (seminarios) => {
 
     /*Configuracion de Socket*/
 
-    const socket = io('https://desarrolloglobal.pe:8443/')
+    const socket = io('https://socketdesarrolloglobal.herokuapp.com/')
 
     const [mensaje, setMensaje] = useState("")
     const [mensajes, setMensajes] = useState([])
