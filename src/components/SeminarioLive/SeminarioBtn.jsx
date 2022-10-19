@@ -58,7 +58,7 @@ export const SeminarioBtn = (seminarios) => {
         e.preventDefault()
         setMensaje(e.target.mensajeUsu.value)
     }
-    console.log("INIT ")
+    console.log("INIT ---")
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
