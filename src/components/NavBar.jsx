@@ -229,7 +229,7 @@ export const NavBar = () => {
                                 <div className="d-flex gap-2 gap-xl-4 mt-3 mt-xl-0 justify-content-center flex-column  align-items-start flex-xl-row align-items-xl-center ">
 
 
-                                    <div className="carrito position-relative w-100res">
+                                    <div className="carrito position-relative w-100res h-100">
                                         <button type="button" className="btn bg-white position-relative rounded shadow border-light w-100res d-flex justify-content-start justify-content-xl-center align-items-center p-0 shadow-res w-100res prueba" style={{ width: "40px", height: "40px" }} >
                                             <img src="/img/icons/NavNotificacion.webp" alt="" className="d-block mx-auto d-none d-xl-block" width={20} />
                                             <span className="fw-bolder d-xl-none">Notificaciones</span>
@@ -240,8 +240,8 @@ export const NavBar = () => {
                                             </span>
                                         </button>
 
-                                        <div className="mostrar start-50 translate-middle-x bg-white rounded py-3 px-4 shadow responseCarrito">
-                                            <div className="" style={{height: "800px"}}>
+                                        <div className="mostrar start-50 translate-middle-x bg-transparent responseCarrito">
+                                            <div className="bg-white rounded py-3 px-4 shadow mt-2">
                                                 <div className="d-flex gap-3 align-items-center"><h6 className="fw-bolder m-0">Seminarios en Vivo</h6><div className="badge bg-danger bg-opacity-10 text-danger ms-2">{seminarios.length} seminario</div></div>
                                                 <hr />
                                                 <div>
@@ -294,42 +294,44 @@ export const NavBar = () => {
                                             </span>
                                         </button>
 
-                                        <div className="mostrar start-50 translate-middle-x bg-white rounded py-3 px-4 shadow responseCarrito">
-                                            <div className="d-flex gap-3 align-items-center"><h6 className="fw-bolder m-0">Carrito</h6><div className="badge bg-danger bg-opacity-10 text-danger ms-2">{cartItem.length} items</div></div>
-                                            <div>
-                                                {
-                                                    cartItem !== undefined ? (
-                                                        cartItem.map((cart) => (
-                                                            <div key={cart.id} className="d-flex gap-3 mt-3 align-items-center">
-                                                                <img loading="lazy" src={cart.imagen} alt="" width={100} height={65} className="rounded border border-dark" />
-                                                                <div className="w-100">
-                                                                    <p className="m-0 fw-bolder">{cart.titulo}</p>
-                                                                    <p className="m-0 fs-6 fw-bolder">{cart.tipo}</p>
-                                                                    <div className="d-flex gap-3 align-items-center">
-                                                                        <p className="m-0 fw-bolder text-danger fs-5 ">S/. {cart.precio.final}</p>
-                                                                        <p className="m-0 text-decoration-line-through">S/. {cart.precio.normal}</p>
-                                                                    </div>
-                                                                </div>
-                                                                <button className="btn-close" onClick={() => deleteItemsCart(cart)}></button>
-                                                            </div>
-                                                        ))
-                                                    ) : (<div></div>)
-                                                }
+                                        <div className="mostrar start-50 translate-middle-x bg-transparent responseCarrito">
+                                            <div className="bg-white rounded py-3 px-4 shadow mt-2">
+                                                <div className="d-flex gap-3 align-items-center"><h6 className="fw-bolder m-0">Carrito</h6><div className="badge bg-danger bg-opacity-10 text-danger ms-2">{cartItem.length} items</div></div>
                                                 <div>
                                                     {
-                                                        cartItem.length === 0 ? (
-                                                            <div className="d-flex gap-3 align-items-center mt-2">
-                                                                <Spinner animation="grow" variant="primary" />
-                                                                <h4 className="m-0">No tiene productos</h4>
-                                                            </div>
-
-                                                        ) : (<>
-                                                            <hr /><div className="d-flex justify-content-between align-items-center">
-                                                                <p className="m-0 fw-bolder mt-2 fs-4">Total: <span className="text-danger">S/. {total}</span></p>
-                                                                <button className="btn btn-success">Comprar</button>
-                                                            </div>
-                                                        </>)
+                                                        cartItem !== undefined ? (
+                                                            cartItem.map((cart) => (
+                                                                <div key={cart.id} className="d-flex gap-3 mt-3 align-items-center">
+                                                                    <img loading="lazy" src={cart.imagen} alt="" width={100} height={65} className="rounded border border-dark" />
+                                                                    <div className="w-100">
+                                                                        <p className="m-0 fw-bolder">{cart.titulo}</p>
+                                                                        <p className="m-0 fs-6 fw-bolder">{cart.tipo}</p>
+                                                                        <div className="d-flex gap-3 align-items-center">
+                                                                            <p className="m-0 fw-bolder text-danger fs-5 ">S/. {cart.precio.final}</p>
+                                                                            <p className="m-0 text-decoration-line-through">S/. {cart.precio.normal}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <button className="btn-close" onClick={() => deleteItemsCart(cart)}></button>
+                                                                </div>
+                                                            ))
+                                                        ) : (<div></div>)
                                                     }
+                                                    <div>
+                                                        {
+                                                            cartItem.length === 0 ? (
+                                                                <div className="d-flex gap-3 align-items-center mt-2">
+                                                                    <Spinner animation="grow" variant="primary" />
+                                                                    <h4 className="m-0">No tiene productos</h4>
+                                                                </div>
+
+                                                            ) : (<>
+                                                                <hr /><div className="d-flex justify-content-between align-items-center">
+                                                                    <p className="m-0 fw-bolder mt-2 fs-4">Total: <span className="text-danger">S/. {total}</span></p>
+                                                                    <button className="btn btn-success">Comprar</button>
+                                                                </div>
+                                                            </>)
+                                                        }
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

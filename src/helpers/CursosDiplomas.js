@@ -72,6 +72,7 @@ export const ApiCursosLimit = () => {
 
 export const ApiInformacion = async (dataPagina) => {
   if (dataPagina.get("curso") === null) {
+    console.log("entre")
     const fetchResponse = await fetch(
       `https://aula.desarrolloglobal.pe/v03/api/diplomas/setProspecto`,
       {

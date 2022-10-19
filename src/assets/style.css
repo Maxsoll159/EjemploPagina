@@ -218,14 +218,15 @@ input:checked+.slider:before {
   display: block !important;
 }
 
-.carrito .mostrar{display:none !important;} /* hide the sub-list */
+.carrito  .mostrar{display:none !important;} /* hide the sub-list */
 
-.carrito:hover .mostrar{display:block !important } /* on hover of li show ul if "li" has */
+.carrito:hover  .mostrar{display:block !important } /* on hover of li show ul if "li" has */
+
 
 .mostrar{
   position: absolute;
   width: 430px;
-  top: 120%;
+  top: 100%;
   z-index: 1000;
   transform: translate3d(5px, 522px, 0px);
 }
