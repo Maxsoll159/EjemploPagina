@@ -46,9 +46,10 @@ export const SeminarioBtn = (seminarios) => {
     }, [mensaje])
 
     socket.on('mostrar_mensajes', mensajes => {
+        console.log("pepe")
         setMensajes(mensajes)
     })
-    console.log(mensajes)
+
     socket.on('mostrar_usuarios', usuarios => {
         console.log(usuarios)
     })
@@ -57,7 +58,7 @@ export const SeminarioBtn = (seminarios) => {
         e.preventDefault()
         setMensaje(e.target.mensajeUsu.value)
     }
-
+    console.log("",)
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>

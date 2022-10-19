@@ -230,7 +230,7 @@ export const NavBar = () => {
 
 
                                     <div className="carrito position-relative w-100res">
-                                        <button type="button" className="btn bg-white position-relative rounded shadow border-light w-100res d-flex justify-content-start justify-content-xl-center align-items-center p-0 shadow-res w-100res prueba" style={{ width: "40px", height: "40px" }} onClick={handleClick}>
+                                        <button type="button" className="btn bg-white position-relative rounded shadow border-light w-100res d-flex justify-content-start justify-content-xl-center align-items-center p-0 shadow-res w-100res prueba" style={{ width: "40px", height: "40px" }} >
                                             <img src="/img/icons/NavNotificacion.webp" alt="" className="d-block mx-auto d-none d-xl-block" width={20} />
                                             <span className="fw-bolder d-xl-none">Notificaciones</span>
                                             <span className="position-absolute translate-middle rounded-pill p-0 m-0 top-0 start-100" style={{ top: "10%" }}>
@@ -241,38 +241,40 @@ export const NavBar = () => {
                                         </button>
 
                                         <div className="mostrar start-50 translate-middle-x bg-white rounded py-3 px-4 shadow responseCarrito">
-                                            <div className="d-flex gap-3 align-items-center"><h6 className="fw-bolder m-0">Seminarios en Vivo</h6><div className="badge bg-danger bg-opacity-10 text-danger ms-2">{seminarios.length} seminario</div></div>
-                                            <hr />
-                                            <div>
-                                                {
-                                                    seminarios !== undefined ? (
-                                                        seminarios.map((semi) => (
-                                                            <div key={semi.id} className="d-flex gap-3">
-                                                                <img src={semi.banner.seminario} alt="" width={130} height={100} className="rounded mt-2 rounded" />
-                                                                <div>
-                                                                    <h6 className="m-0 fw-bolder">{semi.titulo}</h6 >
-                                                                    <p className="m-0"><span className="">Fecha : <span>{semi.fecha.substring(8, 10)} de {parsearFecha(semi.fecha)}</span></span></p>
-                                                                    <p className="m-0"><span className="">Hora : <span>{parsearHora(semi.hora)}</span></span></p>
-                                                                    <Link to={`seminariosInfo/${semi.etiqueta}`} className="text-decoration-none">Ver Seminario 👉</Link>
+                                            <div className="" style={{height: "800px"}}>
+                                                <div className="d-flex gap-3 align-items-center"><h6 className="fw-bolder m-0">Seminarios en Vivo</h6><div className="badge bg-danger bg-opacity-10 text-danger ms-2">{seminarios.length} seminario</div></div>
+                                                <hr />
+                                                <div>
+                                                    {
+                                                        seminarios !== undefined ? (
+                                                            seminarios.map((semi) => (
+                                                                <div key={semi.id} className="d-flex gap-3">
+                                                                    <img src={semi.banner.seminario} alt="" width={130} height={100} className="rounded mt-2 rounded" />
+                                                                    <div>
+                                                                        <h6 className="m-0 fw-bolder">{semi.titulo}</h6 >
+                                                                        <p className="m-0"><span className="">Fecha : <span>{semi.fecha.substring(8, 10)} de {parsearFecha(semi.fecha)}</span></span></p>
+                                                                        <p className="m-0"><span className="">Hora : <span>{parsearHora(semi.hora)}</span></span></p>
+                                                                        <Link to={`seminariosInfo/${semi.etiqueta}`} className="text-decoration-none">Ver Seminario 👉</Link>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
 
-                                                        )
+                                                            )
 
-                                                        )
+                                                            )
+                                                        ) : (<></>)
+                                                    }
+                                                </div>
+                                                <div>
+                                                    {seminarios.length === 0 ? (
+                                                        <div className="d-flex gap-3 align-items-center mt-2">
+                                                            <Spinner animation="grow" variant="primary" />
+                                                            <h4 className="m-0">No hay seminario en Vivo</h4>
+                                                        </div>
                                                     ) : (<></>)
-                                                }
-                                            </div>
-                                            <div>
-                                                {seminarios.length === 0 ? (
-                                                    <div className="d-flex gap-3 align-items-center mt-2">
-                                                        <Spinner animation="grow" variant="primary" />
-                                                        <h4 className="m-0">No hay seminario en Vivo</h4>
-                                                    </div>
-                                                ) : (<></>)
 
 
-                                                }
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
