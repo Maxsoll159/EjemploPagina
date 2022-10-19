@@ -23,40 +23,26 @@ export const SeminarioBtn = (seminarios) => {
     const [mensajes, setMensajes] = useState([])
 
     useEffect(() => {
-        if (datos !== null) {
-            setIdUsuario(datos.id)
-            socket.on('connect', () => {
-                const user = { id: datos.id, name: datos.nombre }
-                socket.emit('conectado',
-                    seminarios.id,
-                    user
-                )
-            })
-        }
-    }, [datos])
+        socket.emit("conectado", "Martin");
+    }, ["Martin"]);
+    console.log(socket)
 
     useEffect(() => {
-        if (mensaje !== '') {
-            socket.emit('enviar_mensaje', {
-                room: seminarios.id,
-                user: datos.id,
-                content: mensaje
-            })
-        }
-    }, [mensaje])
+        socket.on("mensajes", (mensaje) => {
+            setMensajes([...mensajes, mensaje]);
+        });
 
-    socket.on('mostrar_mensajes', mensajes => {
-        setMensajes(mensajes)
-    })
-    console.log(mensajes)
-    socket.on('mostrar_usuarios', usuarios => {
-        console.log(usuarios)
-    })
+        return () => {
+            socket.off();
+        };
+    }, [mensajes]);
 
-    const enviar = (e) => {
-        e.preventDefault()
-        setMensaje(e.target.mensajeUsu.value)
-    }
+    const submit = (e) => {
+        e.preventDefault();
+        socket.emit("mensaje", "Martin", mensaje, "");
+        setMensaje("");
+    };
+
 
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
@@ -87,7 +73,7 @@ export const SeminarioBtn = (seminarios) => {
                 {
                     chat === true ? (
                         <div className='res resTablet' >
-                            <div className="mx-3 mb-3" style={{height: "580px",overflow: "auto"}} >
+                            <div className="mx-3 mb-3" style={{ height: "580px", overflow: "auto" }} >
                                 {
                                     datos === null ? (<div className="">
                                         Iniciar sesion
@@ -112,9 +98,9 @@ export const SeminarioBtn = (seminarios) => {
                             </div>
                             {
                                 datos !== null
-                                    ? (<form action="" onSubmit={enviar} className="w-100 px-3">
+                                    ? (<form action="" onSubmit={submit} className="w-100 px-3">
                                         <div className="w-100 bg-white">
-                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" />
+                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" value={mensaje} onChange={e => setMensaje(e.target.value)}/>
                                             <button className="btn w-25 btn-primary h-100">Enviar</button>
                                         </div>
                                     </form>) : (<></>)
