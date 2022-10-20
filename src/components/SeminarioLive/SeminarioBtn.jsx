@@ -36,23 +36,23 @@ export const SeminarioBtn = (seminarios) => {
         }
     }, [datos])
 
-        useEffect(() => {
-            if (mensaje !== '') {
-                socket.emit('enviar_mensaje', {
-                    room: seminarios.id,
-                    user: datos.id,
-                    content: mensaje
-                })
-            }
-            console.log("El problema")
-        }, [mensaje])
+    useEffect(() => {
+        if (mensaje !== '') {
+            socket.emit('enviar_mensaje', {
+                room: seminarios.id,
+                user: datos.id,
+                content: mensaje
+            })
+        }
+        console.log("El problema")
+    }, [mensaje])
 
 
     const enviar = (e) => {
         e.preventDefault()
         setMensaje(e.target.mensajeUsu.value)
     }
-
+    console.log("INIT..")
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
