@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 
 
 export const PruebaChat = () =>{
-    let Socket = io("")
+    let Socket = io("https://desarrolloglobal.pe:8443/")
     const [mensaje, setMensaje] = useState("")
     const [mensajes, setMensajes] = useState([])
 
