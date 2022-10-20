@@ -3,7 +3,7 @@ import { Col } from "react-bootstrap"
 import { ModalLive } from "./ModalLive"
 import { io } from 'socket.io-client'
 import { useEffect } from "react"
-const socket = io('https://desarrolloglobal.pe:8443/')
+const socket = io('')
 export const SeminarioBtn = (seminarios) => {
 
     const [{ chat, detalle, promo }, setPartes] = useState({
