@@ -124,7 +124,7 @@ export const Seminarios = () => {
                             </div>
                         </div>
                     </Col>
-                    <SeminarioBtn {...seminarios} />
+                    <SeminarioBtn {...seminarios} id={seminarios.id}/>
                 </Row>
             </Container>
         </>

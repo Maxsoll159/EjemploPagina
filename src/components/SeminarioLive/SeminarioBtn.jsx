@@ -4,12 +4,20 @@ import { ModalLive } from "./ModalLive"
 import { useEffect } from "react"
 import { useRef } from "react"
 import { io } from "socket.io-client"
-export const SeminarioBtn = (seminarios) => {
+import { useLocation } from "react-router-dom"
+export const SeminarioBtn = ({seminarios, id}) => {
+    const location = useLocation()
+
+   
+
+
+
     const [{ chat, detalle, promo }, setPartes] = useState({
         chat: true,
         detalle: false,
         promo: false
     })
+
 
     /*Recuperar datos de local*/
     let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
@@ -20,7 +28,13 @@ export const SeminarioBtn = (seminarios) => {
     const mensajeRef = useRef()
 
 
-    useEffect(() => {
+
+    useEffect((seminarios) => {
+
+        let array1 = location.pathname.split("/")
+        let array2 = array1.pop().split("-")
+        
+
         const socket = io('https://desarrolloglobal.pe:8443')
         setSocketState(socket)
         let datosUsu
@@ -31,18 +45,18 @@ export const SeminarioBtn = (seminarios) => {
                 avatar: datos.avatar
             }
         }
-        socket.emit('conectar', seminarios.id, datosUsu)
+        console.log(seminarios)
+        socket.emit('conectar', id, datosUsu)
         socket.on('mostrar_total_mensajes', data => setMensajesChat(data))
         socket.on('mostrar_mensaje', data => { setMensajesChat(msjs => [...msjs, data]) })
-    }, [seminarios])
+    }, [])
 
     const enviarMensaje = (e) => {
         e.preventDefault();
         if (mensajeRef.current.value === "") {
             alert("Ingresa un texto")
         } else {
-            console.log("Cuando emito mensaje", seminarios.id)
-            socketState.emit("enviar_mensaje", seminarios.id, mensajeRef.current.value);
+            socketState.emit("enviar_mensaje", id, mensajeRef.current.value);
         }
 
         setTimeout(() => {
@@ -52,11 +66,6 @@ export const SeminarioBtn = (seminarios) => {
 
     const divRef = useRef(null)
 
-    useEffect(() => {
-        divRef.current.scrollIntoView({ behavior: 'smooth' })
-    })
-
-    console.log(mensajesChat)
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
