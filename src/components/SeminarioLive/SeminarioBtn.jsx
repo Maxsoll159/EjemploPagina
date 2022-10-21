@@ -43,6 +43,9 @@ export const SeminarioBtn = (seminarios) => {
     const enviarMensaje = (e) => {
         e.preventDefault();
         socketState.emit("enviar_mensaje", 1001, mensajeRef.current.value);
+        setTimeout(()=>{
+            mensajeRef.current.value = ""
+        },500)
     };
 
     const divRef = useRef(null)
