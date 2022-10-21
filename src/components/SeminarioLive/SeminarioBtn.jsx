@@ -29,7 +29,7 @@ export const SeminarioBtn = ({seminarios, id}) => {
 
 
 
-    useEffect((seminarios) => {
+    useEffect(() => {
 
         let array1 = location.pathname.split("/")
         let array2 = array1.pop().split("-")
@@ -45,7 +45,7 @@ export const SeminarioBtn = ({seminarios, id}) => {
                 avatar: datos.avatar
             }
         }
-        console.log(seminarios)
+
         socket.emit('conectar', id, datosUsu)
         socket.on('mostrar_total_mensajes', data => setMensajesChat(data))
         socket.on('mostrar_mensaje', data => { setMensajesChat(msjs => [...msjs, data]) })
