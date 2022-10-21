@@ -13,10 +13,7 @@ export const PruebaChat = () => {
     useEffect(() => {
         Socket.on('connect', () => {
             Socket.emit('conectar',
-                1001,
-                8,
-                'MARTIN',
-                'https://www.google.es'
+                1001, {id: 8, nombre: "Martin", avatar: "google.com"}
             )
         })
     }, [])
