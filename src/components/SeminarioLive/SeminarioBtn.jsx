@@ -1,13 +1,15 @@
 import { useState } from "react"
 import { Col } from "react-bootstrap"
 import { ModalLive } from "./ModalLive"
-import { io } from 'socket.io-client'
+
 import { useEffect } from "react"
 import { useLocation } from "react-router-dom"
 import { useRef } from "react"
-const socket = io('https://desarrolloglobal.pe:8443')
-export const SeminarioBtn = (seminarios) => {
+import { socket } from "../../helpers/Scoket"
 
+
+export const SeminarioBtn = (seminarios) => {
+    
     const [{ chat, detalle, promo }, setPartes] = useState({
         chat: true,
         detalle: false,
@@ -25,7 +27,7 @@ export const SeminarioBtn = (seminarios) => {
     const mensajeRef = useRef()
 
     useEffect(() => {
-        if (!location.pathname.includes("/seminarios/")) {
+        if (location.pathname.includes("/seminarios/")) {
             socket.on('connect', () => {
                 console.log('==> conectado')
                 socket.emit('conectar',
