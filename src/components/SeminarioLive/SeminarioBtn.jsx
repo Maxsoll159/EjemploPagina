@@ -5,7 +5,7 @@ import { useEffect } from "react"
 import { useRef } from "react"
 import { io } from "socket.io-client"
 export const SeminarioBtn = (seminarios) => {
-
+    const [idSemina, setIdSemina] = useState(seminarios.id)
     const [{ chat, detalle, promo }, setPartes] = useState({
         chat: true,
         detalle: false,
@@ -33,7 +33,8 @@ export const SeminarioBtn = (seminarios) => {
                 avatar: datos.avatar
             }
         }
-        socket.emit('conectar', seminarios.id, datosUsu)
+        console.log("Cuando conecto al socket",idSemina)
+        socket.emit('conectar', idSemina, datosUsu)
         socket.on('mostrar_total_mensajes', data => setMensajesChat(data))
         socket.on('mostrar_mensaje', data => { setMensajesChat(msjs => [...msjs, data]) })
     }, [])
@@ -43,6 +44,7 @@ export const SeminarioBtn = (seminarios) => {
         if(mensajeRef.current.value === ""){
             alert("Ingresa un texto")
         }else{
+            console.log("Cuando emito mensaje",seminarios.id)
             socketState.emit("enviar_mensaje", seminarios.id, mensajeRef.current.value);
         }
       
