@@ -42,7 +42,12 @@ export const SeminarioBtn = (seminarios) => {
 
     const enviarMensaje = (e) => {
         e.preventDefault();
-        socketState.emit("enviar_mensaje", 1001, mensajeRef.current.value);
+        if(mensajeRef.current.value === " "){
+            alert("Ingresa un texto no te creas habil Mickey")
+        }else{
+            socketState.emit("enviar_mensaje", 1001, mensajeRef.current.value);
+        }
+      
         setTimeout(()=>{
             mensajeRef.current.value = ""
         },500)
@@ -92,7 +97,7 @@ export const SeminarioBtn = (seminarios) => {
                                         mensajesChat !== [] ? (
                                             mensajesChat.map((men, index) => (
                                                 <div className="d-flex w-100 gap-3 align-items-center" key={index}>
-                                                    <img src={men.avatar} alt="" width={50} className="rounded rounded-circle" />
+                                                    <img src={men.avatar} alt="" width={50} height={50} className="rounded rounded-circle" />
                                                     <div className={`p-3 rounded w-100 mt-3 ${men.usuario === datos.id ? "color-chat1" : "color-chat2"}`}>
                                                         <p className="m-0 text-white fw-bolder">{men.nombre}</p>
                                                         <p className="m-0">{men.contenido}</p>
