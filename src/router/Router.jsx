@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { RouterInternas } from "../components/RouterInternas/RouterInternas";
 import { PasarelaPagos } from "../pages/PaseraPagos";
+import { PruebaChat } from "../pages/PruebaChat";
 
 
 export const Router = () => {
@@ -16,6 +17,7 @@ export const Router = () => {
             <Routes>
                 <Route path="/*" element={<RouterInternas />} />
                 <Route path="pasarela-pagos" element={<PasarelaPagos />}></Route>
+                <Route path="ChatPrueba" element={<PruebaChat />}></Route>
             </Routes>
         </>
     )

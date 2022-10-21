@@ -34,11 +34,6 @@ export const PruebaChat = () => {
 
 
 
-    socket.on('mostrar_total_mensajes', data => {
-        console.info(data)
-    })
-
-
 
     return (
         <form onSubmit={enviarMensaje}>

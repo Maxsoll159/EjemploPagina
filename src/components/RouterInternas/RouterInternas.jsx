@@ -22,7 +22,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import {NavBar} from '../NavBar'
 import { PageDiplomado } from "../../pages/PageDiplomado"
 import { Diplomados } from "../../pages/Diplomado"
-import { PruebaChat } from "../../pages/PruebaChat"
+
 
 export const RouterInternas = () => {
 
@@ -59,7 +59,6 @@ export const RouterInternas = () => {
                 <Route path="buscar_certificado" element={<VerCertificado />}></Route>
                 <Route path="registro" element={<PageRegistro />}></Route>
                 <Route path="/*" element={<Page404 />}></Route>
-                <Route path="ChatPrueba" element={<PruebaChat />}></Route>
             </Routes>
             {
                 location.pathname.includes("/seminarios/") || location.pathname.includes("/registro") ? (<></>) : (<Footer />)
