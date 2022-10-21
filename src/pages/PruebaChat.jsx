@@ -24,7 +24,8 @@ export const PruebaChat = () => {
 
     const enviarMensaje = e => {
         e.preventDefault()
-        socket.emit('enviar_mensaje', 1001, 'ESTO ES UN MENSAJE')
+        let mensajer = e.target.mensaje.value
+        socket.emit('enviar_mensaje', 1001, mensajer)
     }
 
     socket.on('mostrar_mensaje', data => {
@@ -41,7 +42,7 @@ export const PruebaChat = () => {
 
     return (
         <form onSubmit={enviarMensaje}>
-            <input type='text' placeholder='escriba un mensaje' />
+            <input type='text' placeholder='escriba un mensaje' id="mensaje" />
             <button type='submit'>Enviar</button>
         </form>
 
