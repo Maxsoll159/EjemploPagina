@@ -41,7 +41,7 @@ export const SeminarioBtn = (seminarios) => {
     const enviarMensaje = (e) => {
         e.preventDefault();
         if(mensajeRef.current.value === ""){
-            alert("Ingresa un texto no te creas habil Mickey")
+            alert("Ingresa un texto")
         }else{
             socketState.emit("enviar_mensaje", seminarios.id, mensajeRef.current.value);
         }
