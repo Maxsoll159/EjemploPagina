@@ -5,7 +5,6 @@ import { useEffect } from "react"
 import { useRef } from "react"
 import { io } from "socket.io-client"
 export const SeminarioBtn = (seminarios) => {
-    const [idSemina, setIdSemina] = useState(seminarios.id)
     const [{ chat, detalle, promo }, setPartes] = useState({
         chat: true,
         detalle: false,
@@ -20,43 +19,41 @@ export const SeminarioBtn = (seminarios) => {
     const [mensajesChat, setMensajesChat] = useState([])
     const mensajeRef = useRef()
 
-    console.log(datos)
 
     useEffect(() => {
         const socket = io('https://desarrolloglobal.pe:8443')
         setSocketState(socket)
-        let datosUsu 
-        if(datos !== null){
+        let datosUsu
+        if (datos !== null) {
             datosUsu = {
                 id: datos.id,
                 nombre: datos.nombre,
                 avatar: datos.avatar
             }
         }
-        console.log("Cuando conecto al socket",idSemina)
-        socket.emit('conectar', idSemina, datosUsu)
+        socket.emit('conectar', seminarios.id, datosUsu)
         socket.on('mostrar_total_mensajes', data => setMensajesChat(data))
         socket.on('mostrar_mensaje', data => { setMensajesChat(msjs => [...msjs, data]) })
-    }, [])
+    }, [seminarios])
 
     const enviarMensaje = (e) => {
         e.preventDefault();
-        if(mensajeRef.current.value === ""){
+        if (mensajeRef.current.value === "") {
             alert("Ingresa un texto")
-        }else{
-            console.log("Cuando emito mensaje",seminarios.id)
+        } else {
+            console.log("Cuando emito mensaje", seminarios.id)
             socketState.emit("enviar_mensaje", seminarios.id, mensajeRef.current.value);
         }
-      
-        setTimeout(()=>{
+
+        setTimeout(() => {
             mensajeRef.current.value = ""
-        },500)
+        }, 500)
     };
 
     const divRef = useRef(null)
 
-    useEffect(()=>{
-        divRef.current.scrollIntoView({behavior: 'smooth'})
+    useEffect(() => {
+        divRef.current.scrollIntoView({ behavior: 'smooth' })
     })
 
     console.log(mensajesChat)
@@ -104,13 +101,13 @@ export const SeminarioBtn = (seminarios) => {
                                                     </div>
                                                 </div>
                                             ))
-                                            
+
                                         ) : (<>No hay mensajkes...</>)
                                     )
                                 }
                                 <div ref={divRef}></div>
                             </div>
-                
+
                             {
                                 datos !== null
                                     ? (<form action="" onSubmit={enviarMensaje} className="w-100 px-3">
