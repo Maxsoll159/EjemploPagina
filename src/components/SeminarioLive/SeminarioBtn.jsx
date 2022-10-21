@@ -16,22 +16,25 @@ export const SeminarioBtn = (seminarios) => {
     let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
 
     /*Configuracion de Socket*/
-
     const [socketState, setSocketState] = useState(null)
-
     const [mensajesChat, setMensajesChat] = useState([])
     const mensajeRef = useRef()
+
+    console.log(datos)
 
     useEffect(() => {
         const socket = io('https://desarrolloglobal.pe:8443')
         setSocketState(socket)
+        let datosUsu 
+        if(datos !== null){
+            datosUsu = {
+                id: datos.id,
+                nombre: datos.nombre,
+                avatar: datos.avatar
+            }
+        }
+        socket.emit('conectar', 1001, datosUsu)
 
-        socket.emit('conectar',
-            1001, {
-            id: 7,
-            nombre: 'Mrtin',
-            avatar: 'https://www.google.es'
-        })
 
         socket.on('mostrar_total_mensajes', data => setMensajesChat(data))
         socket.on('mostrar_mensaje', data => { setMensajesChat(msjs => [...msjs, data]) })
@@ -40,11 +43,14 @@ export const SeminarioBtn = (seminarios) => {
     const enviarMensaje = (e) => {
         e.preventDefault();
         socketState.emit("enviar_mensaje", 1001, mensajeRef.current.value);
+        mensajeRef.current.value = ""
     };
 
+    const divRef = useRef(null)
 
-
-
+    useEffect(()=>{
+        divRef.current.scrollIntoView({behavior: 'smooth'})
+    })
 
     console.log(mensajesChat)
     return (
@@ -83,17 +89,21 @@ export const SeminarioBtn = (seminarios) => {
                                     </div>) : (
                                         mensajesChat !== [] ? (
                                             mensajesChat.map((men, index) => (
-                                                <div className="d-flex w-100 gap-4 align-items-center" key={index}>
-                                                    <div className={`p-3 rounded w-100 mt-3 ${men.user ? "color-chat1" : "color-chat2"}`}>
+                                                <div className="d-flex w-100 gap-3 align-items-center" key={index}>
+                                                    <img src={men.avatar} alt="" width={50} className="rounded rounded-circle" />
+                                                    <div className={`p-3 rounded w-100 mt-3 ${men.usuario === datos.id ? "color-chat1" : "color-chat2"}`}>
                                                         <p className="m-0 text-white fw-bolder">{men.nombre}</p>
                                                         <p className="m-0">{men.contenido}</p>
                                                     </div>
                                                 </div>
                                             ))
+                                            
                                         ) : (<>No hay mensajkes...</>)
                                     )
                                 }
+                                <div ref={divRef}></div>
                             </div>
+                
                             {
                                 datos !== null
                                     ? (<form action="" onSubmit={enviarMensaje} className="w-100 px-3">

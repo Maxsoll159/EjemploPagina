@@ -29,7 +29,7 @@ export const Cursos = () => {
     return (
         <>
             <Helmet>
-                <title>DCursos Especializados</title>
+                <title>Cursos Especializados</title>
                 <meta
                     name="Cursos Especializados"
                     content="Aprende SIAF RP, SIGA MEF, SEACE 3.0, Invierte.pe"
