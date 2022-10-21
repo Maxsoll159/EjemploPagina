@@ -33,9 +33,7 @@ export const SeminarioBtn = (seminarios) => {
                 avatar: datos.avatar
             }
         }
-        socket.emit('conectar', 1001, datosUsu)
-
-
+        socket.emit('conectar', seminarios.id, datosUsu)
         socket.on('mostrar_total_mensajes', data => setMensajesChat(data))
         socket.on('mostrar_mensaje', data => { setMensajesChat(msjs => [...msjs, data]) })
     }, [])
@@ -45,7 +43,7 @@ export const SeminarioBtn = (seminarios) => {
         if(mensajeRef.current.value === ""){
             alert("Ingresa un texto no te creas habil Mickey")
         }else{
-            socketState.emit("enviar_mensaje", 1001, mensajeRef.current.value);
+            socketState.emit("enviar_mensaje", seminarios.id, mensajeRef.current.value);
         }
       
         setTimeout(()=>{
