@@ -17,7 +17,7 @@ export const SeminarioBtn = (seminarios) => {
     /*Recuperar datos de local*/
     let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
 
-    /*Configuracion de Socket*/ 
+    /*Configuracion de Socket*/
 
     const location = useLocation()
 
@@ -25,7 +25,7 @@ export const SeminarioBtn = (seminarios) => {
     const mensajeRef = useRef()
 
     useEffect(() => {
-        if (location.pathname.includes("/seminarios/")) {
+        if (!location.pathname.includes("/seminarios/")) {
             socket.on('connect', () => {
                 console.log('==> conectado')
                 socket.emit('conectar',
@@ -36,6 +36,9 @@ export const SeminarioBtn = (seminarios) => {
                 })
             })
         }
+        socket.on('mostrar_total_mensajes', data => {
+            setMensajesChat(data)
+        })
     }, [])
 
     const enviarMensaje = (e) => {
@@ -50,9 +53,7 @@ export const SeminarioBtn = (seminarios) => {
     }, [mensajeRef])
 
 
-    socket.on('mostrar_total_mensajes', data => {
-        setMensajesChat(data)
-    })
+
 
     console.log(mensajesChat)
     return (
