@@ -1,25 +1,27 @@
 import { useRef } from 'react';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import io from 'socket.io-client';
-
 
 const socket = io('https://desarrolloglobal.pe:8443')
 export const PruebaChat = () => {
-
+    const location = useLocation()
+    console.log(location)
     const [mensajesChat, setMensajesChat] = useState([])
     const mensajeRef = useRef()
 
     useEffect(() => {
-        socket.on('connect', () => {
-            console.log('==> conectado')
-            socket.emit('conectar',
-                1001, {
-                id: 7,
-                nombre: 'Mrtin',
-                avatar: 'https://www.google.es'
-            }
-            )
-        })
+        if (location.pathname.includes("ChatPrueba")) {
+            socket.on('connect', () => {
+                console.log('==> conectado')
+                socket.emit('conectar',
+                    1001, {
+                    id: 7,
+                    nombre: 'Mrtin',
+                    avatar: 'https://www.google.es'
+                })
+            })
+        }
     }, [])
 
     const enviarMensaje = (e) => {
@@ -27,11 +29,11 @@ export const PruebaChat = () => {
         socket.emit("enviar_mensaje", 1001, mensajeRef.current.value);
     };
 
-    useEffect(()=>{
+    useEffect(() => {
         socket.on('mostrar_mensaje', data => {
-            setMensajesChat(msjs=>[...msjs, data])
+            setMensajesChat(msjs => [...msjs, data])
         })
-    },[mensajeRef])
+    }, [mensajeRef])
 
 
     socket.on('mostrar_total_mensajes', data => {
@@ -43,7 +45,7 @@ export const PruebaChat = () => {
         <>
             <div>
                 {mensajesChat !== undefined ? (
-                    mensajesChat.map((men)=>(
+                    mensajesChat.map((men) => (
                         <div>
                             <p>{men.contenido}</p>
                         </div>
