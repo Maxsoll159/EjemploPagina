@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import io from 'socket.io-client';
 
 
-
+const socket = io('https://desarrolloglobal.pe:8443')
 export const PruebaChat = () => {
-    const socket = io('https://desarrolloglobal.pe:8443')
+
     const [mensajesChat, setMensajesChat] = useState([])
     const mensajeRef = useRef()
 
