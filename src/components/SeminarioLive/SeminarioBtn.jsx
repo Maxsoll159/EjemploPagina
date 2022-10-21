@@ -1,15 +1,11 @@
 import { useState } from "react"
 import { Col } from "react-bootstrap"
 import { ModalLive } from "./ModalLive"
-
 import { useEffect } from "react"
-import { useLocation } from "react-router-dom"
 import { useRef } from "react"
-import { socket } from "../../helpers/Scoket"
-
-
+import { io } from "socket.io-client"
 export const SeminarioBtn = (seminarios) => {
-    
+
     const [{ chat, detalle, promo }, setPartes] = useState({
         chat: true,
         detalle: false,
@@ -21,38 +17,31 @@ export const SeminarioBtn = (seminarios) => {
 
     /*Configuracion de Socket*/
 
-    const location = useLocation()
+    const [socketState, setSocketState] = useState(null)
 
     const [mensajesChat, setMensajesChat] = useState([])
     const mensajeRef = useRef()
 
     useEffect(() => {
-        if (location.pathname.includes("/seminarios/")) {
-            socket.on('connect', () => {
-                console.log('==> conectado')
-                socket.emit('conectar',
-                    1001, {
-                    id: 7,
-                    nombre: 'Mrtin',
-                    avatar: 'https://www.google.es'
-                })
-            })
-        }
-        socket.on('mostrar_total_mensajes', data => {
-            setMensajesChat(data)
+        const socket = io('https://desarrolloglobal.pe:8443')
+        setSocketState(socket)
+
+        socket.emit('conectar',
+            1001, {
+            id: 7,
+            nombre: 'Mrtin',
+            avatar: 'https://www.google.es'
         })
+
+        socket.on('mostrar_total_mensajes', data => setMensajesChat(data))
+        socket.on('mostrar_mensaje', data => { setMensajesChat(msjs => [...msjs, data]) })
     }, [])
 
     const enviarMensaje = (e) => {
         e.preventDefault();
-        socket.emit("enviar_mensaje", 1001, mensajeRef.current.value);
+        socketState.emit("enviar_mensaje", 1001, mensajeRef.current.value);
     };
 
-    useEffect(() => {
-        socket.on('mostrar_mensaje', data => {
-            setMensajesChat(msjs => [...msjs, data])
-        })
-    }, [mensajeRef])
 
 
 
