@@ -3,7 +3,9 @@ import { Col } from "react-bootstrap"
 import { ModalLive } from "./ModalLive"
 import { io } from 'socket.io-client'
 import { useEffect } from "react"
-const socket = io('')
+import { useLocation } from "react-router-dom"
+import { useRef } from "react"
+const socket = io('https://desarrolloglobal.pe:8443')
 export const SeminarioBtn = (seminarios) => {
 
     const [{ chat, detalle, promo }, setPartes] = useState({
@@ -11,48 +13,48 @@ export const SeminarioBtn = (seminarios) => {
         detalle: false,
         promo: false
     })
-    const [idUsuario, setIdUsuario] = useState("")
 
     /*Recuperar datos de local*/
     let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
 
-    /*Configuracion de Socket*/
+    /*Configuracion de Socket*/ 
 
+    const location = useLocation()
 
-
-    const [mensaje, setMensaje] = useState("")
-    const [mensajes, setMensajes] = useState([])
+    const [mensajesChat, setMensajesChat] = useState([])
+    const mensajeRef = useRef()
 
     useEffect(() => {
-        if (datos !== null) {
-            setIdUsuario(datos.id)
+        if (location.pathname.includes("/seminarios/")) {
             socket.on('connect', () => {
-                const user = { id: datos.id, name: datos.nombre }
-                socket.emit('conectado',
-                    seminarios.id,
-                    user
-                )
+                console.log('==> conectado')
+                socket.emit('conectar',
+                    1001, {
+                    id: 7,
+                    nombre: 'Mrtin',
+                    avatar: 'https://www.google.es'
+                })
             })
         }
-    }, [datos])
+    }, [])
+
+    const enviarMensaje = (e) => {
+        e.preventDefault();
+        socket.emit("enviar_mensaje", 1001, mensajeRef.current.value);
+    };
 
     useEffect(() => {
-        if (mensaje !== '') {
-            socket.emit('enviar_mensaje', {
-                room: seminarios.id,
-                user: datos.id,
-                content: mensaje
-            })
-        }
-        console.log("El problema")
-    }, [mensaje])
+        socket.on('mostrar_mensaje', data => {
+            setMensajesChat(msjs => [...msjs, data])
+        })
+    }, [mensajeRef])
 
 
-    const enviar = (e) => {
-        e.preventDefault()
-        setMensaje(e.target.mensajeUsu.value)
-    }
-    console.log("INIT..")
+    socket.on('mostrar_total_mensajes', data => {
+        setMensajesChat(data)
+    })
+
+    console.log(mensajesChat)
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
@@ -82,22 +84,17 @@ export const SeminarioBtn = (seminarios) => {
                 {
                     chat === true ? (
                         <div className='res resTablet' >
-                            <div className="mx-3 mb-3" style={{height: "580px",overflow: "auto"}} >
+                            <div className="mx-3 mb-3" style={{ height: "580px", overflow: "auto" }} >
                                 {
                                     datos === null ? (<div className="">
                                         Iniciar sesion
                                     </div>) : (
-                                        mensajes !== [] ? (
-                                            mensajes.map((men, index) => (
+                                        mensajesChat !== [] ? (
+                                            mensajesChat.map((men, index) => (
                                                 <div className="d-flex w-100 gap-4 align-items-center" key={index}>
-                                                    {
-                                                        idUsuario !== men.user ? (
-                                                            <img src={men.avatar} alt="" width={50} height={50} className="border rounded-circle" />
-                                                        ) : (<img src={datos.avatar} alt="" width={50} height={50} className="border rounded-circle" />)
-                                                    }
-                                                    <div className={`p-3 rounded w-100 mt-3 ${idUsuario !== men.user ? "color-chat1" : "color-chat2"}`}>
-                                                        <p className="m-0 text-white fw-bolder">{men.name}</p>
-                                                        <p className="m-0">{men.message}</p>
+                                                    <div className={`p-3 rounded w-100 mt-3 ${men.user ? "color-chat1" : "color-chat2"}`}>
+                                                        <p className="m-0 text-white fw-bolder">{men.nombre}</p>
+                                                        <p className="m-0">{men.contenido}</p>
                                                     </div>
                                                 </div>
                                             ))
@@ -107,9 +104,9 @@ export const SeminarioBtn = (seminarios) => {
                             </div>
                             {
                                 datos !== null
-                                    ? (<form action="" onSubmit={enviar} className="w-100 px-3">
+                                    ? (<form action="" onSubmit={enviarMensaje} className="w-100 px-3">
                                         <div className="w-100 bg-white">
-                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." id="mensajeUsu" />
+                                            <input type="text" className="p-3 w-75" placeholder="Escribe tu comentario o pregunta..." ref={mensajeRef} />
                                             <button className="btn w-25 btn-primary h-100">Enviar</button>
                                         </div>
                                     </form>) : (<></>)
