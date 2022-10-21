@@ -42,7 +42,7 @@ export const SeminarioBtn = (seminarios) => {
 
     const enviarMensaje = (e) => {
         e.preventDefault();
-        if(mensajeRef.current.value === " "){
+        if(mensajeRef.current.value === ""){
             alert("Ingresa un texto no te creas habil Mickey")
         }else{
             socketState.emit("enviar_mensaje", 1001, mensajeRef.current.value);
