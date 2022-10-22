@@ -5,12 +5,10 @@ import { useEffect } from "react"
 import { useRef } from "react"
 import { io } from "socket.io-client"
 import { useLocation } from "react-router-dom"
-export const SeminarioBtn = ({seminarios, id}) => {
+export const SeminarioBtn = (props) => {
+    console.log(props.id)
+
     const location = useLocation()
-
-   
-
-
 
     const [{ chat, detalle, promo }, setPartes] = useState({
         chat: true,
@@ -27,14 +25,7 @@ export const SeminarioBtn = ({seminarios, id}) => {
     const [mensajesChat, setMensajesChat] = useState([])
     const mensajeRef = useRef()
 
-
-
     useEffect(() => {
-
-        let array1 = location.pathname.split("/")
-        let array2 = array1.pop().split("-")
-        
-
         const socket = io('https://desarrolloglobal.pe:8443')
         setSocketState(socket)
         let datosUsu
@@ -46,7 +37,7 @@ export const SeminarioBtn = ({seminarios, id}) => {
             }
         }
 
-        socket.emit('conectar', id, datosUsu)
+        socket.emit('conectar', props.id, datosUsu)
         socket.on('mostrar_total_mensajes', data => setMensajesChat(data))
         socket.on('mostrar_mensaje', data => { setMensajesChat(msjs => [...msjs, data]) })
     }, [])
@@ -56,7 +47,7 @@ export const SeminarioBtn = ({seminarios, id}) => {
         if (mensajeRef.current.value === "") {
             alert("Ingresa un texto")
         } else {
-            socketState.emit("enviar_mensaje", id, mensajeRef.current.value);
+            socketState.emit("enviar_mensaje", props.id, mensajeRef.current.value);
         }
 
         setTimeout(() => {
@@ -130,21 +121,21 @@ export const SeminarioBtn = ({seminarios, id}) => {
                     ) : detalle === true ? (
                         <div className='p-4 res resTablet'>
                             <h4 style={{ color: "#3C86F4" }} className="fw-bold">Tema del Seminario</h4>
-                            <p className={`fw-bolder fs-5 text-white`}>{seminarios.titulo}</p>
+                            <p className={`fw-bolder fs-5 text-white`}>{props.titulo}</p>
                             <h4 style={{ color: "#3C86F4" }} className="mt-3 fw-bolder">¿Quien es el docente?</h4>
                             <div className='text-dark p-2 rounded d-flex align-items-center gap-3'>
-                                <img loading='lazy' src={seminarios.profesor.perfil} alt="" width={100} className="rounded-circle" />
-                                <h3 className={`text-white`}>{seminarios.profesor.nombre}</h3>
+                                <img loading='lazy' src={props.profesor.perfil} alt="" width={100} className="rounded-circle" />
+                                <h3 className={`text-white`}>{props.profesor.nombre}</h3>
                             </div>
-                            <p className={`mt-3 text-justify text-white`}> {seminarios.profesor.descripcion}</p>
+                            <p className={`mt-3 text-justify text-white`}> {props.profesor.descripcion}</p>
                         </div>
                     ) : (
                         <div className='p-4 res resTablet'>
-                            <img loading='lazy' src={seminarios.banner.promocion} alt="" className='rounded' style={{ width: "100%" }} />
+                            <img loading='lazy' src={props.banner.promocion} alt="" className='rounded' style={{ width: "100%" }} />
                             <div>
                                 <h5 className='text-center mt-3'>Estamos en Linea 😃</h5>
-                                <a className='btn btn-success w-100 p-2 fs-4 fw-bold' href={`https://api.whatsapp.com/send?phone=51${seminarios.asesor[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${seminarios.titulo},%20mi%20correo%20es:`}><i class="fa fa-whatsapp" aria-hidden="true"></i> {seminarios.asesor[0] === undefined ? (983495578) : (seminarios.asesor[0].telefono)}</a>
-                                <ModalLive imagen={seminarios.banner.promocion} titulo={seminarios.titulo} fecha={seminarios.fecha} />
+                                <a className='btn btn-success w-100 p-2 fs-4 fw-bold' href={`https://api.whatsapp.com/send?phone=51${props.asesor[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${props.titulo},%20mi%20correo%20es:`}><i class="fa fa-whatsapp" aria-hidden="true"></i> {props.asesor[0] === undefined ? (983495578) : (props.asesor[0].telefono)}</a>
+                                <ModalLive imagen={props.banner.promocion} titulo={props.titulo} fecha={props.fecha} />
                             </div>
                         </div>
                     )
