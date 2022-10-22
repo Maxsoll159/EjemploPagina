@@ -14,10 +14,15 @@ import { SeminarioBtn } from '../components/SeminarioLive/SeminarioBtn';
 export const Seminarios = () => {
     let { id } = useParams();
     const [seminarios, setSeminarios] = useState([])
+    const [cargando, setCargando] = useState(true)
+
     const { isdark } = useContext(UserContext)
 
     useEffect(() => {
-        seminarioId(id).then((resp) => setSeminarios(resp))
+        seminarioId(id).then((resp) => {
+            setSeminarios(resp)
+            setCargando(false)
+        })
     }, [id])
 
     setTimeout(() => {
@@ -41,6 +46,10 @@ export const Seminarios = () => {
     useEffect(() => {
         setAlertaSemi(document.querySelector("#alertaEnVivo"))
     }, [])
+
+    if (cargando) {
+        return (<>Cargando ...</>)
+    }
 
     return (
         <>
@@ -124,7 +133,7 @@ export const Seminarios = () => {
                             </div>
                         </div>
                     </Col>
-                    <SeminarioBtn {...seminarios} id={seminarios.id}/>
+                    <SeminarioBtn {...seminarios}/>
                 </Row>
             </Container>
         </>
