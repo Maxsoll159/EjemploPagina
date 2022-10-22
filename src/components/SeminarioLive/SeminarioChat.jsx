@@ -16,7 +16,7 @@ export const SeminarioChat = ({ id, nombre, idSeminario, avatar }) => {
     const enviarMensaje = (e) => {
         e.preventDefault();
         if(mensajeRef.current.value === ""){
-            al4ert("Escribe un menasjke")
+            alert("Escribe un menasjke")
         }else{
             socketState.emit("enviar_mensaje", idSeminario, mensajeRef.current.value);
             setTimeout(()=>{
