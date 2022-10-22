@@ -83,7 +83,7 @@ export const Seminarios = () => {
             <Container fluid>
                 <Row>
                     <Col xl={9} sm={12} className={`color h-100res p-0 ${alertaSemi !== undefined ? ("medidas-seminario") : ("medidas-seminario1")}`} style={{overflow: "auto"}}>
-                        <div className={`h-100res ${alertaSemi !== undefined ? ("medida1") : ("medida2")}`}>
+                        <div className={` ${alertaSemi !== undefined ? ("") : ("")}`}>
                         {
                             seminarios.tipo === "PROXIMO" ? (
                                 <ReactHlsPlayer

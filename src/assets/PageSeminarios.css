@@ -1,28 +1,45 @@
-.margin-negativo{
+.margin-negativo {
     margin-top: -55px;
 }
-.color-chat1{
+
+.color-chat1 {
     background-color: #14206B;
 }
 
-.color-chat2{
+.color-chat2 {
     background-color: #4B58A5;
 }
 
-.medidas-seminario{
+.medidas-seminario {
     height: calc(100vh - 148px)
 }
 
-.medidas-seminario2{
+.medidas-seminario2 {
     height: calc(100vh - 77px)
 }
 
-.scrollChat{
+.scrollChat {
     overflow: auto !important;
 }
-.medida1{
+
+.medida1 {
     height: 700px;
 }
-.medida2{
+
+.medida2 {
     height: 599px;
+}
+.chatMedi{
+    height: 580px;
+    width: 100% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.chatMedi::-webkit-scrollbar{
+    background-color: #000A48;
+}
+.chatMedi::-webkit-scrollbar-thumb{
+    background: #192677;
+    border-radius: 20px;
 }
