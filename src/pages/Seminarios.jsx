@@ -95,8 +95,7 @@ export const Seminarios = () => {
                                     className='h-100res'
                                 />
                             ) : (
-
-                                <iframe allow="autoplay *; fullscreen *" src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2FDesarrolloGlobal%2Fvideos%2F1533065940456288%2F&show_text=false&width=560&t=0" width="560" height="315"  scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+                                <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>
                             )
                         }
                         </div>
