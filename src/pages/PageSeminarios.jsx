@@ -59,9 +59,6 @@ export const PageSeminarios = () => {
         });
     }, []);
     useEffect(() => {
-        if (seminariosProximos[0] !== undefined) {
-            setFechaProxSeminario(new Date(`${seminariosProximos[0].fecha} ${seminariosProximos[0].hora}`))
-        }
         setFechaActual(new Date())
     }, [seminariosProximos])
 
@@ -126,15 +123,27 @@ export const PageSeminarios = () => {
                                                             <h5 className={`m-0 fw-bolder altoTituloSeminario d-flex ${isdark ? "text-white" : "text-dark"}`}>{seminariosProxi.titulo.replace("<br>", "")}</h5>
                                                         </div>
 
-                                                        {
-                                                            fechaActual > fechaProxSeminario ? (
-                                                                <button onClick={() => irSeminarioProximoLive(seminariosProxi.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
-                                                                    {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/icons/IconLapizDiplomado.webp" alt="" />)}Incribirme en el Seminario</button>
+                                                        {fechaActual > new Date(`${seminariosProxi.fecha} ${seminariosProxi.hora}`) ? (
+                                                            <button onClick={() => irSeminarioProximoLive(seminariosProxi.etiqueta)} className="btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder bg-transparent border-white text-white btn-light border-dark text-dark">
 
-                                                            ) : (
-                                                                <button onClick={() => irSeminarioProximo(seminariosProxi.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
-                                                                    {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/icons/IconLapizDiplomado.webp" alt="" />)}Incribirme en el Seminario</button>
-                                                            )
+                                                                {
+                                                                    fechaActual > new Date(`${seminariosProxi.fecha} ${seminariosProxi.hora}`) ? (
+                                                                        <>
+                                                                            <img src="/img/iconsDarkMode/VerSeminarioDark.webp" alt="" />
+                                                                            Ver seminario
+                                                                        </>
+                                                                    ) : (
+                                                                        <>
+                                                                            <img src="/img/icons/IconLapizDiplomado.webp" alt="" />
+                                                                            Inscribirme en el Seminario
+                                                                        </>
+                                                                    )
+                                                                }
+                                                            </button>
+
+                                                        ) : (<button onClick={() => irSeminarioProximo(seminariosProxi.etiqueta)} className={`btn w-100 mt-3 d-flex justify-content-center align-items-center gap-2 p-2 border border-2 fw-bolder ${isdark ? "bg-transparent border-white text-white" : "btn-light border-dark text-dark"}`}>
+                                                            {!isdark ? (<img src="/img/icons/VerSeminario.webp" alt="" />) : (<img src="/img/icons/IconLapizDiplomado.webp" alt="" />)}Incribirme en el Seminario</button>)
+
                                                         }
 
 

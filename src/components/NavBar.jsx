@@ -100,9 +100,10 @@ export const NavBar = () => {
 
     let diplomasNav = diplomasLimit.slice(0, 8)
     let cursosNav = cursosLimit.slice(0, 8)
+    console.log(seminarios)
     return (
         <>
-            <AlertaSeminario {...seminarios} />
+            <AlertaSeminario seminario={seminarios} />
             <Navbar collapseOnSelect bg="light" expand="xl" className="h-100" variant="white" >
                 <Container fluid >
                     <Navbar.Brand href="#">{

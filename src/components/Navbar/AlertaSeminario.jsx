@@ -5,21 +5,27 @@ import useContador from "../../hooks/useContador"
 import useObserver from "../../hooks/useObserver"
 
 
-export const AlertaSeminario = (prop) => {
+export const AlertaSeminario = ({seminario}) => {
     let navigate = useNavigate()
+
     const [fecha, setFecha] = useState("")
     let location = useLocation()
 
     useEffect(() => {
-        if (prop[0] !== undefined) {
-            setFecha(`${prop[0].fecha} ${prop[0].hora}`)
+        if(seminario !== undefined || seminario !== []){
+            let ordenado = seminario.sort((a, b) => new Date(a.fecha) - new Date(b.fecha))
+            if(ordenado[0] !== undefined){
+                setFecha(new Date(`${ordenado[0].fecha} ${ordenado[0].hora}`))
+            }
         }
-    }, [prop])
+
+    }, [seminario])
 
     let fechaparseada
     const [timerDays, timerHours, timerMinutes, timerSeconds] = useContador(
         fechaparseada = String(new Date(fecha)).split(" ")
     )
+    
     const irSeminario = (title) => {
         navigate(`seminariosInfo/${title}`, { replace: false })
     }
@@ -41,12 +47,12 @@ export const AlertaSeminario = (prop) => {
             setPrueba(element.isIntersecting)
         });
     }, [entries, observe, location.pathname])
-
+    console.log("hola",fecha)
     return (
         <>
             {
-                prop[0] !== undefined ? (
-                    new Date(fecha) > new Date() ? (
+                seminario !== undefined ? (
+                    fecha > new Date()? (
                         <div style={{ background: "#2C3C67" }} className={`${!prueba ? "d-lg-none d-xl-none" : "d-xl-block d-xl-block"}`}>
                             <div className="d-flex align-items-center justify-content-center flex-wrap py-3 py-xl-0 py-lg-0 flex-md-nowrap w-100">
                                 <p className="fw-bolder text-center m-0 text-white">🚀 Nuestro Proximo seminario gratuito inicia en: </p>
@@ -70,11 +76,11 @@ export const AlertaSeminario = (prop) => {
                                         </div>
                                     </div>
                                 </div>
-                                <button className="btn btn-success fw-bolder" onClick={() => irSeminario(prop[0].etiqueta)}>Registrate Aquí</button>
+                                <button className="btn btn-success fw-bolder" onClick={() => irSeminario(seminario.etiqueta)}>Registrate Aquí</button>
                             </div>
-                        </div>) : (<div className="bg-danger d-flex justify-content-center align-items-center gap-3 py-3 flex-column flex-xl-row flex-lg-row flex-md-row flex-sm-row" id="alertaEnVivo">
+                        </div>) : (<div className={`${!prueba ? "d-lg-none d-xl-none" : "d-xl-block d-xl-block"} bg-danger d-flex justify-content-center align-items-center gap-3 py-3 flex-column flex-xl-row flex-lg-row flex-md-row flex-sm-row`} id="alertaEnVivo">
                             <p className="fw-bolder m-0 text-white text-center">🚀 Entamos transmitiendo en vivo en este momento</p>
-                            <button className="btn text-danger fw-bolder bg-white"><Link to={`/seminarios/${prop[0].etiqueta}`} className="text-danger text-decoration-none" ><img src="/img/icons/LiveSeminario.webp" alt="" /> Ver Seminario</Link></button>
+                            <button className="btn text-danger fw-bolder bg-white"><Link to={`/seminarios/${seminario.etiqueta}`} className="text-danger text-decoration-none" ><img src="/img/icons/LiveSeminario.webp" alt="" /> Ver Seminario</Link></button>
                         </div>
                     )
                 ) : (<></>)
