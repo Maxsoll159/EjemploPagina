@@ -43,3 +43,11 @@
     background: #192677;
     border-radius: 20px;
 }
+
+
+.medida1{
+    height: calc(100vh - 77px);
+}
+.medida2{
+    height: calc(100vh - 77px - 71px);
+}

@@ -28,7 +28,7 @@ export const Seminarios = () => {
     setTimeout(() => {
         if (seminarios.id_video !== undefined) {
             const player = new Plyr('#vdplayer', {
-                ratio: '13:6'
+                ratio: '14:6'
             });
             player.source = {
                 type: 'video',
@@ -82,12 +82,12 @@ export const Seminarios = () => {
 
             <Container fluid>
                 <Row>
-                    <Col xl={9} sm={12} className={`color h-100res p-0`}>
+                    <Col xl={9} sm={12} className={`color h-100res p-0 medida2`}>
                         <div className={` ${alertaSemi !== undefined ? ("") : ("")}`}>
                             {
                                 seminarios.tipo === "PROXIMO" ? (
                                     seminarios.source === "facebook" ? (
-                                        <iframe src={seminarios.id_video} width={900} height={600} className="d-block mx-auto" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                                        <iframe src={seminarios.id_video} width={"100%"} height={"590px"} className="d-block mx-auto h-100res w-100res h-100Tablet" scrolling="no" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen={true}></iframe>
                                     ) : seminarios.source === "normal" ? (
                                         <ReactHlsPlayer
                                             src={`https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/${seminarios.codigo_envivo}.m3u8`}
@@ -97,14 +97,14 @@ export const Seminarios = () => {
                                             height="100%"
                                             className='h-100res'
                                         />
-                                    ) : (<></>)
+                                    ) : (<>Falta configurar Youtube</>)
                                 ) : (
-                                    <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>
+                                    <video loading="lazy" id="vdplayer"  className='h-100res'></video>
                                 )
                             }
                         </div>
-                        <div className='pt-2 ps-4 pe-4 ocultar'>
-                            <div className='d-flex align-items-center justify-content-between mt-2'>
+                        <div className='pt-1 ps-4 pe-4 ocultar'>
+                            <div className='d-flex align-items-center justify-content-between mt-1'>
                                 <div className='caja-camara rounded'>
                                     <img loading='lazy' src="/img/icons/camara.png" alt="" className='' />
                                 </div>
@@ -129,7 +129,8 @@ export const Seminarios = () => {
                                 </div>
                             </div>
                         </div>
-                        <div style={{ borderTop: "3px solid #14206B" }} className="mt-3 mb-2 px-4 ocultar">
+                        
+                        <div style={{ borderTop: "3px solid #14206B" }} className="mt-2 mb-2 px-4 ocultar">
                             <h5 className={`mt-2 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios</h5>
                             <div className='mt-3'>
                                 <a className='btn btn-success fw-bold'>Grupo Whatsapp</a>
