@@ -87,7 +87,7 @@ export const Seminarios = () => {
                             {
                                 seminarios.tipo === "PROXIMO" ? (
                                     seminarios.source === "facebook" ? (
-                                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F8filmcine%2Fvideos%2F676706103723348%2F&show_text=false&width=560&t=0" width={900} height={600} className="d-block mx-auto" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                                        <iframe src={seminarios.id_video} width={900} height={600} className="d-block mx-auto" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                                     ) : seminarios.source === "normal" ? (
                                         <ReactHlsPlayer
                                             src={`https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/${seminarios.codigo_envivo}.m3u8`}
