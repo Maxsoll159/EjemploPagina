@@ -6,17 +6,6 @@
 <input type="text" id="text1"/>
 <input type="button" onclick="enviar_mensaje()" value="enviar">
 
-<script>
-    var socket = io('https://desarrolloglobal.pe:8443/');
-    socket.on('connect', function(){
-    socket.on('event', function(data){});
-    socket.on('disconnect', function(){});
-    });
-
-function enviar_mensaje(){
-        var element = document.getElementById('text1');
-        var text1 = element.value;
-        alert ("prueba "+text1);
-}
-</script>
+<div id="fb-root"></div>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
     

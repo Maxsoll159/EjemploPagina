@@ -84,20 +84,24 @@ export const Seminarios = () => {
                 <Row>
                     <Col xl={9} sm={12} className={`color h-100res p-0`}>
                         <div className={` ${alertaSemi !== undefined ? ("") : ("")}`}>
-                        {
-                            seminarios.tipo === "PROXIMO" ? (
-                                <ReactHlsPlayer
-                                    src={`https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/${seminarios.codigo_envivo}.m3u8`}
-                                    autoPlay={true}
-                                    controls={true}
-                                    width="100%"
-                                    height="100%"
-                                    className='h-100res'
-                                />
-                            ) : (
-                                <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>
-                            )
-                        }
+                            {
+                                seminarios.tipo === "PROXIMO" ? (
+                                    seminarios.source === "facebook" ? (
+                                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F8filmcine%2Fvideos%2F676706103723348%2F&show_text=false&width=560&t=0" width={900} height={600} className="d-block mx-auto" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                                    ) : seminarios.source === "normal" ? (
+                                        <ReactHlsPlayer
+                                            src={`https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/${seminarios.codigo_envivo}.m3u8`}
+                                            autoPlay={true}
+                                            controls={true}
+                                            width="100%"
+                                            height="100%"
+                                            className='h-100res'
+                                        />
+                                    ) : (<></>)
+                                ) : (
+                                    <video loading="lazy" id="vdplayer" ratio="14:6" className='h-100res'></video>
+                                )
+                            }
                         </div>
                         <div className='pt-2 ps-4 pe-4 ocultar'>
                             <div className='d-flex align-items-center justify-content-between mt-2'>
@@ -133,7 +137,7 @@ export const Seminarios = () => {
                             </div>
                         </div>
                     </Col>
-                    <SeminarioBtn {...seminarios}/>
+                    <SeminarioBtn {...seminarios} />
                 </Row>
             </Container>
         </>
