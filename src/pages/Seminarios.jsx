@@ -83,11 +83,11 @@ export const Seminarios = () => {
             <Container fluid>
                 <Row>
                     <Col xl={9} sm={12} className={`color h-100res p-0 medida2`}>
-                        <div className={` ${alertaSemi !== undefined ? ("") : ("")}`}>
+                        <div className={`h-100 ${alertaSemi !== undefined ? ("") : ("")}`}>
                             {
                                 seminarios.tipo === "PROXIMO" ? (
                                     seminarios.source === "facebook" ? (
-                                        <iframe src={seminarios.id_video} width={"100%"} height={"590px"} className="d-block mx-auto h-100res w-100res h-100Tablet" scrolling="no" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen={true}></iframe>
+                                        <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2F100069850063951%2Fvideos%2F446519440726596%2F&show_text=false&width=560&t=0" width={"100%"} className='d-block mx-auto h-100' scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
                                     ) : seminarios.source === "normal" ? (
                                         <ReactHlsPlayer
                                             src={`https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/${seminarios.codigo_envivo}.m3u8`}
@@ -99,11 +99,12 @@ export const Seminarios = () => {
                                         />
                                     ) : (<>Falta configurar Youtube</>)
                                 ) : (
-                                    <video loading="lazy" id="vdplayer"  className='h-100res'></video>
+                                    <video loading="lazy" id="vdplayer" className='h-100res'></video>
                                 )
                             }
                         </div>
-                        <div className='pt-1 ps-4 pe-4 ocultar'>
+                        {/*
+                                                <div className='pt-1 ps-4 pe-4 ocultar'>
                             <div className='d-flex align-items-center justify-content-between mt-1'>
                                 <div className='caja-camara rounded'>
                                     <img loading='lazy' src="/img/icons/camara.png" alt="" className='' />
@@ -137,6 +138,8 @@ export const Seminarios = () => {
                                 <button className='btn btn-primary fw-bold ms-3'>Grupo Telegram</button>
                             </div>
                         </div>
+                         
+                        */}
                     </Col>
                     <SeminarioBtn {...seminarios} />
                 </Row>
