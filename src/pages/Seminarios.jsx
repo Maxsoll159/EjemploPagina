@@ -83,7 +83,7 @@ export const Seminarios = () => {
             <Container fluid>
                 <Row>
                     <Col xl={9} sm={12} className={`color h-100res p-0 medida2`}>
-                        <div className={`h-100 ${alertaSemi !== undefined ? ("") : ("")}`}>
+                        <div className={`${seminarios.source === "facebook" ? ("h-100") : ("")}`}>
                             {
                                 seminarios.tipo === "PROXIMO" ? (
                                     seminarios.source === "facebook" ? (
@@ -103,43 +103,49 @@ export const Seminarios = () => {
                                 )
                             }
                         </div>
-                        {/*
-                                                <div className='pt-1 ps-4 pe-4 ocultar'>
-                            <div className='d-flex align-items-center justify-content-between mt-1'>
-                                <div className='caja-camara rounded'>
-                                    <img loading='lazy' src="/img/icons/camara.png" alt="" className='' />
+
+                        {seminarios.source !== "facebook" ? (
+                            <>
+                                <div className='pt-1 ps-4 pe-4 ocultar'>
+                                    <div className='d-flex align-items-center justify-content-between mt-1'>
+                                        <div className='caja-camara rounded'>
+                                            <img loading='lazy' src="/img/icons/camara.png" alt="" className='' />
+                                        </div>
+                                        <h5 className={`w-50 p-0 m-0 fw-bolder ${!isdark ? "text-dark" : "text-white"}`}>{seminarios.titulo}</h5>
+                                        <div className='d-flex align-items-center'>
+                                            <div className='bg-white' style={{ width: "2px", height: "20px" }}></div>
+                                            {
+                                                !isdark ? (<img loading='lazy' src="/img/icons/user.webp" alt="" className='ms-3' />)
+                                                    : (<img loading='lazy' src="/img/iconsDarkMode/userWhite.webp" alt="" className='ms-3' />)
+                                            }
+                                            <p className={`p-0 m-0 ms-3 fw-bold ${!isdark ? "text-dark" : "text-white"}`}>230</p>
+                                        </div>
+                                        <div className={`d-flex align-items-center pt-3 py-3 ps-4 px-4 rounded ${!isdark ? "text-primary bg-white shadow" : "text-white color-fecha "}`}>
+                                            {
+                                                !isdark ? (<img loading='lazy' src="/img/iconsDarkMode/calendarWhite.webp" alt="" />)
+                                                    : (<img loading='lazy' src="/img/icons/calendar.png" alt="" />)
+                                            }
+                                            <p className='p-0 m-0 ps-3 fw-bold'>{(seminarios.fecha !== undefined) ? ((seminarios.fecha).substring(8, 10)) : ""} de {(seminarios.fecha !== undefined) ? (parsearFecha(seminarios.fecha)) : ""} | {(seminarios.fecha !== undefined) ? (parsearHora(seminarios.hora)) : ""}</p>
+                                        </div>
+                                        <div>
+                                            <button className='bg-white p-3 rounded text-primary fw-bold shadow' style={{ border: "none" }}>Compartir <img loading='lazy' src="/img/icons/compartir.png" alt="" /></button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <h5 className={`w-50 p-0 m-0 fw-bolder ${!isdark ? "text-dark" : "text-white"}`}>{seminarios.titulo}</h5>
-                                <div className='d-flex align-items-center'>
-                                    <div className='bg-white' style={{ width: "2px", height: "20px" }}></div>
-                                    {
-                                        !isdark ? (<img loading='lazy' src="/img/icons/user.webp" alt="" className='ms-3' />)
-                                            : (<img loading='lazy' src="/img/iconsDarkMode/userWhite.webp" alt="" className='ms-3' />)
-                                    }
-                                    <p className={`p-0 m-0 ms-3 fw-bold ${!isdark ? "text-dark" : "text-white"}`}>230</p>
+
+                                <div style={{ borderTop: "3px solid #14206B" }} className="mt-2 mb-2 px-4 ocultar">
+                                    <h5 className={`mt-2 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios</h5>
+                                    <div className='mt-3'>
+                                        <a className='btn btn-success fw-bold'>Grupo Whatsapp</a>
+                                        <button className='btn btn-primary fw-bold ms-3'>Grupo Telegram</button>
+                                    </div>
                                 </div>
-                                <div className={`d-flex align-items-center pt-3 py-3 ps-4 px-4 rounded ${!isdark ? "text-primary bg-white shadow" : "text-white color-fecha "}`}>
-                                    {
-                                        !isdark ? (<img loading='lazy' src="/img/iconsDarkMode/calendarWhite.webp" alt="" />)
-                                            : (<img loading='lazy' src="/img/icons/calendar.png" alt="" />)
-                                    }
-                                    <p className='p-0 m-0 ps-3 fw-bold'>{(seminarios.fecha !== undefined) ? ((seminarios.fecha).substring(8, 10)) : ""} de {(seminarios.fecha !== undefined) ? (parsearFecha(seminarios.fecha)) : ""} | {(seminarios.fecha !== undefined) ? (parsearHora(seminarios.hora)) : ""}</p>
-                                </div>
-                                <div>
-                                    <button className='bg-white p-3 rounded text-primary fw-bold shadow' style={{ border: "none" }}>Compartir <img loading='lazy' src="/img/icons/compartir.png" alt="" /></button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div style={{ borderTop: "3px solid #14206B" }} className="mt-2 mb-2 px-4 ocultar">
-                            <h5 className={`mt-2 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios</h5>
-                            <div className='mt-3'>
-                                <a className='btn btn-success fw-bold'>Grupo Whatsapp</a>
-                                <button className='btn btn-primary fw-bold ms-3'>Grupo Telegram</button>
-                            </div>
-                        </div>
-                         
-                        */}
+                            </>
+                        ) : (<></>)
+
+                        }
+
+
                     </Col>
                     <SeminarioBtn {...seminarios} />
                 </Row>

@@ -4,7 +4,7 @@ import useObserver from "../../hooks/useObserver";
 import { parsearFecha } from "../../helpers/funciones";
 import useContador from "../../hooks/useContador";
 import { ApiInformacion, getLocalizacion } from "../../helpers/CursosDiplomas";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet";
 export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcion, alumnos, color, totalSesionesDiploma, asesores, seo }) => {
     const [geo, setGeo] = useState()
@@ -237,7 +237,7 @@ export const InicioPage = ({ id, tipo, titulo, imagen, precio, fecha, descripcio
 
                                                 <Form.Group className="m-2 d-flex align-items-center" controlId="formBasicCheckbox" >
                                                     <input type="checkbox" className="form-check-input rounded-circle" id="exampleCheck1" defaultChecked={true} />
-                                                    <span className="form-check-label ms-2" style={{ fontSize: "12px" }}>Acepto políticas de <a href="ASD">privacidad o datos</a></span>
+                                                    <span className="form-check-label ms-2" style={{ fontSize: "12px" }}>Acepto políticas de <Link to="/politicas-de-privacidad/proteccion-datos">privacidad o datos</Link></span>
                                                 </Form.Group>
                                                 <button className="btn btn-primary w-100 d-flex gap-2 align-items-center justify-content-center p-2 fw-bolder">
                                                     <img src="/img/icons/IconLapizDiplomado.webp" alt="" />

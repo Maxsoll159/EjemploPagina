@@ -120,7 +120,7 @@ export const PageSeminarios = () => {
                                                     </div>
                                                     <Card.Body className="p-4">
                                                         <div>
-                                                            <h5 className={`m-0 fw-bolder altoTituloSeminario d-flex ${isdark ? "text-white" : "text-dark"}`}>{seminariosProxi.titulo.replace("<br>", "")}</h5>
+                                                            <h6 className={`m-0 fw-bolder altoTituloSeminario d-flex ${isdark ? "text-white" : "text-dark"}`}>{seminariosProxi.titulo.replace("<br>", "")}</h6>
                                                         </div>
 
                                                         {fechaActual > new Date(`${seminariosProxi.fecha} ${seminariosProxi.hora}`) ? (
