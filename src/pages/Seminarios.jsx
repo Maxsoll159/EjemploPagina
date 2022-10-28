@@ -138,7 +138,7 @@ export const Seminarios = () => {
                                     </div>
                                 </div>
 
-                                <div style={{ borderTop: "3px solid #14206B" }} className="mt-3 mb-2 px-4 ocultar d-flex gap-3">
+                                <div style={{ borderTop: "3px solid #14206B" }} className="mt-2 mb-2 px-4 ocultar d-flex gap-3 align-items-center">
                                     <h5 className={`mt-3 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios:</h5>
                                     <div className='mt-2'>
                                         <a className='btn btn-success fw-bold'>Grupo Whatsapp</a>

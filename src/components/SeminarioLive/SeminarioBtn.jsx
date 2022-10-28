@@ -83,7 +83,7 @@ export const SeminarioBtn = (props) => {
                                                 <button className="fw-bold btn btn-primary text-white mt-2 w-100" onClick={()=>setAlerta(!alerta)}>ENTIENDO, QUIERO PARTICIPAR</button>
                                             </div>
                                         </div>
-                                    ) : (<></>)
+                                    ) : (<>que ondaaa</>)
                                 ) : (
                                     <SeminarioChat idSeminario={props.id} {...datos} />
                                 )
