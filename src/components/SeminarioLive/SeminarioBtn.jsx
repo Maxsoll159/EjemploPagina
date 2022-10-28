@@ -7,10 +7,27 @@ import { SeminarioChat } from "./SeminarioChat"
 export const SeminarioBtn = (props) => {
 
     const [{ chat, detalle, promo }, setPartes] = useState({
-        chat: true,
+        chat: false,
         detalle: false,
-        promo: false
+        promo: true
     })
+
+
+    useEffect(() => {
+        if (props.tipo === "TERMINADO") {
+            setPartes({
+                chat: false,
+                detalle: false,
+                promo: true
+            })
+        } else {
+            setPartes({
+                chat: true,
+                detalle: false,
+                promo: false
+            })
+        }
+    }, [])
 
     /*Recuperar datos de local*/
     let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
@@ -47,7 +64,7 @@ export const SeminarioBtn = (props) => {
                         <div className='res resTablet' >
                             {
                                 datos === null ? (<>Ingresa Sesion</>) : (
-                                    <SeminarioChat idSeminario={props.id} {...datos}/>
+                                    <SeminarioChat idSeminario={props.id} {...datos} />
                                 )
                             }
                         </div>

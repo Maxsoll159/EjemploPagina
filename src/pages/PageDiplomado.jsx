@@ -9,7 +9,6 @@ import { InicioPage } from "../components/PageCursoDiploma/InicioPage";
 import { useParams } from "react-router-dom";
 import { ApiDiplomadosEtiqueta } from "../helpers/CursosDiplomas";
 import { BtnWhats } from "../components/PageCursoDiploma/BtnWhats";
-import { ChatBurbuja } from "../helpers/funciones";
 
 export const PageDiplomado = () => {
     /* Traer la etiqueta para hacer la peticion*/
@@ -19,7 +18,6 @@ export const PageDiplomado = () => {
         tipo: "Diplomado"
     })
     useEffect(() => {
-        ChatBurbuja()
         ApiDiplomadosEtiqueta(etiqueta).then((diplo) => setInfoIni({
             dataInicial: {
                 tipo: "Diplomado",
