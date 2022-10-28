@@ -269,7 +269,7 @@ export const NavBar = () => {
                                                     {seminarios.length === 0 ? (
                                                         <div className="d-flex gap-3 align-items-center mt-2">
                                                             <Spinner animation="grow" variant="primary" />
-                                                            <h4 className="m-0">No hay seminario en Vivo</h4>
+                                                            <h5 className="m-0 fw-bold">No hay seminario en Vivo</h5>
                                                         </div>
                                                     ) : (<></>)
 
@@ -298,6 +298,7 @@ export const NavBar = () => {
                                         <div className="mostrar start-50 translate-middle-x bg-transparent responseCarrito">
                                             <div className="bg-white rounded py-3 px-4 shadow mt-2">
                                                 <div className="d-flex gap-3 align-items-center"><h6 className="fw-bolder m-0">Carrito</h6><div className="badge bg-danger bg-opacity-10 text-danger ms-2">{cartItem.length} items</div></div>
+                                                <hr />
                                                 <div>
                                                     {
                                                         cartItem !== undefined ? (
@@ -322,7 +323,7 @@ export const NavBar = () => {
                                                             cartItem.length === 0 ? (
                                                                 <div className="d-flex gap-3 align-items-center mt-2">
                                                                     <Spinner animation="grow" variant="primary" />
-                                                                    <h4 className="m-0">No tiene productos</h4>
+                                                                    <h5 className="m-0 fw-bold">No hay seminario en Vivo</h5>
                                                                 </div>
 
                                                             ) : (<>
