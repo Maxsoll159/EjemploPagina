@@ -30,7 +30,7 @@
     height: 599px;
 }
 .chatMedi{
-    height: 680px;
+    height: 650px;
     width: 100% !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
@@ -38,10 +38,12 @@
 
 .chatMedi::-webkit-scrollbar{
     background-color: #000A48;
+    border-radius: 20px 20px 20px 0
 }
 .chatMedi::-webkit-scrollbar-thumb{
     background: #192677;
     border-radius: 20px;
+    border-radius: 20px 20px 20px 0
 }
 
 

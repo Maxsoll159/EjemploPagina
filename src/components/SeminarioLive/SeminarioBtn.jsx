@@ -32,7 +32,7 @@ export const SeminarioBtn = (props) => {
     /*Recuperar datos de local*/
     let datos = JSON.parse(localStorage.getItem("usuarioDesarrollo"))
 
-
+    const [alerta, setAlerta] = useState(true)
     return (
         <Col xl={3} sm={12} className={`p-0 color-live`}>
             <div>
@@ -64,25 +64,26 @@ export const SeminarioBtn = (props) => {
                         <div className='res resTablet' >
                             {
                                 datos === null ? (
-                                    <div className="position-relative chatMedi2">
-                                        <div className="position-absolute bg-danger w-100 bottom-0 start-50 translate-middle-x p-2">
-                                            <div className="d-flex gap-2 align-items-center">
-                                                <div className="bg-white p-2 rounded w-auto">
-                                                    <img src="/img/imaganesPaginas/NosotrosDesarrollo.webp" alt="" width={40} />
+                                    alerta ? (
+                                        <div className="position-relative chatMedi2">
+                                            <div className="position-absolute bg-secondary w-100 bottom-0 start-50 translate-middle-x p-3">
+                                                <div className="d-flex gap-3 align-items-center">
+                                                    <div className="bg-white p-2 rounded w-auto">
+                                                        <img src="/img/imaganesPaginas/NosotrosDesarrollo.webp" alt="" width={40} />
+                                                    </div>
+                                                    <h5 className="fw-bold m-0">Reglas del Chat</h5>
+
                                                 </div>
-                                                <h5 className="fw-bold m-0">Reglas del Chat</h5>
-
+                                                <ul className="m-2 text-justify">
+                                                    <li>Sigue nuestro Código de Conducta</li>
+                                                    <li>No toleramos comentarios racistas, sexistas o abusivos</li>
+                                                    <li>Sé respetuoso, no opines sobre la apariencia física de las personas</li>
+                                                    <li>Genera una conversación positiva con preguntas claras y <strong>sin spam</strong></li>
+                                                </ul>
+                                                <button className="fw-bold btn btn-primary text-white mt-2 w-100" onClick={()=>setAlerta(!alerta)}>ENTIENDO, QUIERO PARTICIPAR</button>
                                             </div>
-                                            <ul className="m-2">
-                                                <li>Sigue nuestro Código de Conducta</li>
-                                                <li>No toleramos comentarios racistas, sexistas o abusivos</li>
-                                                <li>Sé respetuoso, no opines sobre la apariencia física de las personas</li>
-                                                <li>Genera una conversación positiva con preguntas claras y <strong>sin spam</strong></li>
-                                            </ul>
                                         </div>
-                                    </div>
-
-
+                                    ) : (<></>)
                                 ) : (
                                     <SeminarioChat idSeminario={props.id} {...datos} />
                                 )
