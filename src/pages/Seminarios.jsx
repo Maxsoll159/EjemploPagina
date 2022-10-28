@@ -28,7 +28,7 @@ export const Seminarios = () => {
     setTimeout(() => {
         if (seminarios.id_video !== undefined) {
             const player = new Plyr('#vdplayer', {
-                ratio: '14:6'
+                ratio: '14:7'
             });
             player.source = {
                 type: 'video',
@@ -40,7 +40,7 @@ export const Seminarios = () => {
                 ],
             };
         }
-    }, 10)
+    }, 5)
     const [alertaSemi, setAlertaSemi] = useState()
 
     useEffect(() => {
@@ -111,7 +111,7 @@ export const Seminarios = () => {
 
                         {seminarios.source !== "facebook" ? (
                             <>
-                                <div className='pt-4 ps-4 pe-4 ocultar'>
+                                <div className='pt-2 ps-4 pe-4 ocultar'>
                                     <div className='d-flex align-items-center justify-content-between mt-1'>
                                         <div className='caja-camara rounded'>
                                             <img loading='lazy' src="/img/icons/camara.png" alt="" className='' />
@@ -138,9 +138,9 @@ export const Seminarios = () => {
                                     </div>
                                 </div>
 
-                                <div style={{ borderTop: "3px solid #14206B" }} className="mt-3 mb-2 px-4 ocultar">
-                                    <h5 className={`mt-3 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios</h5>
-                                    <div className='mt-3'>
+                                <div style={{ borderTop: "3px solid #14206B" }} className="mt-3 mb-2 px-4 ocultar d-flex gap-3">
+                                    <h5 className={`mt-3 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios:</h5>
+                                    <div className='mt-2'>
                                         <a className='btn btn-success fw-bold'>Grupo Whatsapp</a>
                                         <button className='btn btn-primary fw-bold ms-3'>Grupo Telegram</button>
                                     </div>

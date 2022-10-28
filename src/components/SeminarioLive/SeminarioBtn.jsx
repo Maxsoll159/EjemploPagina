@@ -81,7 +81,7 @@ export const SeminarioBtn = (props) => {
                         </div>
                     ) : (
                         <div className='p-4 res resTablet'>
-                            <img loading='lazy' src={props.banner.promocion} alt="" className='rounded' style={{ width: "100%" }} />
+                            <a href={`https://api.whatsapp.com/send?phone=51${props.asesor[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${props.titulo},%20mi%20correo%20es:`}><img loading='lazy' src={props.banner.promocion} alt="" className='rounded' style={{ width: "100%" }} /></a>
                             <div>
                                 <h5 className='text-center mt-3'>Estamos en Linea 😃</h5>
                                 <a className='btn btn-success w-100 p-2 fs-4 fw-bold' href={`https://api.whatsapp.com/send?phone=51${props.asesor[0].telefono}&text=Hola,%20solicito%20información%20del%20%20diploma:${props.titulo},%20mi%20correo%20es:`}><i class="fa fa-whatsapp" aria-hidden="true"></i> {props.asesor[0] === undefined ? (983495578) : (props.asesor[0].telefono)}</a>
