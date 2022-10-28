@@ -53,7 +53,7 @@ export const AlertaSeminario = ({seminario}) => {
             {
                 seminarioOrdenado[0] !== undefined ? (
                     new Date(`${seminarioOrdenado[0].fecha} ${seminarioOrdenado[0].hora}`) > new Date()? (
-                        <div style={{ background: "#2C3C67" }} className={`${!prueba ? "d-lg-none d-xl-none" : "d-xl-block d-xl-block"}`}>
+                        <div style={{ background: "#2C3C67" }} className={`${!prueba ? "d-lg-none d-xl-none" : "d-xl-block d-xl-block"}`} id="alertaEnVivo">
                             <div className="d-flex align-items-center justify-content-center flex-wrap py-3 py-xl-0 py-lg-0 flex-md-nowrap w-100">
                                 <p className="fw-bolder text-center m-0 text-white">🚀 Nuestro Proximo seminario gratuito inicia en: </p>
                                 <div className="d-flex gap-3 px-lg-5 px-xl-5 px-sm-5 py-1 align-items-center">

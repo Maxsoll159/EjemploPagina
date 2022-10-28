@@ -44,7 +44,7 @@ export const Seminarios = () => {
     const [alertaSemi, setAlertaSemi] = useState()
 
     useEffect(() => {
-        setAlertaSemi(document.querySelector("#alertaEnVivo"))
+        setAlertaSemi(document.querySelector("#alertaseminario"))
     }, [])
 
     if (cargando) {
@@ -82,7 +82,7 @@ export const Seminarios = () => {
 
             <Container fluid>
                 <Row>
-                    <Col xl={9} sm={12} className={`color h-100res p-0 medida2`}>
+                    <Col xl={9} sm={12} className={`color h-100res p-0 ${alertaSemi !== null ? ("medida2") : ("medida1")}`}>
                         <div className={`${seminarios.source === "facebook" ? ("h-100") : ("")}`}>
                             {
                                 seminarios.tipo === "PROXIMO" ? (
@@ -111,7 +111,7 @@ export const Seminarios = () => {
 
                         {seminarios.source !== "facebook" ? (
                             <>
-                                <div className='pt-1 ps-4 pe-4 ocultar'>
+                                <div className='pt-5 ps-4 pe-4 ocultar'>
                                     <div className='d-flex align-items-center justify-content-between mt-1'>
                                         <div className='caja-camara rounded'>
                                             <img loading='lazy' src="/img/icons/camara.png" alt="" className='' />
@@ -138,8 +138,8 @@ export const Seminarios = () => {
                                     </div>
                                 </div>
 
-                                <div style={{ borderTop: "3px solid #14206B" }} className="mt-2 mb-2 px-4 ocultar">
-                                    <h5 className={`mt-2 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios</h5>
+                                <div style={{ borderTop: "3px solid #14206B" }} className="mt-3 mb-2 px-4 ocultar">
+                                    <h5 className={`mt-3 ${!isdark ? "color-unete-ligth" : "text-white"}`}>Unete a nuestros grupos y sigue los seminarios</h5>
                                     <div className='mt-3'>
                                         <a className='btn btn-success fw-bold'>Grupo Whatsapp</a>
                                         <button className='btn btn-primary fw-bold ms-3'>Grupo Telegram</button>
