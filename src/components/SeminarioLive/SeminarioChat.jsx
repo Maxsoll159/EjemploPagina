@@ -41,8 +41,8 @@ export const SeminarioChat = ({ id, nombre, idSeminario, avatar }) => {
                     mensajesChat !== [] ? (
                         mensajesChat.map((men, index) => (
                             <div className="d-flex gap-4 w-100 px-4 text-break py-2 align-items-start" key={index}>
-                                <img src={men.avatar} alt="" width={50} height={50} className="" />
-                                <div className={`p-3 rounded mb-1 ${men.usuario === id ? "color-chat2" : "color-chat1"}`} >
+                                <img src={men.avatar} alt="" width={50} height={50} className="rounded rounded-circle" />
+                                <div className={`p-3 mb-1 border-chat ${men.usuario === id ? "color-chat2" : "color-chat1"}`} >
                                     <p className="m-0 text-white fw-bolder">{men.nombre}</p>
                                     <p className="m-0">{men.contenido}</p>
                                 </div>
