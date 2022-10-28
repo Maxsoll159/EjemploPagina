@@ -111,7 +111,7 @@ export const Seminarios = () => {
 
                         {seminarios.source !== "facebook" ? (
                             <>
-                                <div className='pt-5 ps-4 pe-4 ocultar'>
+                                <div className='pt-4 ps-4 pe-4 ocultar'>
                                     <div className='d-flex align-items-center justify-content-between mt-1'>
                                         <div className='caja-camara rounded'>
                                             <img loading='lazy' src="/img/icons/camara.png" alt="" className='' />
