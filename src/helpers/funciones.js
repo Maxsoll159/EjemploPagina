@@ -1,4 +1,5 @@
 import JSConfetti from "js-confetti";
+import { useLocation } from "react-router-dom";
 
 const jsConfetti = new JSConfetti();
 
@@ -59,13 +60,12 @@ export const recortarTituloDiplomas = (titulo) => {
 
 export const confeti = () => {
   jsConfetti.addConfetti({
-    emojis: ["🏦","🎓","🎊","🎉","🎁","🎖"],
+    emojis: ["🏦", "🎓", "🎊", "🎉", "🎁", "🎖"],
     confettiRadius: 10,
     emojiSize: 50,
-    confettiNumber: 170
+    confettiNumber: 170,
   });
 };
-
 
 export const recortarDescripcion = (descipcion) => {
   let tituloFiltrado = descipcion.replace("<br>", "");
@@ -76,4 +76,11 @@ export const recortarDescripcion = (descipcion) => {
     return tituloFiltrado;
   }
   return tituloFiltrado;
+};
+
+export const ChatBurbuja = () => {
+  const script = document.createElement("script");
+  script.id = " ze-snippet";
+  script.src ="https://static.zdassets.com/ekr/snippet.js?key=7088efca-5208-4c12-9f33-fb617b40144e";
+  document.body.appendChild(script);
 };

@@ -4,7 +4,7 @@ import { Container, Row, Col, Carousel } from "react-bootstrap";
 import { Beneficios } from "../components/PagePrincipal/Beneficios";
 import { Entidades } from "../components/PagePrincipal/Entidades";
 import { useNavigate } from "react-router-dom";
-import { confeti } from "../helpers/funciones";
+import { ChatBurbuja, confeti } from "../helpers/funciones";
 import { Informacion } from "../components/CursosDiploma/Infomacion";
 import { CartsPagePrin } from "../components/PagePrincipal/CartsPagePrin";
 import AOS from 'aos';
@@ -18,8 +18,11 @@ export const PagePrincipal = () => {
         btnCur: false,
         btnDiplomado: false,
     })
+
+
     const { btnProx, btnDiplo, btnCur, btnDiplomado} = botones
     useEffect(() => {
+        ChatBurbuja()
         setTimeout(() => {
             confeti()
         }, 500)

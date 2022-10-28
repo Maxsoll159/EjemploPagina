@@ -87,7 +87,7 @@ export const Seminarios = () => {
                             {
                                 seminarios.tipo === "PROXIMO" ? (
                                     seminarios.source === "facebook" ? (
-                                        <iframe src={seminarios.id_video} width={"100%"} className='d-block mx-auto h-100' scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                                        <iframe src={seminarios.id_video+"&muted=0"} width={"100%"} className='d-block mx-auto h-100' scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" ></iframe>
                                     ) : seminarios.source === "normal" ? (
                                         <ReactHlsPlayer
                                             src={`https://antmediaserver.desarrolloglobal.pe:5443/LiveApp/streams/${seminarios.codigo_envivo}.m3u8`}
@@ -149,8 +149,6 @@ export const Seminarios = () => {
                         ) : (<></>)
 
                         }
-
-
                     </Col>
                     <SeminarioBtn {...seminarios} />
                 </Row>
@@ -159,3 +157,4 @@ export const Seminarios = () => {
 
     )
 }
+
