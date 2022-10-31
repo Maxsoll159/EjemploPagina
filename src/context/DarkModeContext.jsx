@@ -71,6 +71,7 @@ export const DarkModeProvider = ({ children }) => {
 
     const Swal = require('sweetalert2')
 
+    //Carrito
     const [cartItem, setCartItems] = useState(() => {
         try {
             const productosEnLocalStorage = localStorage.getItem('cartProducts')
